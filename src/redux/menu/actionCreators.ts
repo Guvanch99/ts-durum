@@ -1,4 +1,3 @@
-//@ts-nocheck
 import { GET_ALL_PRODUCTS, ON_CHANGE, FILTER_PRODUCTS } from './type'
 
 import {IProduct} from "../../models/interfaces";

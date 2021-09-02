@@ -1,4 +1,4 @@
-//@ts-nocheck
+
 import { DB } from '../../core/axios'
 import emailjs from 'emailjs-com'
 

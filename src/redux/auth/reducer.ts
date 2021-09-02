@@ -1,4 +1,4 @@
-//@ts-nocheck
+
 import {
   SET_USER,
   LOGOUT,
@@ -12,7 +12,17 @@ import {
   SET_UPDATED_USER
 } from './type'
 
-const initialState = {
+interface IInitialState{
+  user:string|null
+  userExist:boolean
+  userNotFound:boolean
+  isModalPromoError: boolean,
+  isTwoFactorAuth: boolean,
+  generatedPassword: number|null,
+  twoFactorAuthInvalid: boolean
+}
+
+const initialState:IInitialState = {
   user: null,
   userExist: false,
   userNotFound: false,

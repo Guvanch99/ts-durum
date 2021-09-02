@@ -50,7 +50,8 @@ const Menu = () => {
     }, []
   )
 //TODO
-  const scrollHandler = ({ target: { documentElement: { scrollHeight, scrollTop } } }:any) => {
+  const scrollHandler = (e:any) => {
+    console.log("e",e)
     if (scrollHeight - (scrollTop + window.innerHeight) < 100)
       setFetching(true)
   }

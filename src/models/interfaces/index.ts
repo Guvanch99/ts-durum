@@ -51,7 +51,7 @@ export interface IData {
 
 export interface IBar {
     sidebarVisibilityToggle: () => void
-    changeLanguageHandler: (e: ChangeEvent<HTMLSelectElement>)=>void
+    changeLanguageHandler: (e: ChangeEvent<HTMLSelectElement>) => void
 }
 
 export interface IProduct {
@@ -63,7 +63,17 @@ export interface IProduct {
     type: string
 }
 
-export interface IAction{
-    type:string
-    payload:IProduct[]
+export interface IAction {
+    type: string
+    payload: IProduct[]
+}
+
+export interface IGift extends IProduct {
+    promoCode: string
+    amount: number
+}
+
+export interface ICart extends IProduct{
+    subTotal:number
+    amount:number
 }

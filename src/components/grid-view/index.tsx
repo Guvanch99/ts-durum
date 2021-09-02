@@ -9,7 +9,7 @@ import { ROUTER_MENU } from '../../constants/routers.constants'
 import './index.scss'
 
 
-const GridView:FC<{products:IProduct[]|null}> = ({ products }) => {
+const GridView:FC<{products:IProduct[]}> = ({ products }) => {
   const { t } = useTranslation('translation')
 
   return (

@@ -1,4 +1,3 @@
-//@ts-nocheck
 import { DB } from '../../core/axios'
 
 import { GET_SINGLE_PRODUCT } from './type'

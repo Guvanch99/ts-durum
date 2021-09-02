@@ -1,4 +1,3 @@
-//@ts-nocheck
 
 import {
   ADD_TO_CART,
@@ -13,9 +12,19 @@ import {
   SUBTRACT_BONUS
 } from './type'
 
+import {ICart, IGift} from "../../models/interfaces";
+
 import { SHIPPING_FEE } from '../../constants/variables.constants'
 
-const initialState = {
+interface IInitialState{
+  cart:ICart[]
+  gift:IGift[]
+  totalAmount:number
+  totalItems:number
+  restrictedPromoCodes:string[]
+}
+
+const initialState:IInitialState = {
   cart: [],
   gift: [],
   totalAmount: 0,
@@ -113,7 +122,6 @@ export const cartReducer = (state = initialState, { type, payload }) => {
     case CLEAR_ORDER:
       return { ...state, cart: [], gift: [] }
     case PROMO_CODE_USED:
-      console.log('payload', payload)
       let updatedRestrictedPromoCodes = [...state.restrictedPromoCodes, payload]
       return { ...state, restrictedPromoCodes: updatedRestrictedPromoCodes }
     case UPDATE_RESTRICTED_PROMO_CODE:

@@ -1,4 +1,3 @@
-//@ts-nocheck
 
 import { DB } from '../../core/axios'
 
@@ -17,13 +16,26 @@ import {
 
 import { updateUser } from '../auth/actionCreator'
 
-import {TAppDispatch, TGetState} from "../store/store";
+import {TGetState,TAppDispatch} from '../store/store'
 
-export const addToCart = payload => ({
+import {IGift, IProduct} from "../../models/interfaces";
+
+interface IToggleAmount{
+  inc:number
+  dec:number
+  id:number
+}
+
+interface IAddToCart{
+  amount:number
+  singleProduct:IProduct
+}
+
+export const addToCart = (payload:IAddToCart) => ({
   type: ADD_TO_CART,
   payload
 })
-export const removeProduct = payload => ({
+export const removeProduct = (payload:number) => ({
   type: REMOVE_PRODUCT,
   payload
 })
@@ -33,30 +45,30 @@ export const clearCart = () => ({
 export const countTotal = () => ({
   type: COUNT_CART_TOTALS
 })
-export const toggleAmount = payload => ({
+export const toggleAmount = (payload:IToggleAmount) => ({
   type: TOGGLE_CART_PRODUCT_AMOUNT,
   payload
 })
 
-export const subtractBonus = payload => ({
+export const subtractBonus = (payload:number) => ({
   type: SUBTRACT_BONUS,
   payload
 })
 
 export const clearOrder = () => ({ type: CLEAR_ORDER })
 
-export const getPresent = payload => ({
+export const getPresent = (payload:IGift) => ({
   type: GET_PRESENT,
   payload
 })
 
-export const userPromoCodeUsed = payload => ({ type: PROMO_CODE_USED, payload })
+export const userPromoCodeUsed = (payload:string) => ({ type: PROMO_CODE_USED, payload })
 
-export const updateGift = payload => ({ type: UPDATE_GIFT, payload })
+export const updateGift = (payload:IGift) => ({ type: UPDATE_GIFT, payload })
 
-export const updateRestrictedPromoCodes = (payload) => ({ type: UPDATE_RESTRICTED_PROMO_CODE, payload })
+export const updateRestrictedPromoCodes = (payload:string) => ({ type: UPDATE_RESTRICTED_PROMO_CODE, payload })
 
-export const getPresentPromo = (idProduct, promoCode) => async (dispatch:TAppDispatch, getState:TGetState) => {
+export const getPresentPromo = (idProduct, promoCode:string) => async (dispatch:TAppDispatch, getState:TGetState) => {
   dispatch(userPromoCodeUsed(promoCode))
   const { data } = await DB(`/all-products?id=${idProduct}`)
   const { auth: { user }, cart: { restrictedPromoCodes: restricted } } = getState()
@@ -79,18 +91,18 @@ export const getPresentPromo = (idProduct, promoCode) => async (dispatch:TAppDis
     dispatch(updateUser(data))
   }
 }
-export const order = (orderData, newBonus) => async (dispatch, getState) => {
+export const order = (orderData, newBonus:number) => async (dispatch:TAppDispatch, getState:TGetState) => {
   const { auth: { user } } = getState()
   const { id, bonus } = user
-  const bonusModified = Number((bonus + newBonus).toFixed(2))
+  const bonusModified:number = Number((bonus + newBonus).toFixed(2))
   await DB.post('/orders', orderData)
   DB.patch(`/users/${id}`, { bonus: bonusModified }).then(({ data }) => dispatch(updateUser(data)))
 }
 
-export const usedBonus = bonusCount => (dispatch, getState) => {
+export const usedBonus = (bonusCount:number) => (dispatch:TAppDispatch, getState:TGetState) => {
   const { auth: { user } } = getState()
   const { id, bonus } = user
-  const bonusModified = Number((bonus - bonusCount).toFixed(2))
+  const bonusModified:number = Number((bonus - bonusCount).toFixed(2))
   dispatch(subtractBonus(bonusCount))
   DB.patch(`/users/${id}`, { bonus: bonusModified }).then(({ data }) => dispatch(updateUser(data)))
 }
