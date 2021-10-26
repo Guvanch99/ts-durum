@@ -1,7 +1,7 @@
-import { FC,useEffect, useMemo } from 'react'
-import { createPortal } from 'react-dom'
+import  {FC, useEffect, useMemo} from 'react'
+import {createPortal} from 'react-dom'
 
-const Portal:FC<{  nameOfClass: string}> = ({ children, nameOfClass,  }) => {
+const Portal: FC<{  nameOfClass: string}> = ({children, nameOfClass}) => {
   const el = useMemo(() => document.createElement('div'), [])
   el.setAttribute('class', nameOfClass)
   useEffect(() => {
@@ -11,7 +11,7 @@ const Portal:FC<{  nameOfClass: string}> = ({ children, nameOfClass,  }) => {
     }
   }, [el])
 
-  return createPortal(children , el)
+  return createPortal(children, el)
 }
 
 export default Portal

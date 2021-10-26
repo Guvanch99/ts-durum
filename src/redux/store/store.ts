@@ -12,5 +12,11 @@ const middleware = [thunk, logger]
 export const store = createStore(rootReducer, applyMiddleware(...middleware))
 
 export const persistor = persistStore(store)
-/* eslint-disable */
+
 export default { store, persistor }
+
+export type TRootState = ReturnType<typeof store.getState>
+
+export type TAppDispatch = typeof store.dispatch
+
+export type TGetState = () => AppDispatch;

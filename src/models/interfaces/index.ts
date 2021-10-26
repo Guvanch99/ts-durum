@@ -1,3 +1,5 @@
+import {ChangeEvent} from "react";
+
 interface ILinks {
     url: string
     keyName: string
@@ -49,5 +51,19 @@ export interface IData {
 
 export interface IBar {
     sidebarVisibilityToggle: () => void
-    changeLanguageHandler: () => void
+    changeLanguageHandler: (e: ChangeEvent<HTMLSelectElement>)=>void
+}
+
+export interface IProduct {
+    id: number,
+    name: string,
+    src: string,
+    description: string,
+    price: number,
+    type: string
+}
+
+export interface IAction{
+    type:string
+    payload:IProduct[]
 }

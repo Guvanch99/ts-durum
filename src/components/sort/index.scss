@@ -1,0 +1,90 @@
+@import 'src/styles/common.scss';
+
+.sort {
+  @include flex(space-between, center);
+  margin-top: 1rem;
+  padding: 0 .5rem;
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  &__views {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+
+    &-button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      margin-left: 2rem;
+
+      @include tablet {
+        margin: 0;
+      }
+    }
+
+    &-icon {
+      font-size: 2rem;
+      border: none;
+      color: $mainColor;
+    }
+  }
+
+  &-buttons {
+    @include flex(space-between, center);
+    max-width: 40rem;
+    margin: 0 1rem;
+
+    @include mobile {
+      margin: 0 .5rem;
+    }
+
+    &__option {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: .5rem 1rem;
+      font-size: 2em;
+      @include fontFamily($fontDancingScript);
+
+      @include mobile {
+        font-size: 1.6em;
+      }
+    }
+  }
+
+  &-form {
+
+    &__label {
+      text-transform: capitalize;
+      font-size: 2em;
+      @include fontFamily($fontDancingScript);
+
+      @include netbook {
+        font-size: 1.6em;
+      }
+    }
+
+    &__select {
+      @include fontFamily($fontDancingScript);
+      display: inline;
+      border-color: transparent;
+      font-size: 1.6em;
+      text-transform: capitalize;
+      padding: .25rem .5rem;
+      width: 10rem;
+    }
+
+    &__option {
+      @include fontFamily($fontDancingScript);
+    }
+  }
+
+  & .menu-count {
+    @include fontFamily($fontRoboto);
+    text-align: center;
+    font-size: 2em;
+  }
+}

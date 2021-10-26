@@ -1,11 +1,12 @@
 import React, {FC} from 'react'
 import {Route, Redirect} from 'react-router-dom'
-import {useSelector} from 'react-redux'
+
+import {useAppSelector} from "../../hooks/useAppSelector";
 
 import {ROUTER_SIGN_UP} from '../../constants/routers.constants'
 
 const PrivateRoute:FC = ({children, ...rest}) => {
-   // const {user} = useSelector(state => state.auth)
+   // const {user} = useAppSelector(state => state.auth)
 
     return (
         <Route

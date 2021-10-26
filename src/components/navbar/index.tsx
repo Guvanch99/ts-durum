@@ -2,11 +2,11 @@ import { FC,memo } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
-import { MenuAuthCart, ToggleButton, Language } from '..'
+import { MenuAuthCart, ToggleButton, Language } from '../index'
 
 import { DATA } from '../../data'
 
-import {INavbar} from "../../models/interfaces";
+import {IBar} from "../../models/interfaces";
 
 import { ROUTER_HOME } from '../../constants/routers.constants'
 
@@ -14,7 +14,7 @@ import './index.scss'
 
 const { logo, links } = DATA
 
-const Navbar:FC<INavbar> = ({ sidebarVisibilityToggle, lang, changeLanguageHandler }) => {
+const Navbar:FC<IBar> = ({ sidebarVisibilityToggle,changeLanguageHandler }) => {
   const { t } = useTranslation('translation')
 
   let navLogo = (
@@ -39,7 +39,7 @@ const Navbar:FC<INavbar> = ({ sidebarVisibilityToggle, lang, changeLanguageHandl
           ))}
         </ul>
       </div>
-      <MenuAuthCart />
+      <MenuAuthCart  />
       <Language  changeLanguageHandler={changeLanguageHandler} />
       <ToggleButton />
       <button onClick={sidebarVisibilityToggle} className="navbar__hamburger">

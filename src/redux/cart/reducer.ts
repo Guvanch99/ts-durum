@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import {
   ADD_TO_CART,
   CLEAR_CART,
@@ -11,7 +13,7 @@ import {
   SUBTRACT_BONUS
 } from './type'
 
-import { SHIPPING_FEE } from '../../constants/variables'
+import { SHIPPING_FEE } from '../../constants/variables.constants'
 
 const initialState = {
   cart: [],

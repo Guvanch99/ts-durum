@@ -1,0 +1,6 @@
+@import 'src/styles/mixin.scss';
+
+.card-container {
+  margin-top: 5rem;
+  @include flex(normal, normal);
+}

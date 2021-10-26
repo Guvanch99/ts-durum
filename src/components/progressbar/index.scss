@@ -1,0 +1,65 @@
+@import 'src/styles/common';
+
+.progressbar {
+  counter-reset: step;
+
+  &-container {
+    width: 70vw;
+    margin: 2rem;
+  }
+
+  &__count {
+    list-style: none;
+    display: inline-block;
+    width: 33.3%;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+
+    &:before {
+      content: counter(step);
+      counter-increment: step;
+      width: 1.8rem;
+      height: 1.8rem;
+      line-height: 1.8rem;
+      border: 1px solid #ddd;
+      border-radius: 100%;
+      display: block;
+      text-align: center;
+      margin: 0 auto 10px auto;
+      background-color: #fff;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: #ddd;
+      top: 1rem;
+      left: -50%;
+      z-index: -1;
+    }
+
+    &:first-child:after {
+      content: none;
+    }
+  }
+
+  .active {
+    color: green;
+
+    &:before {
+      border-color: green;
+    }
+  }
+
+  .completed + &__count:after {
+    background-color: green;
+  }
+  .completed:before{
+    background: green;
+    color: white;
+  }
+}
+

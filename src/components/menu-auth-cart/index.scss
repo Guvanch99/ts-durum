@@ -1,0 +1,76 @@
+@import 'src/styles/common.scss';
+
+.menu {
+  @include flex(center, center);
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  @include mobile {
+    align-items: flex-start;
+  }
+
+  &__list {
+    padding-left: 1rem;
+    @include flex(center, center);
+
+    @include mobile {
+      padding-left: .5rem;
+    }
+
+    &-link {
+      @include flex(center, center);
+      margin-left: 1rem;
+
+      @include netbook {
+        margin: .4rem 0;
+      }
+
+      @include tablet {
+        font-size: 1.6em;
+      }
+    }
+
+    &-icon {
+      padding-left: .4rem;
+      font-size: .8em;
+    }
+  }
+
+  .order-count {
+    font-size: 0.8em;
+    margin: 0 0 1rem .3rem;
+    color: $lighterRedColor;
+  }
+
+  .logout {
+    @extend %button;
+    @include fontFamily($fontDancingScript);
+    font-size: 2em;
+    margin-left: 1rem;
+
+    @include mobile {
+      margin: 0;
+      padding: 0 .4rem;
+    }
+  }
+}
+
+.bonus{
+  @include fontFamily($fontDancingScript);
+  font-size: 2em;
+  font-weight: lighter;
+  margin-left: 1rem;
+
+  &__count{
+    @include fontFamily($fontRoboto);
+    margin-left: .4rem;
+  }
+
+  @include mobile {
+    margin: 0;
+    padding: 0 .4rem;
+  }
+
+}

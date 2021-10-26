@@ -1,19 +1,21 @@
-//@ts-nocheck
-import { GET_SINGLE_PRODUCT } from './type'
+import {GET_SINGLE_PRODUCT} from './type'
 
-const initialState = {
-  singleProduct: null
+import {IAction, IProduct} from "../../models/interfaces";
+
+interface IInitialState {
+    singleProduct: null | IProduct
 }
 
-export const singleProductReducer = (
-  state = initialState,
-  { type, payload }
-) => {
-  switch (type) {
-    case GET_SINGLE_PRODUCT:
-      return { ...state, singleProduct: payload }
+const initialState: IInitialState = {
+    singleProduct: null
+}
 
-    default:
-      return state
-  }
+export const singleProductReducer = (state = initialState, {type, payload}: IAction) => {
+    switch (type) {
+        case GET_SINGLE_PRODUCT:
+            return {...state, singleProduct: payload}
+
+        default:
+            return state
+    }
 }

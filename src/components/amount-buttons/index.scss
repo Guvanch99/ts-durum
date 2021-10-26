@@ -1,0 +1,50 @@
+@import 'src/styles/common.scss';
+
+.amount {
+  width: 15rem;
+  @include flex(space-evenly, center);
+  @include fontFamily($fontDancingScript);
+
+  &__sign {
+    @extend %button;
+    @include fontFamily($fontDancingScript);
+    color: $mainColor;
+    font-size: 6.4em;
+
+    @include mobile {
+      font-size: 4em;
+    }
+  }
+
+  &__counter {
+    font-size: 4.8em;
+
+    @include mobile {
+      font-size: 3em;
+    }
+  }
+}
+
+.amount-for-table {
+  @include flex(space-around, center);
+  @include fontFamily($fontDancingScript);
+
+  &__sign {
+    @extend %button;
+    padding: 0;
+    font-size: 1.6em;
+    @include fontFamily($fontDancingScript);
+
+    @include mobile {
+      font-size: 1.2em;
+    }
+  }
+
+  &__counter {
+    font-size: 1.6em;
+
+    @include mobile {
+      font-size: 1.2em;
+    }
+  }
+}

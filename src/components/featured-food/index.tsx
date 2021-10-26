@@ -1,7 +1,7 @@
-//@ts-nocheck
 import {FC, memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
+
+import {useAppSelector} from "../../hooks/useAppSelector";
 
 import ArticleName from '../article-name'
 
@@ -13,7 +13,7 @@ const { mostLovedFoodImage } = DATA
 
 const FeaturedFood:FC = () => {
   const { t } = useTranslation('translation')
-  const { featuredProducts } = useSelector(state => state.home)
+  const { featuredProducts } = useAppSelector(state => state.home)
 
   return (
     <>

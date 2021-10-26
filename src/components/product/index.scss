@@ -1,0 +1,53 @@
+@import 'src/styles/common.scss';
+
+.product-container {
+  @include flex(center, center);
+  flex-direction: column;
+}
+
+.product {
+  @include flex(space-evenly, center);
+  flex-wrap: wrap;
+
+  &__image {
+    height: 25rem;
+    width: 20rem;
+    object-fit: contain;
+  }
+
+  &__info {
+    @include flex(space-evenly, center);
+    @include fontFamily($fontDancingScript);
+    flex-direction: column;
+    height: 15rem;
+    margin: 0 .5rem;
+  }
+
+  &__name {
+    font-size: 5em;
+    @include fontFamily($fontDancingScript);
+
+    @include mobile {
+      font-size: 3em;
+    }
+  }
+
+  &__price {
+    @include fontFamily($fontRoboto);
+    color: $mainColor;
+    font-size: 3em;
+
+    @include mobile {
+      font-size: 2em;
+    }
+  }
+
+  &__description {
+    font-size: 3em;
+    text-align: center;
+
+    @include mobile {
+      font-size: 2em;
+    }
+  }
+}

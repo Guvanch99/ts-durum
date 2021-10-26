@@ -1,13 +1,20 @@
 //@ts-nocheck
 import { GET_ALL_PRODUCTS, ON_CHANGE, FILTER_PRODUCTS } from './type'
 
+import {IProduct} from "../../models/interfaces";
 
-export const getAllProducts = payload => ({
+
+interface  IOnChangeHandler{
+  name:string
+  value:string
+}
+
+export const getAllProducts = (payload:IProduct[]) => ({
   type: GET_ALL_PRODUCTS,
   payload
 })
 
-export const onChangeHandler = payload => ({
+export const onChangeHandler = (payload:IOnChangeHandler) => ({
   type: ON_CHANGE,
   payload
 })

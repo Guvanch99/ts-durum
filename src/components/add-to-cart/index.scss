@@ -1,0 +1,9 @@
+@import 'src/styles/common.scss';
+
+.add-cart {
+
+  &__container {
+    @include flex(center, center);
+    flex-direction: column;
+  }
+}

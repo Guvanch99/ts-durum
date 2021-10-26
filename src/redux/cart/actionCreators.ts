@@ -14,7 +14,10 @@ import {
   UPDATE_RESTRICTED_PROMO_CODE,
   UPDATE_GIFT, SUBTRACT_BONUS
 } from './type'
+
 import { updateUser } from '../auth/actionCreator'
+
+import {TAppDispatch, TGetState} from "../store/store";
 
 export const addToCart = payload => ({
   type: ADD_TO_CART,
@@ -53,7 +56,7 @@ export const updateGift = payload => ({ type: UPDATE_GIFT, payload })
 
 export const updateRestrictedPromoCodes = (payload) => ({ type: UPDATE_RESTRICTED_PROMO_CODE, payload })
 
-export const getPresentPromo = (idProduct, promoCode) => async (dispatch, getState) => {
+export const getPresentPromo = (idProduct, promoCode) => async (dispatch:TAppDispatch, getState:TGetState) => {
   dispatch(userPromoCodeUsed(promoCode))
   const { data } = await DB(`/all-products?id=${idProduct}`)
   const { auth: { user }, cart: { restrictedPromoCodes: restricted } } = getState()

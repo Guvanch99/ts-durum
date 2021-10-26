@@ -1,13 +1,22 @@
-//@ts-nocheck
+
 import { GET_ALL_PRODUCTS, ON_CHANGE, FILTER_PRODUCTS } from './type'
-const initialState = {
+import {IProduct} from "../../models/interfaces";
+
+interface IInitialState{
+  allProducts:IProduct[]
+  filteredProducts:IProduct[]
+  sort:string
+  sortCategory:string
+}
+
+const initialState:IInitialState = {
   allProducts: [],
   filteredProducts: [],
   sort: '',
   sortCategory: 'All',
 }
 
-export const menuReducer = (state = initialState, { type, payload }) => {
+export const menuReducer = (state = initialState, { type, payload }:any) => {
   switch (type) {
     case GET_ALL_PRODUCTS:
       return { ...state, allProducts: [...state.allProducts,...payload], filteredProducts: [...state.filteredProducts,...payload] }

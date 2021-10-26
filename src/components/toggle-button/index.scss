@@ -1,0 +1,52 @@
+@import 'src/styles/common.scss';
+
+.toggle {
+  margin: -.5rem 2rem 0 4rem;
+
+  @include mobile {
+    margin: -.5rem 0 0 2.6rem;
+  }
+
+  &__button {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  &__background {
+    @include flex(space-between, center);
+    cursor: pointer;
+    width: 3rem;
+    height: 1.6rem;
+    background: $darkGreen;
+    border-radius: 2rem;
+    position: relative;
+    transition: background-color .2s;
+  }
+
+  &__circle {
+    content: '';
+    position: absolute;
+    top: -.3px;
+    left: -1px;
+    width: 1.5rem;
+    height: 1.6rem;
+    border-radius: 2rem;
+    transition: 0.2s;
+    background: $lighterYellowColor;
+    box-shadow: 0 0 2px 0 $lighterBlackColor;
+  }
+
+  &__button:checked + &__background &__circle {
+    left: calc(100% - 1px);
+    transform: translateX(-100%);
+  }
+
+  &__button:checked + &__background {
+    background: $whiteColor;
+  }
+
+  &__background:active &__circle {
+    width: 3rem;
+  }
+}

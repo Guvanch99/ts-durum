@@ -1,5 +1,9 @@
-//@ts-nocheck
-import { createContext } from 'react'
+import {createContext} from 'react'
 
-const ThemeContext = createContext()
+interface ICreateContext {
+    themeDark: boolean
+    changeThemeDark: () => void
+}
+
+const ThemeContext = createContext({} as ICreateContext)
 export default ThemeContext

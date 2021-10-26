@@ -1,16 +1,21 @@
-//@ts-nocheck
-import { GET_FEATURED_PRODUCTS } from './type'
 
-const initialState = {
-  featuredProducts: []
+import {GET_FEATURED_PRODUCTS} from './type'
+
+import {IAction, IProduct} from "../../models/interfaces";
+
+interface IHomeInitialState{
+    featuredProducts:IProduct[]
 }
 
-export const homeReducer = (state = initialState, { type, payload }) => {
-  switch (type) {
-    case GET_FEATURED_PRODUCTS:
-      return { ...state, featuredProducts: payload }
+const initialState: IHomeInitialState = {
+    featuredProducts: []
+}
 
-    default:
-      return state
-  }
+export const homeReducer = (state = initialState, {type, payload}:IAction) => {
+    switch (type) {
+        case GET_FEATURED_PRODUCTS:
+            return {...state, featuredProducts: payload}
+        default:
+            return state
+    }
 }

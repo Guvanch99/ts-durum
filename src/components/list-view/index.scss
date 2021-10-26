@@ -1,0 +1,48 @@
+@import 'src/styles/common.scss';
+
+.list {
+  @include flex(normal, flex-start);
+  flex-direction: column;
+  margin: 2rem 0 2rem 2rem;
+
+  @include tablet {
+    align-items: center;
+    margin: 0;
+  }
+
+  &__container {
+    @include flex(space-evenly, center);
+
+    @include tablet {
+      flex-direction: column;
+    }
+  }
+
+  &__image {
+    width: 15rem;
+    height: 15rem;
+    background: $whiteColor;
+    margin: .5rem 2rem .5rem 0;
+
+    @include tablet {
+      margin: 0 auto;
+    }
+  }
+
+  &__info {
+    @include flex(space-evenly, flex-start);
+    flex-direction: column;
+    height: 19rem;
+    padding-left: 2rem;
+
+    @include tablet {
+      align-items: center;
+      justify-content: space-around;
+      padding-left: 0;
+
+      .food__description {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,11 +1,14 @@
-//@ts-nocheck
-import {FC} from 'react'
+
+import {ChangeEvent, FC} from 'react'
 import { useTranslation } from 'react-i18next'
 
 import './index.scss'
 
+interface ILanguage{
+    changeLanguageHandler:(e: ChangeEvent<HTMLSelectElement>)=>void
+}
 
-const Language:FC<{changeLanguageHandler:()=>void}> = ({ changeLanguageHandler }) => {
+const Language:FC<ILanguage> = ({ changeLanguageHandler }) => {
   const { t } = useTranslation('translation')
 
   return (

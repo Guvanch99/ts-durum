@@ -19,7 +19,7 @@ import {
   ROUTER_HOME,
   ROUTER_LOGIN,
   ROUTER_SIGN_UP
-} from '../../constants/routers'
+} from '../../constants/routers.constants'
 
 import {
   updateRestrictedPromoCodes,
@@ -27,7 +27,10 @@ import {
   countTotal
 } from '../cart/actionCreators'
 
+import {TAppDispatch, TGetState} from "../store/store";
+
 import { generatePassword } from '../../utils'
+
 
 emailjs.init('user_wFdsX3tQvzTML78kqhCfD')
 
@@ -66,8 +69,8 @@ export const updateUser = (payload) => ({
 })
 
 export const createUser = (user, location, history) => async (
-  dispatch,
-  getState
+  dispatch:TAppDispatch,
+  getState:TGetState
 ) => {
 
   const {
@@ -84,8 +87,8 @@ export const createUser = (user, location, history) => async (
 }
 
 export const loginUser = (userName, password, location, history) => async (
-  dispatch,
-  getState
+  dispatch:TAppDispatch,
+  getState:TGetState
 ) => {
   const { data: users } = await DB(
     `/users?userName=${userName}&password=${password}`
@@ -130,7 +133,7 @@ export const loginUser = (userName, password, location, history) => async (
     dispatch(userNotFound())
 }
 
-export const twoFactorAuth = user => async dispatch => {
+export const twoFactorAuth = user => async (dispatch:TAppDispatch) => {
   const { data: searchedUser } = await DB(
     `/users?userName=${user.userName}&email=${user.email}`
   )
