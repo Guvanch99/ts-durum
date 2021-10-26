@@ -1,0 +1,35 @@
+@import 'src/styles/common.scss';
+
+.information {
+  color: $whiteColor;
+  padding: 2rem 0;
+
+  &__header {
+    @include fontFamily($fontRoboto);
+    font-size: 2em;
+  }
+
+  &__list {
+    @include flex(flex-start, center);
+    margin: 1rem 0;
+  }
+
+  &__icon {
+    color: $mainColor;
+    font-size: 1.8em;
+
+    @include tablet {
+      font-size: 1.2em;
+    }
+  }
+
+  &__text {
+    margin: .4rem 0;
+    @include fontFamily($fontRoboto);
+    padding-left: 1rem;
+
+    @include tablet {
+      font-size: 1.2em;
+    }
+  }
+}

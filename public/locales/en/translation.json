@@ -1,0 +1,332 @@
+{
+  "lang":{
+    "en":"en",
+    "ru":"ru"
+  },
+  "cartGift":{
+    "label":"Your Free Gift !!!",
+    "yourGift":"Your Gift:",
+    "amount":"Amount: ",
+    "type":"Type :"
+  },
+  "sort":{
+    "sortLabel":"sort by",
+    "buttonNames":{
+      "All":"All",
+      "Combo":"Combo",
+      "Durum":"Durum",
+      "Beverage":"Beverage"
+    },
+    "sortOptions":{
+      "notSelected":{
+        "name":"Not selected"
+      },
+      "priceLowest":{
+        "name":"price (lowest)"
+      },
+      "priceHighest":{
+        "name":"price (highest)"
+      },
+      "nameAZ":{
+        "name":" Alphabet (a-z)"
+      },
+      "nameZA":{
+        "name":"Alphabet (z-a)"
+      }
+    }
+  },
+  "cartTable":{
+    "img":"Img",
+    "name":"Name",
+    "amount":"Amount",
+    "price":"Price",
+    "subTotal":"Subtotal",
+    "remove":"Remove"
+  },
+  "pageLink":{
+    "toCart":"To cart",
+    "continueShopping":"Continue shopping",
+    "cart":"Cart",
+    "goToCheckout":"Go to checkout",
+    "addBasket":"Add meal to basket",
+    "signUp":" We suggest to Sign Up"
+  },
+  "pageHero":{
+    "home":"Home",
+    "menu":"Menu",
+    "about":"About",
+    "singleProduct":"Single-Product",
+    "promotions":"promotions"
+  },
+  "motto":{
+    "mottoMain":"Delivery is more than 30 min",
+    "mottoSecondary":"Take it free !!!"
+  },
+  "payment":{
+    "subTotal":"subtotal: {{totalAmount}}",
+    "shipping":"Shipping free 2.5 rub",
+    "orderTotal":" Total {{total}}",
+    "bonusTotal": " Bonus Total {{bonusTotal}}"
+  },
+  "promoDay":{
+    "date":"Every Wednesday",
+    "label":"Durum Party",
+    "time":"Date:",
+    "description":" Take two Turkish Durum pay one",
+    "obligation":"Obligation:",
+    "obligationRule":"You must be in mask"
+  },
+  "promoCode":{
+    "label":"PromoCode",
+    "placeholderError":"Invalid promo code",
+    "placeholderDefault":"Enter promo code",
+    "buttonDisabled":"Disabled",
+    "buttonSubmit":"Submit",
+    "usedPromoCode": "You are already used  this code,{{promoCode}} "
+  },
+  "promoCodeGift":{
+    "label":"Hurrey your Free Gift "
+  },
+  "articleNames":{
+    "ourValue":"Our Value",
+    "whyWe":"Why we",
+    "menu":"Menu",
+    "motto":"Our Motto",
+    "loved":"Most Loved Meals",
+    "contacts":"Contacts",
+    "randomQuote":"Generated random funny Quote what Donald Trump said ",
+    "signUp":"Sign Up",
+    "login":"Login"
+  },
+  "menuAuthCart":{
+    "cart":{
+      "name":"Cart"
+    },
+    "login":{
+      "name":"Login"
+    },
+    "signUp":{
+      "name":"Sign Up"
+    }
+  },
+  "contacts":{
+    "contact":{
+      "address":{
+        "name":"Limoza 12, Grodno,Belarus"
+      }
+    },
+    "workingSchedule":{
+      "mondayThursday":{
+        "name":"From Monday to Thursday......9:00-23:00"
+      },
+      "friday":{
+        "name":"Friday........................................11:00-21:00"
+      },
+      "satSunday":{
+        "name":"Saturday and Sunday............10:00-24:00"
+      }
+    }
+  },
+  "links":{
+    "home":{
+      "name":"Home"
+    },
+    "menu":{
+      "name":"Menu"
+    },
+    "about":{
+      "name":"About"
+    },
+    "promotions":{
+      "name":"Promotions"
+    }
+  },
+  "aboutPage":{
+    "ourValue":{
+      "firstValue":{
+        "label":"It is our indispensable goal to always be the best.",
+        "description":"Our main goal is to be the best in quality, service and production resources and to protect the image we have. In the food industry, in which we have been operating since 2013, we are always improving ourselves to achieve our goals and we keep customer satisfaction above all else"
+      },
+      "secondValue":{
+        "label":"Our most important capital is our human resources.",
+        "description":"The quality of our products and services starts with the quality of our employees. While incorporating the best personnel and adult human power, we benefit from their talents, power and creativity; It is the way we have chosen to increase their productivity, to allow them to develop, to create a working environment with solidarity, to ensure the continuity of the Ata Family for generations."
+      },
+      "thirdValue":{
+        "label":"The demands of our customers are our guide.",
+        "description":"Creating value for our customers, responding to their expectations with a standard and sustainable quality approach is one of the most important issues for our organization. As the Ata Döner family grows, our efforts to increase customer loyalty continue steadily."
+      },
+      "fourthValue":{
+        "label":"Our aim is to constantly improve and move forward.",
+        "description":"Our primary goal is to protect the Turkmen taste and to make Ata Döner, a Turkmen brand, a global brand. In order to realize the continuity of the service and our growth targets; We ensure the rational use of all our resources in order to realize the necessary investments, encourage the merger of small and large savings, and create employment. While contributing to the economic and social development of the society, it is one of our main principles to create an honest working environment suitable for business ethics for each member of the Ata Döner family. We work hard to fulfill our responsibilities towards today people and future generations.."
+      }
+    },
+    "whyWe":{
+      "Health":"Healthy and Delicious Products",
+      "Food":"Food Quality and Safety",
+      "Style":"Stylish Restaurant Concept",
+      "Afford":"Affordable Price Policy"
+    }
+  },
+  "featuredProducts":{
+    "1":{
+      "name":"combo menu-1",
+      "description":"Durum with beef + Free+0.5 Coca-cola"
+    },
+    "2":{
+      "name":"combo menu-2",
+      "description":"Durum with chicken + Free+0.5 Coca-cola"
+    },
+    "3":{
+      "name":"Durum chicken",
+      "description":"Fragrant grilled chicken meat with fresh vegetables and a signature sauce, wrapped in thin yeast-free pita bread."
+    }
+  },
+  "login":{
+    "userNotFound":"User not Found",
+    "labelUser":"User Name",
+    "password":"Password",
+    "button":"Login"
+  },
+  "registration":{
+    "registered":"This UserName with name or email already registered",
+    "labelUser":"User Name",
+    "password":"Password",
+    "email":"email",
+    "button":"Sign up"
+  },
+  "orderForm":{
+    "main":"Main Information",
+    "mainInfo":{
+      "user":"User Name",
+      "email":"Email",
+      "phone":"Phone Number (+375)"
+    },
+    "address":"Address",
+    "addressInfo":{
+      "street":"Street",
+      "house":"House",
+      "entrance":"Entrance",
+      "storey":"Storey"
+
+    },
+    "payment":"Payment",
+    "paymentInfo":{
+      "paymentCash":"Cash",
+      "paymentCard":"Card to the courier"
+    },
+    "orderButton":"Order",
+    "orderErrors":{
+      "phone":"Phone Number is Empty or is not number(integer) or more than 9  ",
+      "storey":"Storey field is Empty or is not number" ,
+      "street":"Street field is Empty or less than 3",
+      "entrance":"Entrance field is Empty or is not number(integer)",
+      "house":"House field is Empty or is not number"
+
+    }
+
+  },
+  "twoFactorAuth": {
+    "label": "Two-Factor Authentication",
+    "textInfo": "We have sent validation code to",
+    "question": "Not received code?",
+    "resend": "Resend",
+    "send": "send",
+    "error": "Confirmation password doesnt valid "
+  },
+  "products":{
+    "1":{
+      "name":"combo menu-1",
+      "description":"Durum with beef + Free+0.5 Coca-cola"
+    },
+    "2":{
+      "name":"combo menu-2",
+      "description":"Durum with chicken + Free+ 0.5 "
+    },
+    "3":{
+      "name":"combo menu-3",
+      "description":"Durum with chicken and beef +Free+ 0.4 Coca-Cola"
+    },
+    "4":{
+      "name":"Mega Durum Chicken",
+      "description":"Double pleasure: more meat, freshly baked pita bread, golden potatoes, crispy pickles and a combination of two sauces."
+    },
+    " 5":{
+      "name":"Durum Chicken",
+      "description":"Fragrant grilled chicken meat with fresh vegetables and a signature sauce, wrapped in thin yeast-free pita bread."
+    },
+    "6":{
+      "id":6,
+      "name":"Durum Turkey",
+      "description":"Lush omelet of eggs with herbs in combination with aromatic grilled chicken, pepper, corn, tomato slices, seasoned with a special sauce and wrapped in thin pita bread."
+    },
+    "7":{
+      "name":"Durum Mushroom",
+      "description":"Lavash, chicken meat, mushroom sauce, cheese, Chinese cabbage, fresh cucumber, onion, pickled mushrooms."
+    },
+    "8":{
+      "name":"Durum BBQ And Grilled",
+      "src":"https://i.ibb.co/BC88NNp/Doner-bbq.png",
+      "description":"Lavash, bacon, beef, chicken meat, pickled cucumber, onion, Chinese cabbage, BBQ sauce, tomatoes"
+    },
+    "9":{
+      "name":"Durum Meksiko",
+      "description":"Lavash, chicken meat, tomatoes, Chili sauce, fresh peppers, onions, red cabbage, Firmenny sauce, canned beans"
+    },
+    "10":{
+      "name":"Coca-Cola",
+      "description":"Classic Coca-Cola"
+    },
+    "11":{
+      "name":"Vanilla Coca-Cola",
+      "description":"Vanilla Coca-Cola"
+    },
+    "12":{
+      "name":"Fanta",
+      "description":"Classic Fanta "
+    },
+    "13":{
+      "name":"Sprite",
+      "description":"Sprite carbonated soft drink with lime, lemon and bright mint aromah "
+    },
+    "14":{
+      "name":"Fuse tea",
+      "description":"Fusetea with forest berries and hibiscus. "
+    },
+    "15":{
+      "name":"Fuse tea",
+      "description":"Fusetea with forest berries and hibiscus. "
+    },
+    "16":{
+      "name":"water",
+      "description":"Not corbanated water"
+    },
+    "17":{
+      "name":"tea",
+      "description":"Black tea 0.3L "
+    }
+  },
+  "clear":"clear",
+  "productPrice":"Price {{price}} ",
+  "productDescription":"Description :",
+  "productPriceCurrency":" rubl",
+  "footerText":"2021 AtaDurum All rights reserved",
+  "passwordError":"Password field is Empty or less than 6",
+  "emailError":"Email is Invalid or Empty",
+  "userNameError":"Name field is Empty or less than 4",
+  "modal":"Success",
+  "close":"Close",
+  "logout":"LogOut",
+  "menuCount":"Count: {{count}}",
+  "deliveryTime": "Delivery time: {{timeDelivery}}",
+  "lateDelivery": "If time is passed take free",
+  "modalError": "Used promocodes will be removed !!!",
+  "bonus": "Bonus: ",
+  "useBonusText": "Write bonus what to use",
+  "bonusZero": "Invalid",
+  "bonusPlaceholder": "write a number",
+  "bonusError": "You dont have enough bonus",
+  "bonusText": "Bonus",
+  "next": "Next",
+  "prev": "Prev"
+
+}

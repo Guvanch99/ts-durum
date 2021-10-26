@@ -1,0 +1,11 @@
+@import 'src/styles/common.scss';
+
+.contacts {
+  @include flex(space-evenly, center);
+  flex-wrap: wrap;
+  background-color: $lighterBlackColor;
+
+  &__card {
+    margin: 0 .5rem;
+  }
+}

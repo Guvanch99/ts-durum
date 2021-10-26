@@ -1,0 +1,1 @@
+export const GET_FEATURED_PRODUCTS: string = 'GET_FEATURED_PRODUCTS'

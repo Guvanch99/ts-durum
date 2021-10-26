@@ -1,0 +1,56 @@
+@import 'src/styles/common.scss';
+
+.navbar {
+  @include flex(space-between, center);
+  height: 8rem;
+
+  &__container {
+    @include flex(space-between, center);
+    flex: .5;
+
+    @include netbook {
+      display: none;
+    }
+  }
+
+  &__logo {
+    width: 6rem;
+    height: 6rem;
+    margin-left: 2rem;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__menu {
+    @include flex(space-evenly, center);
+
+    &_link {
+      padding-left: 1rem;
+    }
+  }
+
+  &__hamburger {
+    @extend %button;
+    color: $mainColor;
+    display: none;
+
+    @include netbook {
+      display: block;
+      margin-right: 1rem;
+    }
+  }
+}
+
+.navbar_menu:first-child {
+  padding-left: 3rem;
+}
+
+.logo {
+  border: none;
+
+  &:hover {
+    border: none;
+  }
+}

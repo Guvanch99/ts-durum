@@ -1,0 +1,91 @@
+@import 'src/styles/common.scss';
+
+.featured-product {
+  margin: 1rem;
+  @include flex(space-around, center);
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+
+  &__article {
+    text-align: center;
+  }
+
+  &__main-image {
+    width: 30rem;
+    height: 35rem;
+
+    @include netbook {
+      width: 25rem;
+      height: 30rem;
+    }
+
+    @include tablet {
+      width: 20rem;
+      height: 25rem;
+    }
+  }
+
+  &__menu {
+    @include flex(space-between, center);
+    flex-direction: column;
+
+    background: rgba(239, 223, 7, .6);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, .37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 10%;
+  }
+
+  &__list {
+    padding-left: 1rem;
+    @include flex(center, center);
+    flex-direction: column;
+  }
+
+  &__image {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background-color: $whiteColor;
+
+    @include netbook {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+
+  &__container {
+    padding-left: 1rem;
+    @include flex(center, center);
+    flex-direction: column;
+    @include fontFamily($fontDancingScript);
+  }
+
+  &__name {
+    margin-bottom: .2rem;
+    font-size: 4.8em;
+    text-align: center;
+
+    @include netbook {
+      font-size: 3em;
+    }
+  }
+
+  &__description {
+    font-size: 2em;
+
+    @include netbook {
+      font-size: 1em;
+    }
+    @include tablet {
+      font-size: 1.4em;
+    }
+  }
+
+  &__price {
+    margin: 1rem 0;
+    font-size: 1.6em;
+    color: $lighterRedColor;
+  }
+}

@@ -1,0 +1,46 @@
+@import 'src/styles/common.scss';
+
+.accordion {
+  @include flex(normal, center);
+  flex-direction: column;
+  max-width: 30rem;
+  margin: 3rem auto;
+  @include fontFamily($fontDancingScript);
+
+  &__title {
+    @include flex(space-between, center);
+    max-width: 27rem;
+    margin: 0 1rem;
+  }
+
+  &__description {
+    font-size: 2em;
+    margin: 0 1rem;
+
+    @include tablet {
+      font-size: 1em;
+    }
+  }
+
+  &__label {
+    font-size: 3em;
+    color: $mainColor;
+
+    @include tablet {
+      font-size: 2em;
+    }
+
+    @include mobile {
+      font-size: 1.6em;
+    }
+  }
+
+  &__sign {
+    font-size: 5em;
+    color: $mainColor;
+
+    @include mobile {
+      font-size: 3em;
+    }
+  }
+}

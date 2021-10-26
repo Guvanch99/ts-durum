@@ -1,0 +1,119 @@
+@import './mixin';
+@import './reset';
+@import './variables';
+@import './fonts';
+
+%button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 3em;
+  padding: .1rem 1rem;
+  border-radius: 13%;
+}
+
+%sliderIcon {
+  top: 40%;
+  font-size: 3rem;
+  color: $whiteColor;
+  background-color: $secondaryColor;
+  z-index: 1;
+  cursor: pointer;
+  width: 3.5rem;
+  height: 3.5rem;
+  text-align: center;
+  border-radius: 50%;
+  padding-top: .2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  @include fontFamily($fontDancingScript);
+  text-decoration: none;
+  font-size: 2em;
+  color: $secondaryColor;
+
+  &:hover {
+    border-bottom: 1px solid $mainColor;
+  }
+}
+
+input {
+  @include mobile {
+    &::-webkit-input-placeholder {
+      text-align: center;
+    }
+
+    &:-moz-placeholder {
+      /* Firefox 18- */
+      text-align: center;
+    }
+
+    &::-moz-placeholder {
+      /* Firefox 19+ */
+      text-align: center;
+    }
+
+    &:-ms-input-placeholder {
+      text-align: center;
+    }
+  }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.is-darkGreen {
+  background: $darkGreen;
+
+  a,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  button,
+  select,
+  span,
+  i,
+  label,
+  .views__icon {
+    color: $whiteColor;
+  }
+
+  select {
+    background: $darkGreen;
+  }
+}
+
+.is-sidebar {
+  .arrow {
+    display: none;
+  }
+
+  .menu {
+    align-items: center;
+  }
+
+  .language {
+    margin: 0;
+  }
+
+  .toggle {
+    margin-left: 2rem;
+
+    @include mobile {
+      margin-left: 1.2rem;
+    }
+  }
+}

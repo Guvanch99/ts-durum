@@ -1,0 +1,30 @@
+@import 'src/styles/common.scss';
+
+.mainAbout {
+  @include flex(space-around, center);
+  flex-wrap: wrap;
+  margin: 1rem 0 4rem 0;
+
+  &__image {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  &__item {
+    @include flex(space-evenly, center);
+    flex-direction: column;
+    @include fontFamily($fontStyleScript);
+  }
+
+  &__title {
+    color: $mainColor;
+    margin-top: 2rem;
+    font-size: 3.2em;
+    text-align: center;
+    @include fontFamily($fontStyleScript);
+
+    @include mobile {
+      font-size: 2em;
+    }
+  }
+}

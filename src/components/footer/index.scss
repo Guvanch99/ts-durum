@@ -1,0 +1,18 @@
+@import 'src/styles/common.scss';
+
+.footer {
+  background-color: $secondaryColor;
+  height: 5rem;
+  margin-top: .1rem;
+
+  &__text {
+    padding: 2.5rem;
+    text-align: center;
+    color: $whiteColor;
+    @include fontFamily($fontRoboto);
+
+    @include tablet {
+      font-size: 1.2em;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@import 'src/styles/common.scss';
+
+.modal {
+  @include flex(space-around, center);
+  flex-direction: column;
+  @include fontFamily($fontRoboto);
+  padding: 2rem 8rem;
+  margin: 1rem;
+  background: $whiteColor;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 99999;
+
+  &__label {
+    text-align: center;
+    font-size: 5em;
+    color: $greenSuccessColor;
+  }
+
+  &__button {
+    @extend %button;
+    @include fontFamily($fontStyleScript);
+    color: $whiteColor;
+    background-color: $lighterRedColor;
+  }
+
+  &__success-icon {
+    margin: 2rem 0;
+    font-size: 6em;
+    color: $greenSuccessColor;
+  }
+
+  &__time {
+    font-size: 3em;
+  }
+
+  &__delivery-text {
+    font-size: 3em;
+  }
+
+  &-wrapper {
+    @include flex(center, center);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+  }
+}

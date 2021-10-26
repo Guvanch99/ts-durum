@@ -1,0 +1,15 @@
+export const OVERFLOW_HIDDEN:string = 'overflow:hidden'
+export const OVERFLOW_X_HIDDEN:string = 'overflow-x:hidden'
+export const HALYAVA_PROMO_CODE:string = 'HALYAVA'
+export const BEVERAGE_PROMO_CODE:string = 'BEVERAGE'
+export const DONER_PROMO_CODE:string = 'DONER'
+export const DELETE:string = 'Backspace'
+export const SHIPPING_FEE:number = 2.5
+export const PRODUCTS_BEGIN:number = 1
+export const PRODUCTS_END:number = 17
+export const BEVERAGE_BEGIN:number = 10
+export const DONER_BEGIN:number = 4
+export const DONER_END:number = 9
+export const THIRD_ELEMENT:number = 2
+export const BONUS_COEFFICIENT:number=0.01
+export const ZERO:number=0

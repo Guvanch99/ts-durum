@@ -1,0 +1,18 @@
+@import 'src/styles/common.scss';
+
+.quote {
+  margin: 2rem 0 4rem 0;
+  &__value {
+    @include fontFamily($fontDancingScript);
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 4em;
+    color: $mainColor;
+
+    @include netbook {
+      font-size: 2em;
+      text-align: center;
+      margin: 0 2rem;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import 'src/styles/common.scss';
+.page-link {
+  background: $mainColor;
+  color: $whiteColor;
+  padding: .5rem 1rem;
+  border-radius: 10%;
+  width: 10rem;
+  background: $mainColor;
+  text-align: center;
+}
+
+.customStyle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  border-radius: 50%;
+  color: $mainColor;
+  opacity: 0;
+  cursor: pointer;
+  transition: all .6s ease-in;
+}

@@ -1,0 +1,24 @@
+@mixin flex($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin fontFamily($fontFamily) {
+  font-family: $fontFamily, 'Marck Script', sans-serif;
+}
+
+@mixin netbook {
+  @media screen and (max-width: 61em) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and(max-width:48em) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and(max-width:30em) {
+    @content;
+  }
+}

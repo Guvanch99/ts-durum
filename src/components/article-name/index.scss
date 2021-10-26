@@ -1,0 +1,14 @@
+@import 'src/styles/common.scss';
+
+.article-name {
+  @include fontFamily($fontDancingScript);
+  font-size: 3.2em;
+  border-bottom: 1px solid $mainColor;
+  text-align: center;
+  margin-top: 1rem;
+  width: 100%;
+
+  @include netbook {
+    font-size: 2em;
+  }
+}

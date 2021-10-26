@@ -1,0 +1,37 @@
+@import 'src/styles/common.scss';
+
+.section {
+  min-height: 8rem;
+  @include flex(center, center);
+  background: $mainColor;
+  @include fontFamily($fontRoboto);
+
+  &__text {
+    font-size: 2em;
+    color: $secondaryColor;
+  }
+
+  &__link {
+    @include fontFamily($fontRoboto);
+    font-size: 1em;
+    color: $whiteColor;
+
+    &:hover {
+      color: $lighterYellowColor;
+    }
+  }
+
+  &__sign {
+    color: $lighterRedColor;
+  }
+
+  &__middle-page {
+    @include fontFamily($fontRoboto);
+    color: $whiteColor;
+    font-size: 1em;
+
+    &:hover {
+      color: $lighterYellowColor;
+    }
+  }
+}

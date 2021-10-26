@@ -1,0 +1,33 @@
+@import 'src/styles/common.scss';
+
+.language {
+  width: 2rem;
+  margin: 0 .5rem;
+  @include flex(space-between, center);
+  @include fontFamily($fontDancingScript);
+
+  &__icon {
+    font-size: 3.2em;
+    color: $mainColor;
+
+    @include tablet {
+      font-size: 2em;
+    }
+  }
+
+  &__select {
+    border: none;
+    outline: none;
+    @include fontFamily($fontDancingScript);
+    font-size: 2em;
+    background-color: $whiteColor;
+
+    @include tablet {
+      margin-bottom: .3rem;
+    }
+  }
+
+  &__option {
+    @include fontFamily($fontDancingScript);
+  }
+}
