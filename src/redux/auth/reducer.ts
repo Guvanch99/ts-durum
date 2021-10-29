@@ -1,3 +1,4 @@
+import {AnyAction} from "redux";
 
 import {
   SET_USER,
@@ -12,19 +13,11 @@ import {
   SET_UPDATED_USER
 } from './type'
 
-interface IInitialState{
-  user:string|null
-  userExist:boolean
-  userNotFound:boolean
-  isModalPromoError: boolean,
-  isTwoFactorAuth: boolean,
-  generatedPassword: number|null,
-  twoFactorAuthInvalid: boolean
-}
+import {IInitialState} from "../../models/interfaces/redux/auth";
 
 const initialState:IInitialState = {
   user: null,
-  userExist: false,
+  userExist: false ,
   userNotFound: false,
   isModalPromoError: false,
   isTwoFactorAuth: false,
@@ -32,7 +25,7 @@ const initialState:IInitialState = {
   twoFactorAuthInvalid: false
 }
 
-export const authReducer = (state = initialState, { type, payload }) => {
+export const authReducer = (state = initialState, {type,payload}:AnyAction):IInitialState => {
   switch (type) {
     case SET_USER:
       return { ...state, user: payload, userExist: false }
@@ -40,11 +33,10 @@ export const authReducer = (state = initialState, { type, payload }) => {
       return { ...state, userExist: true }
     case USER_NOT_FOUND:
       return { ...state, userNotFound: true }
-    case LOGIN_USER: {
+    case LOGIN_USER:
       return { ...state, user: payload, userNotFound: false }
-    }
     case LOGOUT:
-      return { ...state, user: null }
+      return { ...state, user:null  }
     case MODAL_ERROR_TOGGLE:
       return { ...state, isModalPromoError: !state.isModalPromoError }
     case TWO_FACTOR_AUTH_TOGGLE:

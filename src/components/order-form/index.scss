@@ -1,0 +1,5 @@
+@import "src/styles/common";
+
+.order-form {
+  @include flex(center, center);
+}

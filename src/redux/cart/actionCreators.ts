@@ -16,61 +16,64 @@ import {
 
 import { updateUser } from '../auth/actionCreator'
 
-import {TGetState,TAppDispatch} from '../store/store'
+import {
+  IAddCart,
+  IAddCartProps,
+  IClearCart, IClearOrder, ICountTotal, IGetPresent,
+  IGift,
+  IRemoveProduct, ISubtractBonus, IToggleAmount,
+  IToggleAmountProps, IUpdateGift, IUpdateRestrictedPromoCodes, IUserPromoCodeUsed
+} from "../../models/interfaces/redux/cart";
 
-import {IGift, IProduct} from "../../models/interfaces";
+import {IProduct} from "../../models/interfaces/";
 
-interface IToggleAmount{
-  inc:number
-  dec:number
-  id:number
-}
+import {IOrders} from "../../models/interfaces";
 
-interface IAddToCart{
-  amount:number
-  singleProduct:IProduct
-}
+import {ThunkPromise, ThunkVoid} from "../../models/types/thunk";
+import {IUserFullInfo} from "../../models/interfaces/redux/auth";
 
-export const addToCart = (payload:IAddToCart) => ({
+export const addToCart = (payload:IAddCartProps):IAddCart => ({
   type: ADD_TO_CART,
   payload
 })
-export const removeProduct = (payload:number) => ({
+export const removeProduct = (payload:number):IRemoveProduct => ({
   type: REMOVE_PRODUCT,
   payload
 })
-export const clearCart = () => ({
+export const clearCart = ():IClearCart => ({
   type: CLEAR_CART
 })
-export const countTotal = () => ({
+export const countTotal = ():ICountTotal => ({
   type: COUNT_CART_TOTALS
 })
-export const toggleAmount = (payload:IToggleAmount) => ({
+export const toggleAmount = (payload:IToggleAmountProps):IToggleAmount => ({
   type: TOGGLE_CART_PRODUCT_AMOUNT,
   payload
 })
 
-export const subtractBonus = (payload:number) => ({
+export const subtractBonus = (payload:number):ISubtractBonus => ({
   type: SUBTRACT_BONUS,
   payload
 })
 
-export const clearOrder = () => ({ type: CLEAR_ORDER })
+export const clearOrder = ():IClearOrder => ({ type: CLEAR_ORDER })
 
-export const getPresent = (payload:IGift) => ({
+export const getPresent = (payload:IGift):IGetPresent => ({
   type: GET_PRESENT,
   payload
 })
 
-export const userPromoCodeUsed = (payload:string) => ({ type: PROMO_CODE_USED, payload })
+export const userPromoCodeUsed = (payload:string):IUserPromoCodeUsed => ({ type: PROMO_CODE_USED, payload })
 
-export const updateGift = (payload:IGift) => ({ type: UPDATE_GIFT, payload })
+export const updateGift = (payload:IGift):IUpdateGift => ({ type: UPDATE_GIFT, payload })
 
-export const updateRestrictedPromoCodes = (payload:string) => ({ type: UPDATE_RESTRICTED_PROMO_CODE, payload })
+export const updateRestrictedPromoCodes = (payload:string[]):IUpdateRestrictedPromoCodes => ({ type: UPDATE_RESTRICTED_PROMO_CODE, payload })
 
-export const getPresentPromo = (idProduct, promoCode:string) => async (dispatch:TAppDispatch, getState:TGetState) => {
+export const getPresentPromo =
+    (idProduct:number, promoCode:string):
+     ThunkVoid => async (dispatch, getState) => {
   dispatch(userPromoCodeUsed(promoCode))
-  const { data } = await DB(`/all-products?id=${idProduct}`)
+  const { data } = await DB.get<{0:IProduct}>(`/all-products?id=${idProduct}`)
   const { auth: { user }, cart: { restrictedPromoCodes: restricted } } = getState()
   const { id, name, src, description, type } = data[0]
   const payload = {
@@ -86,23 +89,25 @@ export const getPresentPromo = (idProduct, promoCode:string) => async (dispatch:
   dispatch(getPresent(payload))
   dispatch(countTotal())
   if (user !== null) {
-    const { data } = await DB.patch(
+    const { data } = await DB.patch<IUserFullInfo>(
       `/users/${user.id}`, { restrictedPromoCodes: restricted })
     dispatch(updateUser(data))
   }
 }
-export const order = (orderData, newBonus:number) => async (dispatch:TAppDispatch, getState:TGetState) => {
+export const order = (orderData:IOrders, newBonus:number):
+ ThunkPromise => async (dispatch, getState) => {
   const { auth: { user } } = getState()
-  const { id, bonus } = user
+  const { id, bonus } = user as IUserFullInfo
   const bonusModified:number = Number((bonus + newBonus).toFixed(2))
   await DB.post('/orders', orderData)
-  DB.patch(`/users/${id}`, { bonus: bonusModified }).then(({ data }) => dispatch(updateUser(data)))
+  DB.patch<IUserFullInfo>(`/users/${id}`, { bonus: bonusModified }).then(({ data }) => dispatch(updateUser(data)))
 }
 
-export const usedBonus = (bonusCount:number) => (dispatch:TAppDispatch, getState:TGetState) => {
+export const usedBonus = (bonusCount:number) :
+   ThunkPromise=> async(dispatch, getState) => {
   const { auth: { user } } = getState()
-  const { id, bonus } = user
+  const { id, bonus } = user as IUserFullInfo
   const bonusModified:number = Number((bonus - bonusCount).toFixed(2))
   dispatch(subtractBonus(bonusCount))
-  DB.patch(`/users/${id}`, { bonus: bonusModified }).then(({ data }) => dispatch(updateUser(data)))
+  DB.patch<IUserFullInfo>(`/users/${id}`, { bonus: bonusModified }).then(({ data }) => dispatch(updateUser(data)))
 }

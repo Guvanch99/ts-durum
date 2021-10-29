@@ -1,0 +1,69 @@
+@import 'src/styles/common.scss';
+
+.payment {
+  @include flex(center, flex-end);
+  flex-direction: column;
+  margin: .5rem 3rem 1rem;
+  position: relative;
+
+  @include tablet {
+    align-items: center;
+  }
+
+  &__subtotal {
+    font-size: 3em;
+  }
+
+  &__shipping {
+    margin: 1rem 0;
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  &__total {
+    font-size: 4em;
+    font-weight: bold;
+
+    &-bonus {
+      font-size: 3em;
+    }
+  }
+
+  &__checkout {
+    position: absolute;
+    left: 48.5%;
+    width: 100%;
+    margin: 0 auto;
+
+    @include tablet {
+      left: 0;
+      margin-right: 2rem;
+    }
+
+    @include mobile {
+      position: static;
+      margin: 1.6rem 0 1rem 10rem;
+    }
+  }
+}
+
+.bonus {
+  @include flex(space-between, center);
+  width: inherit;
+
+
+  &__dash {
+    display: block;
+    height: .1rem;
+    border: none;
+    border-top: 1px solid $lighterBlackColor;
+    margin: .6rem 0;
+    padding: 0;
+    width: 2rem;
+  }
+
+  &__text {
+    @include fontFamily($fontRoboto);
+  }
+}
+

@@ -23,6 +23,7 @@
     height: 15rem;
     background: $whiteColor;
     margin: .5rem 2rem .5rem 0;
+    border-radius: 20%;
 
     @include tablet {
       margin: 0 auto;

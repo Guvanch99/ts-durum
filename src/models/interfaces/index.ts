@@ -1,57 +1,30 @@
 import {ChangeEvent} from "react";
-
-interface ILinks {
-    url: string
-    keyName: string
-}
-
-interface IMenuAuthCart {
-    url: string
-    keyName: string
-    iconName: string
-}
-
-interface ISortOptions {
-    value: string
-    keyName: string
-}
-
-interface IImages {
-    url: string
-    text: string
-}
-
-export interface IContactsKey {
-    icon: string
-    text: string
-}
-
-interface IPromoCode {
-    promoCode: string,
-    productsBegin: number,
-    productsEnd: number
-}
-
-export interface IData {
-    links: ILinks[]
-    menuAuthCart: IMenuAuthCart[]
-    sortOptions: ISortOptions[]
-    images: IImages[]
-    contactsKey: IContactsKey[][]
-    promoCodeCase: IPromoCode[]
-    buttonTranslateKeys: string[]
-    tableNameTranslateKeys: string[]
-    whyWeTranslateKeys: string[]
-    ourValueTranslateKeys: string[]
-    mottoImage: string
-    logo: string
-    mostLovedFoodImage: string
-    promoImage: string
-}
+import {IUserFullInfo} from "./redux/auth";
+import {ICart, IGift} from "./redux/cart";
 
 export interface IBar {
     sidebarVisibilityToggle: () => void
     changeLanguageHandler: (e: ChangeEvent<HTMLSelectElement>) => void
+}
+
+export interface IAddress {
+    street: string
+    house: string
+    entrance: string
+    storey: string
+    payment: string
+}
+
+export interface IOrders {
+    timeOrder: string
+    deliveryTime: string
+    user: Pick<IUserFullInfo, 'userName' | 'email'>
+    cart: ICart[]
+    gift: IGift | null
+    address: IAddress
+    totalItems: number
+    totalAmount: number
+    id?: number
 }
 
 export interface IProduct {
@@ -61,19 +34,4 @@ export interface IProduct {
     description: string,
     price: number,
     type: string
-}
-
-export interface IAction {
-    type: string
-    payload: IProduct[]
-}
-
-export interface IGift extends IProduct {
-    promoCode: string
-    amount: number
-}
-
-export interface ICart extends IProduct{
-    subTotal:number
-    amount:number
 }

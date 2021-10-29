@@ -1,0 +1,64 @@
+@import "src/styles/common";
+
+.order-container {
+  @include flex(center, center);
+  @include fontFamily($fontDancingScript);
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.order-form {
+  @include flex(center, center);
+  flex-direction: column;
+  margin-top: 1rem;
+
+  &__text {
+    color: $mainColor;
+    text-align: center;
+  }
+
+  &__button {
+    border-radius: 12%;
+    background-color: $greenSuccessColor;
+    font-size: 2em;
+    color: $whiteColor;
+    cursor: pointer;
+    margin: .5rem 0;
+    padding: 0.5rem;
+
+    &:disabled {
+      color: $whiteColor;
+      background-color: $lighterRedColor;
+      cursor: auto;
+    }
+  }
+
+  &__label {
+    font-size: 1.6em;
+  }
+
+  &__group {
+    margin: 1rem 0;
+    width: 10rem;
+    @include flex(space-between, flex-end);
+  }
+}
+
+
+.button-ctn {
+  @include flex(space-between, center);
+}
+
+.button-container {
+  @include flex(space-around, flex-start);
+  width: 30rem;
+
+  @include mobile {
+    width: 20rem;
+  }
+}
+
+.user-payment {
+  margin: 0 auto;
+  width: 10rem;
+}

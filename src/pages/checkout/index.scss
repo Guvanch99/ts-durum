@@ -1,0 +1,6 @@
+@import 'src/styles/common.scss';
+
+.container {
+  @include flex(normal, normal);
+  flex-direction: column;
+}

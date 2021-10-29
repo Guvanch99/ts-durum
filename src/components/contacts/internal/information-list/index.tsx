@@ -1,7 +1,7 @@
 import {FC, memo} from 'react'
 import {useTranslation} from 'react-i18next'
 
-import {IContactsKey} from "../../../../models/interfaces";
+import {IContactsKey} from "../../../../models/interfaces/data";
 
 import './index.scss'
 

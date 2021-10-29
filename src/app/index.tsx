@@ -1,4 +1,4 @@
-import {useState, useCallback, useEffect, ChangeEvent} from 'react'
+import {useState, useCallback, useEffect, ChangeEvent, FC} from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import classNames from 'classnames'
 import {useDispatch} from 'react-redux'
@@ -8,9 +8,16 @@ import {Sidebar, Navbar, Footer, PrivateRoute} from '../components'
 
 import {
     Home,
+    Menu,
     About,
     SingleProduct,
+    Login,
+    Register,
+    Cart,
+    CheckOut,
+    Promotions
 } from '../pages'
+
 
 import {countTotal} from '../redux/cart/actionCreators'
 
@@ -41,7 +48,7 @@ import {
 
 import './index.scss'
 
-const App = () => {
+const App:FC = () => {
     const dispatch = useDispatch()
     const {themeDark} = useTheme()
     const {i18n} = useTranslation('translation')
@@ -90,13 +97,16 @@ const App = () => {
             <main className='main'>
                 <Switch>
                     <Route exact path={ROUTER_HOME} component={Home}/>
+                    <Route exact path={ROUTER_MENU} component={Menu}/>
                     <Route path={ROUTER_SINGLE_PRODUCT} children={<SingleProduct/>}/>
                     <Route exact path={ROUTER_ABOUT} component={About}/>
-
-                    {/*
-                    <PrivateRoute exact path={ROUTER_CHECKOUT}>
+                    <Route exact path={ROUTER_CART} component={Cart}/>
+                    <Route exact path={ROUTER_PROMOTIONS} component={Promotions}/>
+                    <Route exact path={ROUTER_LOGIN} component={Login}/>
+                    <Route exact path={ROUTER_SIGN_UP} component={Register}/>
+                    <PrivateRoute exact path={ROUTER_CHECKOUT} >
                         <CheckOut/>
-                    </PrivateRoute>*/}
+                    </PrivateRoute>
                     <Redirect to={ROUTER_HOME}/>
                 </Switch>
             </main>

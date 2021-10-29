@@ -1,18 +1,20 @@
-//@ts-nocheck
 import {DB} from '../../core/axios'
 
-import {GET_FEATURED_PRODUCTS} from './type'
+import {GET_BASE_DATA} from './type'
 
-import {IProduct} from "../../models/interfaces";
+import {IProduct} from "../../models/interfaces/";
 
-import {TAppDispatch} from "../store/store";
+import {ThunkVoid} from "../../models/types/thunk";
 
-export const getFeaturedProducts = (payload: IProduct[]) => ({
-    type: GET_FEATURED_PRODUCTS,
+
+interface ISetFeaturedProducts {
+    type: typeof GET_BASE_DATA
+    payload: { data: IProduct[] }
+}
+
+export const setFeaturedProducts = (payload: { data: IProduct[] }): ISetFeaturedProducts => ({
+    type: GET_BASE_DATA,
     payload
 })
-export const fetchFeaturedProducts = () => (dispatch: TAppDispatch) =>
-    DB('/featured-products').then(({data}) => {
-            dispatch(getFeaturedProducts(data))
-        }
-    )
+export const getFeaturedProducts = ():ThunkVoid=> (dispatch) =>
+    DB.get<{ data: IProduct[] }>('/featured-products').then(({data}) => dispatch(setFeaturedProducts(data)))

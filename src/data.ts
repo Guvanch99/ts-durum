@@ -1,4 +1,4 @@
-import {IData} from "./models/interfaces";
+import {IData} from "./models/interfaces/data";
 
 import {
     ROUTER_ABOUT,

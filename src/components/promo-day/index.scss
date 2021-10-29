@@ -1,0 +1,78 @@
+@import '/src/styles/common';
+.date {
+  @include fontFamily($fontDancingScript);
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 10em;
+  color: $mainColor;
+
+  @include netbook {
+    font-size: 7em;
+  }
+
+  @include tablet {
+    font-size: 5em;
+  }
+}
+
+.promoDay {
+  @include flex(center, normal);
+  @include fontFamily($fontDancingScript);
+  flex-wrap: wrap;
+
+  &__image {
+
+    @include netbook {
+      width: 20rem;
+    }
+  }
+
+  &__text {
+    font-size: 4em;
+
+    @include netbook {
+      font-size: 3em;
+    }
+  }
+
+  &__info {
+    @include flex(center, center);
+    flex-direction: column;
+    margin-right: 1rem;
+
+    @include mobile {
+      margin-left: 2rem;
+    }
+  }
+
+  &__time {
+    margin: 1rem 0;
+    font-size: 2em;
+
+    &_color {
+      color: $lighterRedColor;
+    }
+  }
+  &__description {
+    margin: .6rem 0;
+    text-align: center;
+    font-size: 3em;
+
+    @include netbook {
+      font-size: 2.4em;
+    }
+  }
+
+  &__obligations {
+    text-align: center;
+    font-size: 3em;
+
+    &_color {
+      color: $lighterRedColor;
+    }
+
+    @include netbook {
+      font-size: 2.4em;
+    }
+  }
+}

@@ -55,7 +55,7 @@ const MenuAuthCart:FC<{sidebarVisibilityToggle?:()=>void}> = ({sidebarVisibility
                         <NavLink
                             onClick={sidebarVisibilityToggle}
                             className='menu__list-link'
-                            to={{pathname: url, state: {from: location.pathname}}}
+                            to={{pathname: url, state: location.pathname}}
                         >
                             {t(`menuAuthCart.${keyName}.name`)}
                             <i className={`fas ${iconName} menu__list-icon`}/>

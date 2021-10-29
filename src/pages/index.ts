@@ -1,4 +1,9 @@
-//@ts-nocheck
 export { default as Home } from './home'
 export { default as About } from './about'
+export { default as Menu } from './menu'
 export { default as SingleProduct } from './single-product'
+export { default as Login } from './auth/login'
+export { default as Register } from './auth/register'
+export { default as CheckOut } from './checkout'
+export { default as Cart } from './cart'
+export { default as Promotions } from './promotions'

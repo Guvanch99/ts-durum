@@ -1,1 +1,1 @@
-export const GET_FEATURED_PRODUCTS: string = 'GET_FEATURED_PRODUCTS'
+export const GET_BASE_DATA: string = 'GET_BASE_DATA'

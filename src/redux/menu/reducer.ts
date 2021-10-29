@@ -1,22 +1,19 @@
+import {AnyAction} from "redux";
 
 import { GET_ALL_PRODUCTS, ON_CHANGE, FILTER_PRODUCTS } from './type'
-import {IProduct} from "../../models/interfaces";
 
-interface IInitialState{
-  allProducts:IProduct[]
-  filteredProducts:IProduct[]
-  sort:string
-  sortCategory:string
-}
+import {IProduct} from "../../models/interfaces/";
 
-const initialState:IInitialState = {
-  allProducts: [],
-  filteredProducts: [],
+const initialState = {
+  allProducts: [] as IProduct[] ,
+  filteredProducts: [] as IProduct[],
   sort: '',
   sortCategory: 'All',
 }
 
-export const menuReducer = (state = initialState, { type, payload }:any) => {
+export type TInitialState=typeof initialState
+
+export const menuReducer = (state = initialState, { type, payload }:AnyAction):TInitialState => {
   switch (type) {
     case GET_ALL_PRODUCTS:
       return { ...state, allProducts: [...state.allProducts,...payload], filteredProducts: [...state.filteredProducts,...payload] }

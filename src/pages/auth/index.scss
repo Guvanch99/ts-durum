@@ -1,0 +1,61 @@
+@import 'src/styles/common.scss';
+
+.auth {
+  @include flex(center, center);
+  flex-direction: column;
+
+  &__error {
+    @include fontFamily($fontDancingScript);
+    font-size: 2em;
+    color: $lighterRedColor;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
+
+.form {
+  @include flex(space-evenly, center);
+  @include fontFamily($fontDancingScript);
+  flex-direction: column;
+  margin-top: 1rem;
+
+  &__group {
+    @include flex(center, center);
+    flex-direction: column;
+    margin: 1rem 0;
+
+    &_label {
+      font-size: 1.5em;
+    }
+
+    &_input {
+      margin: .4rem 0;
+      @include fontFamily($fontDancingScript);
+      font-size: 1.6em;
+      line-height: 1.4rem;
+      border: none;
+      border-bottom: 1px solid $lighterBlackColor;
+      outline: none;
+      width: 15rem;
+
+      &:focus {
+        border-bottom: 1px solid $mainColor;
+      }
+    }
+  }
+  &__button {
+    @include fontFamily($fontDancingScript);
+    color: $whiteColor;
+    background: $mainColor;
+    font-size: 2em;
+    padding: .2rem 2rem;
+    border: none;
+    cursor: pointer;
+
+    &:disabled {
+      color: $whiteColor;
+      background-color: $lighterRedColor;
+      cursor: auto;
+    }
+  }
+}

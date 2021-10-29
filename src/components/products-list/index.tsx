@@ -7,12 +7,12 @@ import './index.scss'
 
 
 const ProductsList:FC<{view:boolean}> = ({ view }) => {
-  //TODO
-  const allProducts = useAppSelector(state => state.menu.filteredProducts)
+
+  const {filteredProducts} = useAppSelector(state => state.menu)
 
   const ViewBar = view ? ListView : GridView
 
-  return <ViewBar products={allProducts} />
+  return <ViewBar products={filteredProducts} />
 }
 
 export default ProductsList

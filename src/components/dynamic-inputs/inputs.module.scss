@@ -1,0 +1,16 @@
+@import "src/styles/common";
+
+.inputContainer{
+ @include  flex(center,center);
+
+ .spacer{
+  font-size: 7em;
+  font-weight: lighter;
+  margin: -1rem 1rem 0 1rem;
+
+  @include  mobile{
+   font-size: 4em;
+   margin: -0.5rem 1rem 0 1rem;
+  }
+ }
+}

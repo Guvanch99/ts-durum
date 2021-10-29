@@ -1,5 +1,3 @@
-//@ts-nocheck
-
 export const randomId = (min: number, max: number) =>
     Math.floor(Math.random() * (max - min + 1) + min)
 
@@ -12,23 +10,14 @@ export const modifiedEmail = (email: string) => {
 }
 export const generatePassword = () => Math.floor(Math.random() * 1000000 + 1)
 
-function debounce<T extends Function>(fn:T, ms:number)  {
-    let timeout:ReturnType<typeof setTimeout>
-    return function () {
-        const fnCall = () => {
-            fn.apply(this, arguments)
-        }
-        clearTimeout(timeout)
-        timeout = setTimeout(fnCall, ms)
-    }
-}
 
-export const throttle = (fn, ms) => {
+
+export const throttle = (fn:any, ms:number) => {
     let isThrottle = false
-    let savedArgs
-    let savedThis
+    let savedArgs:any
+    let savedThis:any
 
-    function wrapper() {
+    function wrapper(this: any) {
         if (isThrottle) {
             savedArgs = arguments
             savedThis = this

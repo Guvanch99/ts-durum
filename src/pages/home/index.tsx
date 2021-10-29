@@ -1,6 +1,6 @@
 import {FC, useEffect} from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchFeaturedProducts } from '../../redux/home/actionCreator'
+import {getFeaturedProducts} from '../../redux/home/actionCreator'
 
 import {
   FeaturedFood,
@@ -17,7 +17,7 @@ const Home:FC = () => {
   const { featuredProducts } = useAppSelector(state => state.home)
 
   useEffect(() => {
-    dispatch(fetchFeaturedProducts())
+    dispatch(getFeaturedProducts())
   }, [dispatch])
 
   return (

@@ -1,0 +1,35 @@
+@import 'src/styles/common.scss';
+
+.promoCode-gift {
+  @include flex(center, center);
+  flex-direction: column;
+  margin-top: 1rem;
+
+  &__container{
+    width: 100%;
+    @include flex(normal, center);
+
+    @include mobile{
+      flex-direction: column;
+    }
+
+  }
+  &__text {
+    font-size: 2em;
+  }
+
+  &__name{
+    text-align: center;
+  }
+
+  &__image {
+    justify-self: flex-end;
+    width: 16rem;
+    height: 16rem;
+  }
+
+  &__description {
+    font-size: 2em;
+  }
+}
+

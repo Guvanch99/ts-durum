@@ -1,20 +1,19 @@
+import {AnyAction} from "redux";
+
 import {GET_SINGLE_PRODUCT} from './type'
 
-import {IAction, IProduct} from "../../models/interfaces";
+import {IProduct} from "../../models/interfaces/";
 
-interface IInitialState {
-    singleProduct: null | IProduct
+const initialState = {
+    singleProduct: {} as IProduct
 }
 
-const initialState: IInitialState = {
-    singleProduct: null
-}
+export type TInitialState = typeof initialState
 
-export const singleProductReducer = (state = initialState, {type, payload}: IAction) => {
+export const singleProductReducer = (state = initialState, {type, payload}:AnyAction):TInitialState => {
     switch (type) {
         case GET_SINGLE_PRODUCT:
             return {...state, singleProduct: payload}
-
         default:
             return state
     }

@@ -1,19 +1,18 @@
+import {AnyAction} from "redux";
 
-import {GET_FEATURED_PRODUCTS} from './type'
+import {GET_BASE_DATA} from './type'
 
-import {IAction, IProduct} from "../../models/interfaces";
+import {IProduct} from "../../models/interfaces/";
 
-interface IHomeInitialState{
-    featuredProducts:IProduct[]
+const initialState = {
+    featuredProducts: [] as IProduct[]
 }
 
-const initialState: IHomeInitialState = {
-    featuredProducts: []
-}
+export type TInitialState=typeof initialState
 
-export const homeReducer = (state = initialState, {type, payload}:IAction) => {
+export const homeReducer = (state = initialState, {type, payload}:AnyAction):TInitialState => {
     switch (type) {
-        case GET_FEATURED_PRODUCTS:
+        case GET_BASE_DATA:
             return {...state, featuredProducts: payload}
         default:
             return state

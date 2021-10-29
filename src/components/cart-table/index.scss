@@ -1,0 +1,19 @@
+@import 'src/styles/common.scss';
+
+.table {
+  @include fontFamily($fontRoboto);
+  font-size: 2em;
+  text-align: center;
+  border-collapse: collapse;
+  margin: 2rem 0;
+
+  &__header {
+    background: $lighterGrayColor;
+
+    @include mobile {
+      & th:nth-child(5) {
+        display: none;
+      }
+    }
+  }
+}

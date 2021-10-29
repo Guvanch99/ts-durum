@@ -1,0 +1,44 @@
+@import 'src/styles/common.scss';
+
+.cart-content {
+  @include flex(normal, normal);
+  flex-direction: column;
+  flex: 1;
+  @include fontFamily($fontRoboto);
+
+  &__links {
+    margin: 2rem 3rem;
+    @include flex(space-between, center);
+
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+
+  &__input{
+    @include fontFamily($fontRoboto);
+    height: 2rem;
+    font-size: 2em;
+  }
+  &__bonus {
+    height: 9rem;
+    @include flex(space-around, center);
+    flex-direction: column;
+    margin: 0 2rem;
+  }
+
+  &__buttonClear {
+    @extend %button;
+    @include fontFamily($fontStyleScript);
+    background-color: $lighterBlackColor;
+    color: $whiteColor;
+    border-radius: 10%;
+
+    @include mobile {
+      margin-top: 1rem;
+    }
+  }
+
+}
+
+

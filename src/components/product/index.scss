@@ -10,9 +10,11 @@
   flex-wrap: wrap;
 
   &__image {
+    margin: 2rem;
     height: 25rem;
-    width: 20rem;
-    object-fit: contain;
+    width: 25rem;
+    border-radius: 20%;
+
   }
 
   &__info {

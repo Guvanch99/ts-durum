@@ -1,0 +1,71 @@
+@import 'src/styles/common.scss';
+
+.promoCode {
+  @include flex(center, center);
+  @include fontFamily($fontDancingScript);
+  flex-direction: column;
+  margin: 1rem 1rem;
+
+  @include netbook {
+    flex-direction: column;
+  }
+
+  &-form {
+    @include flex(center, center);
+
+    @include mobile {
+      margin-bottom: 1rem;
+      flex-direction: column;
+    }
+
+    &__label {
+      font-size: 4em;
+
+      @include netbook {
+        font-size: 3em;
+      }
+
+      @include tablet {
+        font-size: 2em;
+      }
+    }
+    &__input {
+      @include fontFamily($fontDancingScript);
+      border: none;
+      outline: none;
+      margin: 0 1rem;
+      font-size: 2em;
+      border-bottom: 1px solid $lighterGrayColor;
+
+      &:focus {
+        border-bottom: 1px solid $lighterBlackColor;
+      }
+
+      @include mobile {
+        margin: 1rem 0;
+      }
+    }
+
+    &__submit {
+      @extend %button;
+      @include fontFamily($fontDancingScript);
+      background-color: $lighterBlackColor;
+      color: $whiteColor;
+
+      @include tablet {
+          font-size: 1.8em;
+      }
+
+      &:disabled{
+        background-color: $lighterRedColor;
+        cursor: default;
+      }
+    }
+  }
+}
+
+.promo-used{
+  text-align: center;
+  font-size: 3em;
+  color: $lighterRedColor;
+}

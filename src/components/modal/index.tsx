@@ -7,11 +7,13 @@ import { ROUTER_HOME } from '../../constants/routers.constants'
 
 import './index.scss'
 
-const Modal:FC<{modalVisibility:(arg:boolean)=>void}> = ({ modalVisibility }) => {
+const Modal:FC<{modalVisibility?:(arg:boolean)=>void}> = ({ modalVisibility }) => {
   const history = useHistory()
   const { t } = useTranslation('translation')
   const closeModal = () => {
-    modalVisibility(true)
+    if (modalVisibility) {
+      modalVisibility(true)
+    }
     history.push(ROUTER_HOME)
   }
   let timeDelivery:string = moment().add(30, 'm').format('hh:mm').toString()

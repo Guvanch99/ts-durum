@@ -1,0 +1,114 @@
+@import 'src/styles/common';
+
+.twoFactorAuth {
+  @include flex(space-around, center);
+  flex-direction: column;
+  margin: 2rem;
+
+  &__error {
+    font-size: 2em;
+    color: $lighterRedColor;
+    @include fontFamily($fontDancingScript);
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  &__label {
+    @include fontFamily($fontRoboto);
+    font-size: 2.6em;
+    text-align: center;
+  }
+
+  &__icon {
+    font-size: 7em;
+    margin: 2rem 0;
+    color: $mainColor;
+
+    &:hover {
+      color: $secondaryColor;
+      transform: scale(1.05);
+    }
+  }
+
+  &__form {
+    @include flex(center, center);
+    flex-direction: column;
+  }
+
+  &__text-info {
+    @include fontFamily($fontRoboto);
+    font-size: 1.6em;
+  }
+
+  &__phone {
+    @include fontFamily($fontRoboto);
+    font-size: 1.6em;
+    letter-spacing: .4rem;
+  }
+
+  &__send-button {
+    @extend %button;
+    color: $whiteColor;
+    background-color: $mainColor;
+    border-radius: .4rem;
+    padding: .1rem 1rem .4rem 1rem;
+    margin: 1rem 0;
+
+    &:disabled {
+      color: $whiteColor;
+      background-color: $lighterRedColor;
+      cursor: auto;
+    }
+  }
+
+  &__question {
+    @include fontFamily($fontRoboto);
+    font-size: 1.6em;
+    margin-bottom: .4rem;
+  }
+
+  &__resend-button {
+    @extend %button;
+    color: $mainColor;
+    font-size: 1.6em;
+  }
+
+  &__input {
+    outline: none;
+    border: 1px solid $secondaryColor;
+    text-align: center;
+    border-radius: .4rem;
+    max-width: 3rem;
+    height: 3.4rem;
+    margin: 0 .2rem;
+    box-shadow: -1px 6px 10px 4px rgba(0,0,0,.45);
+    padding: 0.2rem;
+
+    &:focus {
+      border: 1px solid $mainColor;
+      box-shadow:0 0 0 ;
+
+    }
+
+    @include mobile{
+      max-width: 1.6rem;
+      height: 2rem;
+    }
+  }
+
+  &__inputs {
+    @include flex(normal, center);
+    margin: 0.2rem 0;
+  }
+
+  &__dash {
+    font-size: 5rem;
+    font-weight: 100;
+    margin: -1.1rem 1rem 0 1rem;
+
+  }
+
+  &__container{
+ @include flex(normal,center);
+  }
+}

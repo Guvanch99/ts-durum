@@ -1,0 +1,37 @@
+@import 'src/styles/common.scss';
+
+.items-data {
+  text-align: center;
+
+  &:nth-child(even) {
+    background: $purpleColor;
+  }
+
+  @include mobile {
+    & td:nth-child(5) {
+      display: none;
+    }
+  }
+
+  &__image {
+    width: 5rem;
+    height: 5rem;
+    margin-top: .6rem;
+  }
+
+  &__name {
+    display: block;
+  }
+
+  &__remover {
+    @extend %button;
+    font-size: 1.6em;
+    background: $lighterRedColor;
+    padding: 0 .4rem;
+    color: $whiteColor;
+
+    @include mobile {
+      font-size: 1em;
+    }
+  }
+}

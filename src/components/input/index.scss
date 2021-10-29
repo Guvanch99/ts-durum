@@ -1,0 +1,33 @@
+@import 'src/styles/common.scss';
+
+.input-container {
+  @include flex(center, center);
+  flex-direction: column;
+  margin: 1rem 0;
+
+  &__label {
+    font-size: 1.5em;
+    margin-bottom: .4rem;
+  }
+
+  &__input {
+    margin: .4rem 0;
+    @include fontFamily($fontDancingScript);
+    font-size: 1.6em;
+    line-height: 1.4rem;
+    border: none;
+    border-bottom: 1px solid $lighterBlackColor;
+    outline: none;
+    width: 15rem;
+    &:disabled {
+      background-color: $whiteColor;
+    }
+    &.error {
+      border-bottom: 1px solid $lighterRedColor;
+    }
+
+    &:focus {
+      border-bottom: 1px solid $mainColor;
+    }
+  }
+}
