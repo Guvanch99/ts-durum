@@ -2,9 +2,10 @@ import {IData} from "./models/interfaces/data";
 
 import {
     ROUTER_ABOUT,
+    ROUTER_DURUM,
     ROUTER_HOME,
     ROUTER_LOGIN,
-    ROUTER_MENU,
+    ROUTER_PIZZA,
     ROUTER_PROMOTIONS,
     ROUTER_SIGN_UP
 } from './constants/routers.constants'
@@ -26,10 +27,6 @@ export const DATA:IData = {
             keyName: 'home'
         },
         {
-            url: ROUTER_MENU,
-            keyName: 'menu'
-        },
-        {
             url: ROUTER_ABOUT,
             keyName: 'about'
         },
@@ -38,7 +35,39 @@ export const DATA:IData = {
             keyName: 'promotions'
         }
     ],
+     linksDropDown:[
+         {
+             url:ROUTER_DURUM,
+             keyName:'durum'
+         },
+         {
+             url:ROUTER_PIZZA,
+             keyName:'pizza'
+         }
+     ],
+    sidebarLinks:[
+        {
+            url: ROUTER_HOME,
+            keyName: 'home'
+        },
+        {
+            url:ROUTER_DURUM,
+            keyName:'durum'
+        },
+        {
+            url:ROUTER_PIZZA,
+            keyName:'pizza'
+        },
+        {
+            url: ROUTER_ABOUT,
+            keyName: 'about'
+        },
 
+        {
+            url: ROUTER_PROMOTIONS,
+            keyName: 'promotions'
+        }
+    ],
     menuAuthCart: [
         {
             url: ROUTER_LOGIN,

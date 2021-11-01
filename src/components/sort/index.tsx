@@ -46,9 +46,7 @@ const Sort: FC<ISort> = ({view, viewHandler}) => {
         <div className="sort">
             <div className="sort__views">
                 <button className="sort__views-button" onClick={viewHandler}>
-                    <i
-                        className={`${view ? 'fas fa-th' : 'fas fa-list'} sort__views-icon`}
-                    />
+                    <i className={`${view ? 'fas fa-th' : 'fas fa-list'} sort__views-icon`}/>
                 </button>
             </div>
             <div className="sort-buttons">
@@ -81,12 +79,12 @@ const Sort: FC<ISort> = ({view, viewHandler}) => {
                     value={sort}
                     name="sort"
                 >
-                    {sortOptions.map(({value, keyName}, index) => (
+                    {sortOptions.map(({value, keyName}, idx) => (
                         <option
                             className="sort-form__option"
-                            key={index}
+                            key={idx}
                             value={value}
-                            disabled={index === 0}
+                            disabled={idx === 0}
                         >
                             {t(`sort.sortOptions.${keyName}.name`)}
                         </option>

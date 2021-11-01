@@ -8,18 +8,18 @@ import {
     Spinner,
     PageHero,
     ArticleName
-} from '../../components'
+} from '../../../components'
 
-import {useAppSelector} from "../../hooks/useAppSelector";
+import {useAppSelector} from "../../../hooks/useAppSelector";
 
-import {getAllProducts} from '../../redux/menu/actionCreators'
+import {getAllProducts} from '../../../redux/menu/actionCreators'
 
-import {DB} from '../../core/axios'
+import {DB} from '../../../core/axios'
 
-import {throttle} from '../../utils'
-import {IProduct} from "../../models/interfaces/";
+import {throttle} from '../../../utils'
+import {IProduct} from "../../../models/interfaces";
 
-const Menu = () => {
+const Durum = () => {
     const {t} = useTranslation('translation')
     const [view, setView] = useState<boolean>(true)
     const [fetching, setFetching] = useState<boolean>(true)
@@ -59,8 +59,8 @@ const Menu = () => {
         <>
             {allProducts ? (
                 <div>
-                    <PageHero title={t('pageHero.menu')}/>
-                    <ArticleName name={t('articleNames.menu')}/>
+                    <PageHero title={t('pageHero.durum')}/>
+                    <ArticleName name={t('articleNames.durum')}/>
                     <div>
                         <Sort view={view} viewHandler={viewHandler}/>
                         <ProductsList view={view}/>
@@ -73,4 +73,4 @@ const Menu = () => {
     )
 }
 
-export default Menu
+export default Durum

@@ -53,7 +53,8 @@
   },
   "pageHero":{
     "home":"Home",
-    "menu":"Menu",
+    "durum":"Durum",
+    "pizza": "Pizza",
     "about":"About",
     "singleProduct":"Single-Product",
     "promotions":"promotions"
@@ -87,10 +88,11 @@
   "promoCodeGift":{
     "label":"Hurrey your Free Gift "
   },
-  "articleNames":{
+  "articleNames": {
     "ourValue":"Our Value",
     "whyWe":"Why we",
-    "menu":"Menu",
+    "durum":"Durum",
+    "pizza": "Pizza",
     "motto":"Our Motto",
     "loved":"Most Loved Meals",
     "contacts":"Contacts",
@@ -139,6 +141,12 @@
     },
     "promotions":{
       "name":"Promotions"
+    },
+    "durum": {
+      "name": "Durum"
+    },
+    "pizza": {
+      "name": "Pizza"
     }
   },
   "aboutPage":{
@@ -232,6 +240,15 @@
     "resend": "Resend",
     "send": "send",
     "error": "Confirmation password doesnt valid "
+  },
+  "pizzaConstructor": {
+    "pizza": "Pizza"
+  },
+  "ingredients": {
+    "meat": "Meats",
+    "vegetables": "Vegetables",
+    "sausage": "Sausage",
+    "size": "Size"
   },
   "products":{
     "1":{

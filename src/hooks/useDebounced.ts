@@ -1,7 +1,7 @@
 import { useEffect, useState} from 'react'
 
-export const useDebounced = (value: string) => {
-    const [debouncedValue, setDebouncedValue] = useState<string>(value)
+export const useDebounced = (value: string|number) => {
+    const [debouncedValue, setDebouncedValue] = useState<string|number>(value)
     let timer: ReturnType<typeof setTimeout>
 
     useEffect(

@@ -8,14 +8,15 @@ import {Sidebar, Navbar, Footer, PrivateRoute} from '../components'
 
 import {
     Home,
-    Menu,
     About,
     SingleProduct,
     Login,
     Register,
     Cart,
     CheckOut,
-    Promotions
+    Promotions,
+    Durum,
+    Pizza
 } from '../pages'
 
 
@@ -27,13 +28,13 @@ import {useTheme} from '../hooks/useTheme'
 import {
     ROUTER_HOME,
     ROUTER_ABOUT,
-    ROUTER_MENU,
+    ROUTER_DURUM,
     ROUTER_PROMOTIONS,
     ROUTER_SINGLE_PRODUCT,
     ROUTER_CART,
     ROUTER_LOGIN,
     ROUTER_SIGN_UP,
-    ROUTER_CHECKOUT
+    ROUTER_CHECKOUT, ROUTER_PIZZA
 
 
 } from '../constants/routers.constants'
@@ -97,7 +98,8 @@ const App:FC = () => {
             <main className='main'>
                 <Switch>
                     <Route exact path={ROUTER_HOME} component={Home}/>
-                    <Route exact path={ROUTER_MENU} component={Menu}/>
+                    <Route exact path={ROUTER_DURUM} component={Durum}/>
+                    <Route exact path={ROUTER_PIZZA} component={Pizza}/>
                     <Route path={ROUTER_SINGLE_PRODUCT} children={<SingleProduct/>}/>
                     <Route exact path={ROUTER_ABOUT} component={About}/>
                     <Route exact path={ROUTER_CART} component={Cart}/>

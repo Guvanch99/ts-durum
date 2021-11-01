@@ -39,6 +39,7 @@ import {
     ROUTER_SIGN_UP
 } from '../../constants/routers.constants'
 
+
 emailjs.init('user_wFdsX3tQvzTML78kqhCfD')
 
 export const signUp = (payload: Partial<IUserFullInfo>): ISetUser => ({
@@ -87,7 +88,6 @@ export const createUser = (user: Pick<IUserFullInfo, "id" | "userName" | "email"
     const {data} = await DB.post<IUserFullInfo>('/users', {...user, restrictedPromoCodes, bonus: 0})
     dispatch(signUp(data))
     dispatch(updateRestrictedPromoCodes(data.restrictedPromoCodes))
-    console.log("stateCreate", location)
     location.state !== null && location.state === ROUTER_LOGIN
         ? history.push(ROUTER_HOME)
         : history.goBack()
@@ -95,7 +95,7 @@ export const createUser = (user: Pick<IUserFullInfo, "id" | "userName" | "email"
 
 }
 
-export const loginUser = (userName: string, password: string, location: any, history: any):
+export const loginUser = (userName:string, password:string, location:any, history:any):
     ThunkPromise => async (
     dispatch,
     getState
@@ -103,7 +103,6 @@ export const loginUser = (userName: string, password: string, location: any, his
     const {data: users} = await DB.get<IUserFullInfo[]>(
         `/users?userName=${userName}&password=${password}`
     )
-    console.log("usersLoginuser", users)
     if (users.length > 0) {
         const {
             cart: {gift, restrictedPromoCodes: promoCodes}

@@ -54,3 +54,49 @@
     border: none;
   }
 }
+
+.dropdown {
+  @include fontFamily($fontDancingScript);
+  @include flex(center, center);
+  flex-direction: column;
+  position: relative;
+  height: 10rem;
+
+  &__activator {
+    @include fontFamily($fontDancingScript);
+    background: transparent;
+    border: none;
+    padding-left: 1rem;
+    text-transform: capitalize;
+    font-size: 2em;
+    cursor: pointer;
+
+    &:hover {
+      border-bottom: 1px solid #ab7a5f;
+    }
+
+    &-container {
+      @include flex(center, center);
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    border-radius: 10%;
+    padding: .6rem .4rem;
+    background: $lighterGrayColor;
+
+    &_link {
+      color: $secondaryColor;
+      font-size: 1.8em;
+    }
+  }
+
+  &__icon {
+    margin-left: .5em;
+    font-size: .6em;
+    margin-top: .2rem;
+  }
+}

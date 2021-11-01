@@ -37,7 +37,6 @@ const Login:FC<RouteComponentProps > = () => {
 
     const {isModalPromoError, userNotFound} = useAppSelector(state => state.auth)
     let {userName, password} = userLogin
-console.log("stateLogin",state)
     const isButtonDisabled =
         !userName || !password || errors.userName || errors.password
 

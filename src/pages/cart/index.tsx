@@ -4,10 +4,9 @@ import { CartContent, PageLink } from '../../components'
 
 import {useAppSelector} from "../../hooks/useAppSelector";
 
-import { ROUTER_MENU } from '../../constants/routers.constants'
+import {ROUTER_DURUM} from '../../constants/routers.constants'
 
 import './index.scss'
-
 
 const Cart = () => {
   const { cart } = useAppSelector(state => state.cart)
@@ -16,7 +15,7 @@ const Cart = () => {
   return (
     <div className="cart">
       {cart.length <= 0 ? (
-        <PageLink direction={ROUTER_MENU} name={t('pageLink.addBasket')} />
+        <PageLink direction={ROUTER_DURUM} name={t('pageLink.addBasket')} />
       ) : (
         <CartContent />
       )}

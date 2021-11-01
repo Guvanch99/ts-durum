@@ -1,3 +1,5 @@
+import {RouteProps} from "react-router-dom";
+
 import {
     GET_GENERATED_PASSWORD,
     LOGIN_USER,

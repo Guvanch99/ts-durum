@@ -30,9 +30,10 @@ interface IPromoCode {
     productsEnd: number
 }
 
-
 export interface IData {
     links: ILinks[]
+    linksDropDown:ILinks[]
+    sidebarLinks:ILinks[]
     menuAuthCart: IMenuAuthCart[]
     sortOptions: ISortOptions[]
     images: IImages[]

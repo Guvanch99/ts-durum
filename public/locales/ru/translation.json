@@ -54,7 +54,8 @@
   },
   "pageHero":{
     "home":"Главная",
-    "menu":"Меню",
+    "durum":"Дурум",
+    "pizza": "Пицца",
     "about":"О Нас",
     "promotions":"Акции",
     "singleProduct":"Продукт"
@@ -91,7 +92,8 @@
   "articleNames":{
     "ourValue":"Наши ценности",
     "whyWe":"Почему мы",
-    "menu":"Меню",
+    "durum":"Дурум",
+    "pizza": "Пицца",
     "motto":"Наш девиз",
     "loved":"Самые любимые блюда",
     "contacts":"Контакты",
@@ -111,6 +113,12 @@
     },
     "promotions":{
       "name":"Акции"
+    },
+    "durum": {
+      "name": "Дурум"
+    },
+    "pizza": {
+      "name": "Пицца"
     }
   },
   "menuAuthCart":{
@@ -167,6 +175,15 @@
         "name":"С Суббота по воскресенье..........10:00-24:00"
       }
     }
+  },
+  "pizzaConstructor": {
+    "pizza": "Pizza"
+  },
+  "ingredients": {
+    "meat": "Мясо",
+    "vegetables": "Овощи",
+    "sausage": "Соусы",
+    "size": "Размеры"
   },
   "products":{
     "1":{

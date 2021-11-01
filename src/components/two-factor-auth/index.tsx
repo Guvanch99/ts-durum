@@ -37,7 +37,6 @@ const TwoFactorAuth: FC<ITwoFactorAuth> = ({userCredentials}) => {
         state => state.auth
     )
     let inputRefElement = [] as HTMLInputElement[]
-    console.log("TwoFactor", location.state)
     const handleChange = ({target: {name, value, maxLength}}: ChangeEvent<HTMLInputElement>, idx: number) => {
         const isInteger: boolean = Number.isSafeInteger(Number.parseInt(value))
 

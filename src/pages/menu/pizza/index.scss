@@ -1,0 +1,7 @@
+@import 'src/styles/common.scss';
+
+.pizza{
+
+  height: 100vh;
+  @include flex(space-around, center);;
+}

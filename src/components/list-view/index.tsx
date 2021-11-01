@@ -5,7 +5,7 @@ import { PageLink } from '..'
 
 import {IProduct} from "../../models/interfaces";
 
-import { ROUTER_MENU } from '../../constants/routers.constants'
+import {ROUTER_DURUM} from '../../constants/routers.constants'
 
 import './index.scss'
 
@@ -27,7 +27,7 @@ const ListView:FC<{products:IProduct[]}> = ({ products }) => {
             <p className="food__description">{t(description)}</p>
             <PageLink
               name={t('pageLink.cart')}
-              direction={`${ROUTER_MENU}/${id}`}
+              direction={`${ROUTER_DURUM}/${id}`}
             />
           </div>
         </div>

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import {IProduct} from "../../models/interfaces";
 
-import { ROUTER_MENU } from '../../constants/routers.constants'
+import { ROUTER_DURUM } from '../../constants/routers.constants'
 
 import './index.scss'
 
@@ -25,7 +25,7 @@ const GridView:FC<{products:IProduct[]}> = ({ products }) => {
               {t('productPriceCurrency')}
             </h3>
           </div>
-          <NavLink className="product__buy_link" to={`${ROUTER_MENU}/${id}`}>
+          <NavLink className="product__buy_link" to={`${ROUTER_DURUM}/${id}`}>
             <i className="fas fa-shopping-bag product__buy_icon" />
           </NavLink>
         </div>

@@ -10,7 +10,7 @@ import {useAppSelector} from "../../hooks/useAppSelector";
 
 import { useDebounced } from '../../hooks/useDebounced'
 
-import { ROUTER_MENU } from '../../constants/routers.constants'
+import { ROUTER_DURUM } from '../../constants/routers.constants'
 
 import './index.scss'
 
@@ -18,13 +18,12 @@ const CartContent:FC = () => {
   const dispatch = useDispatch()
   const { t } = useTranslation('translation')
   const { cart: { gift }, auth: { user } } = useAppSelector(state => state)
-  const [bonusCount, setBonusCount] = useState('')
-  const bonus = useDebounced(bonusCount)
+  const [bonusCount, setBonusCount] = useState<string|number>('')
+  const bonus:string|number = useDebounced(bonusCount)
 
   const handleChange = ({ target: { value } }:ChangeEvent<HTMLInputElement>) => {
-    if (!isNaN(Number(value))) {
+    if (!isNaN(Number(value)))
       setBonusCount(value)
-    }
   }
 
   const clearCartHandler = () => dispatch(clearCart())
@@ -37,7 +36,7 @@ const CartContent:FC = () => {
 
       <div className='cart-content__links'>
         <PageLink
-          direction={ROUTER_MENU}
+          direction={ROUTER_DURUM}
           name={t('pageLink.continueShopping')}
         />
         {user ? (
@@ -49,8 +48,7 @@ const CartContent:FC = () => {
         ) : null}
         <button
           onClick={clearCartHandler}
-          className='cart-content__buttonClear'
-        >
+          className='cart-content__buttonClear'>
           {t('clear')}
         </button>
       </div>

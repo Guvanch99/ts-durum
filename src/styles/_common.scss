@@ -94,6 +94,9 @@ input[type="number"] {
   select {
     background: $darkGreen;
   }
+  .dropdown__menu_link{
+    color: $secondaryColor;
+  }
 }
 
 .is-sidebar {
