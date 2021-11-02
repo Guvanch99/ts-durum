@@ -1,1 +1,39 @@
 @import 'src/styles/common.scss';
+
+%image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.virtual-pizza {
+  &__container {
+    @include flex(space-around, center);
+    flex-direction: column;
+  }
+}
+
+.images {
+  margin: 1rem;
+  width: 30rem;
+  height: 30rem;
+  position: relative;
+}
+
+.image {
+  @extend %image;
+  visibility: hidden;
+
+  &-pizza {
+    @extend %image;
+  }
+}
+
+.pepperoni {
+  width: 28rem;
+  height: 26rem;
+}
+
+.visible{
+  visibility: visible;
+}

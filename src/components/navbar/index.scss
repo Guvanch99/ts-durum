@@ -62,6 +62,10 @@
   position: relative;
   height: 10rem;
 
+  &-group{
+    @include flex(center, center);
+  }
+
   &__activator {
     @include fontFamily($fontDancingScript);
     background: transparent;

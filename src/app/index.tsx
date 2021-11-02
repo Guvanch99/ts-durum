@@ -55,7 +55,7 @@ const App:FC = () => {
     const {i18n} = useTranslation('translation')
     const {cart} = useAppSelector(state => state.cart)
 
-    const [isSidebarVisible, setSidebarVisibility] = useState(true)
+    const [isSidebarVisible, setSidebarVisibility] = useState<boolean>(true)
 
     const sidebarVisibilityToggle = useCallback(
         () => setSidebarVisibility(prevState => !prevState),
@@ -70,10 +70,13 @@ const App:FC = () => {
     )
 
     document.body.style.background = themeDark ? DARK_GREEN_COLOR : WHITE_COLOR
-
+console.log("isSidebarVisible",isSidebarVisible)
     useEffect(() => {
-        if (isSidebarVisible)
+        if (isSidebarVisible){
+            document.body.style.overflow = 'visible'
             document.body.style.overflowX = OVERFLOW_X_HIDDEN
+        }
+
         else
             document.body.style.overflow = OVERFLOW_HIDDEN
         window.scrollTo(0, 0)

@@ -32,8 +32,8 @@ const Navbar: FC<IBar> = ({sidebarVisibilityToggle, changeLanguageHandler}) => {
                 {navLogo}
                 <ul className="navbar__menu">
                     {links.map(({url, keyName}, idx) => (
-                        <>
-                            <li>
+                        <div className='dropdown-group' key={keyName}>
+                            <li >
                                 {
                                     idx === 1 ? (
                                         <div className='dropdown'>
@@ -66,7 +66,7 @@ const Navbar: FC<IBar> = ({sidebarVisibilityToggle, changeLanguageHandler}) => {
                                     {t(`links.${keyName}.name`)}
                                 </NavLink>
                             </li>
-                        </>
+                        </div>
                     ))}
                 </ul>
             </div>

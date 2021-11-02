@@ -1,5 +1,5 @@
-export const OVERFLOW_HIDDEN:string = 'overflow:hidden'
-export const OVERFLOW_X_HIDDEN:string = 'overflow-x:hidden'
+export const OVERFLOW_HIDDEN:string = 'hidden'
+export const OVERFLOW_X_HIDDEN:string = 'hidden'
 export const HALYAVA_PROMO_CODE:string = 'HALYAVA'
 export const BEVERAGE_PROMO_CODE:string = 'BEVERAGE'
 export const DONER_PROMO_CODE:string = 'DONER'

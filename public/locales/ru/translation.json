@@ -177,13 +177,27 @@
     }
   },
   "pizzaConstructor": {
-    "pizza": "Pizza"
+    "pizza": "Пицца",
+    "pizzaBuilder": "Пицца Конструктор"
   },
-  "ingredients": {
-    "meat": "Мясо",
-    "vegetables": "Овощи",
-    "sausage": "Соусы",
-    "size": "Размеры"
+  "ingredientsMenu": {
+    "chicken": "курица",
+    "bacon": "бекон",
+    "lamb": "баранина",
+    "pepperoni": "пепперони",
+    "tomato": "помидор",
+    "pickles": "пикули",
+    "mushroom": "грипки",
+    "cheese": "сыр",
+    "olives": "оливки",
+    "onions": "лук",
+    "basil": "базилик"
+  },
+  "size": {
+    "small": "маленький",
+    "medium": "средний",
+    "big": "большой",
+    "label": "Размер"
   },
   "products":{
     "1":{
