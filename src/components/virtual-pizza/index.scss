@@ -6,13 +6,6 @@
   height: 100%;
 }
 
-.virtual-pizza {
-  &__container {
-    @include flex(space-around, center);
-    flex-direction: column;
-  }
-}
-
 .images {
   margin: 1rem;
   width: 30rem;
@@ -34,6 +27,6 @@
   height: 26rem;
 }
 
-.visible{
+.visible {
   visibility: visible;
 }

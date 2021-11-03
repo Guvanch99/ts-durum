@@ -1,10 +1,10 @@
 @import 'src/styles/common.scss';
 
 .section {
-  min-height: 8rem;
-  @include flex(center, center);
-  background: $mainColor;
   @include fontFamily($fontRoboto);
+  @include flex(center, center);
+  min-height: 8rem;
+  background: $mainColor;
 
   &__text {
     font-size: 2em;

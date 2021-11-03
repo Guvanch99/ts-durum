@@ -1,29 +1,33 @@
 import {AnyAction} from "redux";
 
-import { GET_ALL_PRODUCTS, ON_CHANGE, FILTER_PRODUCTS } from './type'
+import {GET_ALL_PRODUCTS, ON_CHANGE, FILTER_PRODUCTS} from './type'
 
 import {IProduct} from "../../models/interfaces/";
 
 const initialState = {
-  allProducts: [] as IProduct[] ,
+  allProducts: [] as IProduct[],
   filteredProducts: [] as IProduct[],
   sort: '',
   sortCategory: 'All',
 }
 
-export type TInitialState=typeof initialState
+export type TInitialState = typeof initialState
 
-export const menuReducer = (state = initialState, { type, payload }:AnyAction):TInitialState => {
+export const menuReducer = (state = initialState, {type, payload}: AnyAction): TInitialState => {
   switch (type) {
     case GET_ALL_PRODUCTS:
-      return { ...state, allProducts: [...state.allProducts,...payload], filteredProducts: [...state.filteredProducts,...payload] }
+      return {
+        ...state,
+        allProducts: [...state.allProducts, ...payload],
+        filteredProducts: [...state.filteredProducts, ...payload]
+      }
 
     case ON_CHANGE:
-      const { name, value } = payload
-      return { ...state, [name]: value }
+      const {name, value} = payload
+      return {...state, [name]: value}
 
     case FILTER_PRODUCTS:
-      const { sort, sortCategory, allProducts } = state
+      const {sort, sortCategory, allProducts} = state
       let temp = [...allProducts]
       if (sort === 'price-lowest') {
         temp = temp.sort((a, b) => a.price - b.price)
@@ -46,7 +50,7 @@ export const menuReducer = (state = initialState, { type, payload }:AnyAction):T
       if (sortCategory === 'Combo') {
         temp = temp.filter(t => t.type === 'combo')
       }
-      return { ...state, filteredProducts: temp }
+      return {...state, filteredProducts: temp}
 
     default:
       return state

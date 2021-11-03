@@ -8,6 +8,7 @@
 
   &__image {
     border-radius: 20%;
+
     @include netbook {
       width: 15rem;
       height: 15rem;

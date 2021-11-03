@@ -1,5 +1,5 @@
 import {FC} from "react";
-import { useTranslation } from 'react-i18next'
+import {useTranslation} from 'react-i18next'
 
 import {
   PageHero,
@@ -9,19 +9,19 @@ import {
   AboutMain
 } from '../../components'
 
-import { DATA } from '../../data'
+import {DATA} from '../../data'
 
 import './index.scss'
 
 
-const { ourValueTranslateKeys } = DATA
-const About:FC = () => {
-  const { t } = useTranslation('translation')
+const {ourValueTranslateKeys} = DATA
+const About: FC = () => {
+  const {t} = useTranslation('translation')
 
   return (
     <div className="about-container">
-      <PageHero title={t('pageHero.about')} />
-      <ArticleName name={t('articleNames.ourValue')} />
+      <PageHero title={t('pageHero.about')}/>
+      <ArticleName name={t('articleNames.ourValue')}/>
       <div className="accordion-container">
         {ourValueTranslateKeys.map(key => (
           <Accordion
@@ -31,10 +31,9 @@ const About:FC = () => {
           />
         ))}
       </div>
-
-      <ArticleName name={t('articleNames.whyWe')} />
-      <AboutMain />
-      <Contacts />
+      <ArticleName name={t('articleNames.whyWe')}/>
+      <AboutMain/>
+      <Contacts/>
     </div>
   )
 }

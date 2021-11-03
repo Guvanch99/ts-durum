@@ -6,9 +6,9 @@
   margin: 2rem;
 
   &__error {
+    @include fontFamily($fontDancingScript);
     font-size: 2em;
     color: $lighterRedColor;
-    @include fontFamily($fontDancingScript);
     text-align: center;
     margin-top: 1rem;
   }
@@ -81,16 +81,16 @@
     max-width: 3rem;
     height: 3.4rem;
     margin: 0 .2rem;
-    box-shadow: -1px 6px 10px 4px rgba(0,0,0,.45);
+    box-shadow: -1px 6px 10px 4px rgba(0, 0, 0, .45);
     padding: 0.2rem;
 
     &:focus {
       border: 1px solid $mainColor;
-      box-shadow:0 0 0 ;
+      box-shadow: 0 0 0;
 
     }
 
-    @include mobile{
+    @include mobile {
       max-width: 1.6rem;
       height: 2rem;
     }
@@ -108,7 +108,7 @@
 
   }
 
-  &__container{
- @include flex(normal,center);
+  &__container {
+    @include flex(normal, center);
   }
 }

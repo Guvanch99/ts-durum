@@ -1,4 +1,4 @@
-import {FC, memo, SyntheticEvent, useState} from 'react'
+import {FC, memo, useState} from 'react'
 import {NavLink} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 
@@ -15,69 +15,71 @@ import './index.scss'
 const {logo, links, linksDropDown} = DATA
 
 const Navbar: FC<IBar> = ({sidebarVisibilityToggle, changeLanguageHandler}) => {
-    const {t} = useTranslation('translation')
-    const [isDropDown, setIsDropDown] = useState<boolean>(false)
+  const {t} = useTranslation('translation')
+  const [isDropDown, setIsDropDown] = useState<boolean>(false)
 
-    let navLogo = (
-        <NavLink className="logo" to={ROUTER_HOME}>
-            <div>
-                <img className="navbar__logo" src={logo} alt="durum"/>
-            </div>
-        </NavLink>
-    )
+  let navLogo = (
+    <NavLink className="logo" to={ROUTER_HOME}>
+      <div>
+        <img className="navbar__logo" src={logo} alt="durum"/>
+      </div>
+    </NavLink>
+  )
 
-    return (
-        <nav className="navbar">
-            <div className="navbar__container">
-                {navLogo}
-                <ul className="navbar__menu">
-                    {links.map(({url, keyName}, idx) => (
-                        <div className='dropdown-group' key={keyName}>
-                            <li >
-                                {
-                                    idx === 1 ? (
-                                        <div className='dropdown'>
-                                            <button onClick={() => setIsDropDown(!isDropDown)}
-                                                    className='dropdown__activator'>
-                                                <div className='dropdown__activator-container'>
-                                                    {t(`links.menu.name`)}
-                                                    <i className={` dropdown__icon fas fa-chevron-${isDropDown ? 'up' : 'down'}`}/>
-                                                </div>
+  let ONE=1
 
-                                            </button>
-                                            {isDropDown ? <ul className='dropdown__menu'>
-                                                {
-                                                    linksDropDown.map(({url, keyName}, idx) => (
-                                                        <li key={idx} className='dropdown__menu_list'>
-                                                            <NavLink onClick={() => setIsDropDown(!isDropDown)}
-                                                                     className='dropdown__menu_link'
-                                                                     to={url}>{t(`links.${keyName}.name`)}
-                                                            </NavLink>
-                                                        </li>
-                                                    ))
-                                                }
-                                            </ul> : null}
-                                        </div>
-                                    ) : null
-                                }
-                            </li>
-                            <li className="navbar__menu_list" key={idx}>
-                                <NavLink className="navbar__menu_link" to={url}>
-                                    {t(`links.${keyName}.name`)}
-                                </NavLink>
-                            </li>
+  return (
+    <nav className="navbar">
+      <div className="navbar__container">
+        {navLogo}
+        <ul className="navbar__menu">
+          {links.map(({url, keyName}, idx) => (
+            <div className='dropdown-group' key={keyName}>
+              <li>
+                {
+                  idx === ONE ? (
+                    <div className='dropdown'>
+                      <button onClick={() => setIsDropDown(!isDropDown)}
+                              className='dropdown__activator'>
+                        <div className='dropdown__activator-container'>
+                          {t(`links.menu.name`)}
+                          <i className={` dropdown__icon fas fa-chevron-${isDropDown ? 'up' : 'down'}`}/>
                         </div>
-                    ))}
-                </ul>
+
+                      </button>
+                      {isDropDown ? <ul className='dropdown__menu'>
+                        {
+                          linksDropDown.map(({url, keyName}, idx) => (
+                            <li key={idx} className='dropdown__menu_list'>
+                              <NavLink onClick={() => setIsDropDown(!isDropDown)}
+                                       className='dropdown__menu_link'
+                                       to={url}>{t(`links.${keyName}.name`)}
+                              </NavLink>
+                            </li>
+                          ))
+                        }
+                      </ul> : null}
+                    </div>
+                  ) : null
+                }
+              </li>
+              <li className="navbar__menu_list" key={idx}>
+                <NavLink className="navbar__menu_link" to={url}>
+                  {t(`links.${keyName}.name`)}
+                </NavLink>
+              </li>
             </div>
-            <MenuAuthCart/>
-            <Language changeLanguageHandler={changeLanguageHandler}/>
-            <ToggleButton/>
-            <button onClick={sidebarVisibilityToggle} className="navbar__hamburger">
-                <i className="fas fa-bars"/>
-            </button>
-        </nav>
-    )
+          ))}
+        </ul>
+      </div>
+      <MenuAuthCart/>
+      <Language changeLanguageHandler={changeLanguageHandler}/>
+      <ToggleButton/>
+      <button onClick={sidebarVisibilityToggle} className="navbar__hamburger">
+        <i className="fas fa-bars"/>
+      </button>
+    </nav>
+  )
 }
 
 export default memo(Navbar)

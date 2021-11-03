@@ -1,23 +1,23 @@
-import {FC, memo } from 'react'
-import { useTranslation } from 'react-i18next'
-
-import {useAppSelector} from "../../hooks/useAppSelector";
+import {FC, memo} from 'react'
+import {useTranslation} from 'react-i18next'
 
 import ArticleName from '../article-name'
 
-import { DATA } from '../../data'
+import {useAppSelector} from "../../hooks/useAppSelector";
+
+import {DATA} from '../../data'
 
 import './index.scss'
 
-const { mostLovedFoodImage } = DATA
+const {mostLovedFoodImage} = DATA
 
-const FeaturedFood:FC = () => {
-  const { t } = useTranslation('translation')
-  const { featuredProducts } = useAppSelector(state => state.home)
+const FeaturedFood: FC = () => {
+  const {t} = useTranslation('translation')
+  const {featuredProducts} = useAppSelector(state => state.home)
 
   return (
     <>
-      <ArticleName name={t('articleNames.loved')} />
+      <ArticleName name={t('articleNames.loved')}/>
       <div className="featured-product">
         <img
           className="featured-product__main-image"
@@ -25,16 +25,16 @@ const FeaturedFood:FC = () => {
           alt="doner"
         />
         <ul className="featured-product__menu">
-          {featuredProducts.map(({ id, name, src, description, price }) => (
+          {featuredProducts.map(({id, name, src, description, price}) => (
             <li className="featured-product__list" key={id}>
-              <img className="featured-product__image" src={src} alt={name} />
+              <img className="featured-product__image" src={src} alt={name}/>
               <div className="featured-product__container">
                 <h1 className="featured-product__name">{t(name)}</h1>
                 <p className="featured-product__description">
                   {t(description).slice(0, 50)}
                 </p>
                 <p className="featured-product__price">
-                  {t('productPrice', { price })}
+                  {t('productPrice', {price})}
                   {t('productPriceCurrency')}
                 </p>
               </div>

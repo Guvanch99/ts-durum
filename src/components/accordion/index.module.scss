@@ -2,10 +2,10 @@
 
 .accordion {
   @include flex(normal, center);
+  @include fontFamily($fontDancingScript);
   flex-direction: column;
   max-width: 30rem;
   margin: 3rem auto;
-  @include fontFamily($fontDancingScript);
 
   &__title {
     @include flex(space-between, center);

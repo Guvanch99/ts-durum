@@ -1,9 +1,9 @@
 @import 'src/styles/common.scss';
 
 .featured-product {
-  margin: 1rem;
   @include flex(space-around, center);
   flex-wrap: wrap;
+  margin: 1rem;
   padding-bottom: 1rem;
 
   &__article {
@@ -39,9 +39,9 @@
   }
 
   &__list {
-    padding-left: 1rem;
     @include flex(center, center);
     flex-direction: column;
+    padding-left: 1rem;
   }
 
   &__image {
@@ -57,10 +57,10 @@
   }
 
   &__container {
-    padding-left: 1rem;
+    @include fontFamily($fontDancingScript);
     @include flex(center, center);
     flex-direction: column;
-    @include fontFamily($fontDancingScript);
+    padding-left: 1rem;
   }
 
   &__name {

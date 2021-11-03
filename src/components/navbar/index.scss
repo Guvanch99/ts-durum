@@ -62,7 +62,7 @@
   position: relative;
   height: 10rem;
 
-  &-group{
+  &-group {
     @include flex(center, center);
   }
 

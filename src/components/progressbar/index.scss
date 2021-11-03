@@ -57,7 +57,8 @@
   .completed + &__count:after {
     background-color: green;
   }
-  .completed:before{
+
+  .completed:before {
     background: green;
     color: white;
   }

@@ -1,25 +1,26 @@
 @import 'src/styles/common.scss';
 
 .cart-content {
+  @include fontFamily($fontRoboto);
   @include flex(normal, normal);
   flex-direction: column;
   flex: 1;
-  @include fontFamily($fontRoboto);
 
   &__links {
-    margin: 2rem 3rem;
     @include flex(space-between, center);
+    margin: 2rem 3rem;
 
     @include mobile {
       flex-direction: column;
     }
   }
 
-  &__input{
+  &__input {
     @include fontFamily($fontRoboto);
     height: 2rem;
     font-size: 2em;
   }
+
   &__bonus {
     height: 9rem;
     @include flex(space-around, center);

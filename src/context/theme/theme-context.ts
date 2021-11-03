@@ -1,8 +1,8 @@
 import {createContext} from 'react'
 
 interface ICreateContext {
-    themeDark: boolean
-    changeThemeDark: () => void
+  themeDark: boolean
+  changeThemeDark: () => void
 }
 
 const ThemeContext = createContext({} as ICreateContext)

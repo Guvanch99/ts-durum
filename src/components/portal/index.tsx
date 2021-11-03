@@ -1,9 +1,12 @@
-import  {FC, useEffect, useMemo} from 'react'
+import {FC, useEffect, useMemo} from 'react'
 import {createPortal} from 'react-dom'
 
-const Portal: FC<{  nameOfClass: string}> = ({children, nameOfClass}) => {
-  const el:HTMLDivElement = useMemo(() => document.createElement('div'), [])
+const Portal: FC<{ nameOfClass: string }> = ({children, nameOfClass}) => {
+
+  const el = useMemo(() => document.createElement('div'), [])
+
   el.setAttribute('class', nameOfClass)
+
   useEffect(() => {
     document.body.appendChild(el)
     return () => {

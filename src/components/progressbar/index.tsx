@@ -1,9 +1,12 @@
-import {FC,memo} from "react";
+import {FC, memo} from "react";
 import './index.scss'
 
-const Progressbar:FC<{stepCount:number,activeStep:number}> = ({ stepCount, activeStep }) => {
+const Progressbar: FC<{ stepCount: number, activeStep: number }> = ({stepCount, activeStep}) => {
   let progress = [...Array(stepCount).keys()].map(i => <li
-    className={`progressbar__count ${(i + 1 <= activeStep )? 'active' : null} ${(i + 1 < activeStep )? 'completed' : null}`  } key={i} />)
+    className={`progressbar__count
+     ${(i + 1 <= activeStep) &&'active' } 
+     ${(i + 1 < activeStep) && 'completed'}`}
+    key={i}/>)
 
   return (
     <div className='progressbar-container'>

@@ -5,7 +5,6 @@ import {useAppSelector} from "../../hooks/useAppSelector";
 
 import './index.scss'
 
-
 const ProductsList:FC<{view:boolean}> = ({ view }) => {
 
   const {filteredProducts} = useAppSelector(state => state.menu)

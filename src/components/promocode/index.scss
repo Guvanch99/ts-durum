@@ -1,8 +1,8 @@
 @import 'src/styles/common.scss';
 
 .promoCode {
-  @include flex(center, center);
   @include fontFamily($fontDancingScript);
+  @include flex(center, center);
   flex-direction: column;
   margin: 1rem 1rem;
 
@@ -29,6 +29,7 @@
         font-size: 2em;
       }
     }
+
     &__input {
       @include fontFamily($fontDancingScript);
       border: none;
@@ -53,10 +54,10 @@
       color: $whiteColor;
 
       @include tablet {
-          font-size: 1.8em;
+        font-size: 1.8em;
       }
 
-      &:disabled{
+      &:disabled {
         background-color: $lighterRedColor;
         cursor: default;
       }
@@ -64,7 +65,7 @@
   }
 }
 
-.promo-used{
+.promo-used {
   text-align: center;
   font-size: 3em;
   color: $lighterRedColor;

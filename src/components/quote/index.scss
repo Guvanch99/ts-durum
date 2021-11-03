@@ -2,6 +2,7 @@
 
 .quote {
   margin: 2rem 0 4rem 0;
+
   &__value {
     @include fontFamily($fontDancingScript);
     text-align: center;

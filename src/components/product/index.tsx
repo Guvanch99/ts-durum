@@ -22,7 +22,6 @@ const Product:FC<{singleProduct:IProduct}> = ({ singleProduct }) => {
             {price}
             {t('productPriceCurrency')}
           </h3>
-
           <p className='product__description'>
             {t('productDescription')}
             {t(description)}

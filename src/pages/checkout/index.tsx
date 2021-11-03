@@ -1,11 +1,12 @@
 import {FC} from "react";
-import { OrderForm } from '../../components'
+
+import {OrderForm} from '../../components'
 
 import './index.scss'
 
-const CheckOut:FC = () => (
+const CheckOut: FC = () => (
   <div className="container">
-    <OrderForm />
+    <OrderForm/>
   </div>
 )
 

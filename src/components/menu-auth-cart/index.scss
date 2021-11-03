@@ -57,13 +57,13 @@
   }
 }
 
-.bonus{
+.bonus {
   @include fontFamily($fontDancingScript);
   font-size: 2em;
   font-weight: lighter;
   margin-left: 1rem;
 
-  &__count{
+  &__count {
     @include fontFamily($fontRoboto);
     margin-left: .4rem;
   }

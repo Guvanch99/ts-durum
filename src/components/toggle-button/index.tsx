@@ -1,10 +1,11 @@
 import {FC, memo} from 'react'
-import { useTheme } from '../../hooks/useTheme'
+
+import {useTheme} from '../../hooks/useTheme'
 
 import './index.scss'
 
-const ToggleButton:FC = () => {
-  const { themeDark, changeThemeDark } = useTheme()
+const ToggleButton: FC = () => {
+  const {themeDark, changeThemeDark} = useTheme()
 
   return (
     <div className="toggle">
@@ -16,7 +17,7 @@ const ToggleButton:FC = () => {
         id="toggle"
       />
       <label className="toggle__background" htmlFor="toggle">
-        <span className="toggle__circle" />
+        <span className="toggle__circle"/>
       </label>
     </div>
   )

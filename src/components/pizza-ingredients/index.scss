@@ -1,7 +1,7 @@
 @import 'src/styles/common.scss';
 
 .ingredients {
-  height: 90%;
+  height: 100%;
   max-width: 20rem;
 
   @include flex(flex-start, center);
@@ -43,7 +43,8 @@
 .group {
   @include flex(space-around, center);
   flex-wrap: wrap;
-  &-input{
+
+  &-input {
     @include flex(space-around, center);
   }
 }

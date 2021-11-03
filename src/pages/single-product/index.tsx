@@ -12,27 +12,27 @@ import {useAppSelector} from "../../hooks/useAppSelector";
 import './index.scss'
 
 const SingleProduct: FC = () => {
-    const {t} = useTranslation('translation')
-    const dispatch = useDispatch()
-    const {singleProduct} = useAppSelector(state => state.singleProduct)
-    const {id} = useParams<{ id: string }>()
+  const {t} = useTranslation('translation')
+  const dispatch = useDispatch()
+  const {singleProduct} = useAppSelector(state => state.singleProduct)
+  const {id} = useParams<{ id: string }>()
 
-    useEffect(() => {
-        dispatch(fetchSingleProduct(id))
-    }, [dispatch, id])
+  useEffect(() => {
+    dispatch(fetchSingleProduct(id))
+  }, [dispatch, id])
 
-    return (
-        <>
-            {singleProduct ? (
-                <div className='single-product'>
-                    <PageHero menu={true} title={t('pageHero.singleProduct')}/>
-                    <Product singleProduct={singleProduct}/>
-                </div>
-            ) : (
-                <Spinner/>
-            )}
-        </>
-    )
+  return (
+    <>
+      {singleProduct ? (
+        <div className='single-product'>
+          <PageHero menu={true} title={t('pageHero.singleProduct')}/>
+          <Product singleProduct={singleProduct}/>
+        </div>
+      ) : (
+        <Spinner/>
+      )}
+    </>
+  )
 }
 
 export default SingleProduct

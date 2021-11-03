@@ -1,50 +1,50 @@
 interface ILinks {
-    url: string
-    keyName: string
+  url: string
+  keyName: string
 }
 
 interface IMenuAuthCart {
-    url: string
-    keyName: string
-    iconName: string
+  url: string
+  keyName: string
+  iconName: string
 }
 
 interface ISortOptions {
-    value: string
-    keyName: string
+  value: string
+  keyName: string
 }
 
 interface IImages {
-    url: string
-    text: string
+  url: string
+  text: string
 }
 
 export interface IContactsKey {
-    icon: string
-    text: string
+  icon: string
+  text: string
 }
 
 interface IPromoCode {
-    promoCode: string,
-    productsBegin: number,
-    productsEnd: number
+  promoCode: string,
+  productsBegin: number,
+  productsEnd: number
 }
 
 export interface IData {
-    links: ILinks[]
-    linksDropDown:ILinks[]
-    sidebarLinks:ILinks[]
-    menuAuthCart: IMenuAuthCart[]
-    sortOptions: ISortOptions[]
-    images: IImages[]
-    contactsKey: IContactsKey[][]
-    promoCodeCase: IPromoCode[]
-    buttonTranslateKeys: string[]
-    tableNameTranslateKeys: string[]
-    whyWeTranslateKeys: string[]
-    ourValueTranslateKeys: string[]
-    mottoImage: string
-    logo: string
-    mostLovedFoodImage: string
-    promoImage: string
+  links: ILinks[]
+  linksDropDown: ILinks[]
+  sidebarLinks: ILinks[]
+  menuAuthCart: IMenuAuthCart[]
+  sortOptions: ISortOptions[]
+  images: IImages[]
+  contactsKey: IContactsKey[][]
+  promoCodeCase: IPromoCode[]
+  buttonTranslateKeys: string[]
+  tableNameTranslateKeys: string[]
+  whyWeTranslateKeys: string[]
+  ourValueTranslateKeys: string[]
+  mottoImage: string
+  logo: string
+  mostLovedFoodImage: string
+  promoImage: string
 }

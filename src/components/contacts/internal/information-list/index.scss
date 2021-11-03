@@ -24,8 +24,8 @@
   }
 
   &__text {
-    margin: .4rem 0;
     @include fontFamily($fontRoboto);
+    margin: .4rem 0;
     padding-left: 1rem;
 
     @include tablet {

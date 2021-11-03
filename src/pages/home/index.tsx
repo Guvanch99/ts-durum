@@ -1,6 +1,5 @@
 import {FC, useEffect} from 'react'
-import { useDispatch } from 'react-redux'
-import {getFeaturedProducts} from '../../redux/home/actionCreator'
+import {useDispatch} from 'react-redux'
 
 import {
   FeaturedFood,
@@ -10,11 +9,13 @@ import {
   Spinner
 } from '../../components'
 
+import {getFeaturedProducts} from '../../redux/home/actionCreator'
+
 import {useAppSelector} from "../../hooks/useAppSelector";
 
-const Home:FC = () => {
+const Home: FC = () => {
   const dispatch = useDispatch()
-  const { featuredProducts } = useAppSelector(state => state.home)
+  const {featuredProducts} = useAppSelector(state => state.home)
 
   useEffect(() => {
     dispatch(getFeaturedProducts())
@@ -24,13 +25,13 @@ const Home:FC = () => {
     <>
       {featuredProducts ? (
         <>
-          <ImageSlider />
-          <Motto />
-          <FeaturedFood />
-          <Contacts />
+          <ImageSlider/>
+          <Motto/>
+          <FeaturedFood/>
+          <Contacts/>
         </>
       ) : (
-        <Spinner />
+        <Spinner/>
       )}
     </>
   )

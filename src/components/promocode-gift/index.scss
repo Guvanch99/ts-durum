@@ -5,20 +5,20 @@
   flex-direction: column;
   margin-top: 1rem;
 
-  &__container{
+  &__container {
     width: 100%;
     @include flex(normal, center);
 
-    @include mobile{
+    @include mobile {
       flex-direction: column;
     }
-
   }
+
   &__text {
     font-size: 2em;
   }
 
-  &__name{
+  &__name {
     text-align: center;
   }
 
@@ -26,6 +26,7 @@
     justify-self: flex-end;
     width: 16rem;
     height: 16rem;
+    border-radius: 20%;
   }
 
   &__description {

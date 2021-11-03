@@ -1,10 +1,10 @@
 @import 'src/styles/common.scss';
 
 .language {
-  width: 2rem;
-  margin: 0 .5rem;
   @include flex(space-between, center);
   @include fontFamily($fontDancingScript);
+  width: 2rem;
+  margin: 0 .5rem;
 
   &__icon {
     font-size: 3.2em;
@@ -16,9 +16,9 @@
   }
 
   &__select {
+    @include fontFamily($fontDancingScript);
     border: none;
     outline: none;
-    @include fontFamily($fontDancingScript);
     font-size: 2em;
     background-color: $whiteColor;
 

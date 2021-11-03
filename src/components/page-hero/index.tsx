@@ -1,13 +1,13 @@
 import {FC, memo} from 'react'
-import { NavLink } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+import {NavLink} from 'react-router-dom'
+import {useTranslation} from 'react-i18next'
 
 import {ROUTER_DURUM, ROUTER_HOME} from '../../constants/routers.constants'
 
 import './index.scss'
 
-const PageHero:FC<{title:string,menu?:boolean}> = ({ title, menu=false }) => {
-  const { t } = useTranslation('translation')
+const PageHero: FC<{ title: string, menu?: boolean }> = ({title, menu = false}) => {
+  const {t} = useTranslation('translation')
 
   return (
     <section className="section">
@@ -19,7 +19,7 @@ const PageHero:FC<{title:string,menu?:boolean}> = ({ title, menu=false }) => {
           <>
             <span className="section__sign">&gt;</span>
             <NavLink className="section__middle-page" to={ROUTER_DURUM}>
-              {t('pageHero.durum')}{' '}
+              {t('pageHero.durum')}
             </NavLink>
           </>
         ) : null}

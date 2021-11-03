@@ -2,9 +2,9 @@ import {FC, useState} from 'react'
 
 import style from './index.module.scss'
 
-const Accordion:FC<{label:string,description:string}> = ({ label, description }) => {
+const Accordion: FC<{ label: string, description: string }> = ({label, description}) => {
   const [isActive, setIsActive] = useState<boolean>(false)
-  let signs:string = isActive ? '-' : '+'
+  let signs = isActive ? '-' : '+'
 
   return (
     <div className={style.accordion}>

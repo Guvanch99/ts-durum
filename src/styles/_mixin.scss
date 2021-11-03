@@ -3,6 +3,7 @@
   justify-content: $justify;
   align-items: $align;
 }
+
 @mixin fontFamily($fontFamily) {
   font-family: $fontFamily, 'Marck Script', sans-serif;
 }
@@ -12,13 +13,15 @@
     @content;
   }
 }
+
 @mixin tablet {
-  @media screen and(max-width:48em) {
+  @media screen and(max-width: 48em) {
     @content;
   }
 }
+
 @mixin mobile {
-  @media screen and(max-width:30em) {
+  @media screen and(max-width: 30em) {
     @content;
   }
 }

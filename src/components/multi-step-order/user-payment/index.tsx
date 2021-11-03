@@ -1,16 +1,16 @@
 import {ChangeEvent, FC, SyntheticEvent} from "react";
-import { useTranslation } from 'react-i18next'
+import {useTranslation} from 'react-i18next'
 
 import '../index.scss'
 
-interface IUserPaymentProps{
-  prevStep:()=>void
-  handlePayment:(e:ChangeEvent<HTMLInputElement>)=>void
-  orderMenu:(e:SyntheticEvent)=>void
+interface IUserPaymentProps {
+  prevStep: () => void
+  handlePayment: (e: ChangeEvent<HTMLInputElement>) => void
+  orderMenu: (e: SyntheticEvent) => void
 }
 
-const UserPayment:FC<IUserPaymentProps> = ({ prevStep, handlePayment, orderMenu }) => {
-  const { t } = useTranslation('translation')
+const UserPayment: FC<IUserPaymentProps> = ({prevStep, handlePayment, orderMenu}) => {
+  const {t} = useTranslation('translation')
 
   const payment = [
     {
@@ -25,7 +25,7 @@ const UserPayment:FC<IUserPaymentProps> = ({ prevStep, handlePayment, orderMenu 
     }
   ]
 
-  const onPrevHandler = (e:SyntheticEvent) => {
+  const onPrevHandler = (e: SyntheticEvent) => {
     e.preventDefault()
     prevStep()
   }
@@ -33,7 +33,7 @@ const UserPayment:FC<IUserPaymentProps> = ({ prevStep, handlePayment, orderMenu 
   return (
     <div className='user-payment'>
       <h1 className='order-form__text'>{t('orderForm.payment')}</h1>
-      {payment.map(({ label, name, value }, index) => (
+      {payment.map(({label, name, value}, index) => (
         <div key={index} className='order-form__group'>
           <label className='order-form__label'>{t(label)}</label>
           <input

@@ -1,14 +1,14 @@
-import { memo } from 'react'
-import { useTranslation } from 'react-i18next'
+import {memo} from 'react'
+import {useTranslation} from 'react-i18next'
 
-import { DATA } from '../../data'
+import {DATA} from '../../data'
 
 import style from './index.module.scss'
 
-const { logo, whyWeTranslateKeys } = DATA
+const {logo, whyWeTranslateKeys} = DATA
 
 const AboutMain = () => {
-  const { t } = useTranslation('translation')
+  const {t} = useTranslation('translation')
 
   return (
     <div className={style.mainAbout}>

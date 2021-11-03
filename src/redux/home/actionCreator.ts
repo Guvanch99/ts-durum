@@ -8,13 +8,13 @@ import {ThunkVoid} from "../../models/types/thunk";
 
 
 interface ISetFeaturedProducts {
-    type: typeof GET_BASE_DATA
-    payload: { data: IProduct[] }
+  type: typeof GET_BASE_DATA
+  payload: { data: IProduct[] }
 }
 
 export const setFeaturedProducts = (payload: { data: IProduct[] }): ISetFeaturedProducts => ({
-    type: GET_BASE_DATA,
-    payload
+  type: GET_BASE_DATA,
+  payload
 })
-export const getFeaturedProducts = ():ThunkVoid=> (dispatch) =>
-    DB.get<{ data: IProduct[] }>('/featured-products').then(({data}) => dispatch(setFeaturedProducts(data)))
+export const getFeaturedProducts = (): ThunkVoid => (dispatch) =>
+  DB.get<{ data: IProduct[] }>('/featured-products').then(({data}) => dispatch(setFeaturedProducts(data)))
