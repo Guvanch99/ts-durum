@@ -29,17 +29,17 @@ const Payment: FC<{ bonus: number | string }> = ({bonus}) => {
   }
 
   return (
-    <div className='payment'>
+    <section className='payment'>
       <h2 className='payment__subtotal'>
         {t('payment.subTotal', {totalAmount})}
       </h2>
       <p className='payment__shipping'> {t('payment.shipping')}</p>
       <hr/>
-      <div className='bonus'>
+      <hgroup className='bonus'>
         <h2 className='bonus__text'>{t('bonusText')}</h2>
         <hr className='bonus__dash'/>
         <h2 className='bonus__count'>{bonus}</h2>
-      </div>
+      </hgroup>
       <h1 className='payment__total'> {t('payment.orderTotal', {total: totalCopy})}</h1>
       {
         user ? (
@@ -53,7 +53,7 @@ const Payment: FC<{ bonus: number | string }> = ({bonus}) => {
           </h1>
         ) : null
       }
-      <div className='payment__checkout'>
+      <article className='payment__checkout'>
         {user ? (
           <PageLink
             eventHandler={countTotalAmount}
@@ -63,8 +63,8 @@ const Payment: FC<{ bonus: number | string }> = ({bonus}) => {
         ) : (
           <PageLink name={t('pageLink.signUp')} direction={ROUTER_SIGN_UP}/>
         )}
-      </div>
-    </div>
+      </article>
+    </section>
 
   )
 }

@@ -20,31 +20,31 @@ const Navbar: FC<IBar> = ({sidebarVisibilityToggle, changeLanguageHandler}) => {
 
   let navLogo = (
     <NavLink className="logo" to={ROUTER_HOME}>
-      <div>
+      <figure>
         <img className="navbar__logo" src={logo} alt="durum"/>
-      </div>
+      </figure>
     </NavLink>
   )
 
-  let ONE=1
+  let ONE = 1
 
   return (
     <nav className="navbar">
-      <div className="navbar__container">
+      <section className="navbar__container">
         {navLogo}
         <ul className="navbar__menu">
           {links.map(({url, keyName}, idx) => (
-            <div className='dropdown-group' key={keyName}>
+            <article className='dropdown-group' key={keyName}>
               <li>
                 {
                   idx === ONE ? (
-                    <div className='dropdown'>
+                    <article className='dropdown'>
                       <button onClick={() => setIsDropDown(!isDropDown)}
                               className='dropdown__activator'>
-                        <div className='dropdown__activator-container'>
+                        <span className='dropdown__activator-container'>
                           {t(`links.menu.name`)}
                           <i className={` dropdown__icon fas fa-chevron-${isDropDown ? 'up' : 'down'}`}/>
-                        </div>
+                        </span>
 
                       </button>
                       {isDropDown ? <ul className='dropdown__menu'>
@@ -59,7 +59,7 @@ const Navbar: FC<IBar> = ({sidebarVisibilityToggle, changeLanguageHandler}) => {
                           ))
                         }
                       </ul> : null}
-                    </div>
+                    </article>
                   ) : null
                 }
               </li>
@@ -68,10 +68,10 @@ const Navbar: FC<IBar> = ({sidebarVisibilityToggle, changeLanguageHandler}) => {
                   {t(`links.${keyName}.name`)}
                 </NavLink>
               </li>
-            </div>
+            </article>
           ))}
         </ul>
-      </div>
+      </section>
       <MenuAuthCart/>
       <Language changeLanguageHandler={changeLanguageHandler}/>
       <ToggleButton/>

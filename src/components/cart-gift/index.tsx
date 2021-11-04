@@ -12,8 +12,8 @@ const CartGift: FC<{ gift: IGift }> = ({gift}) => {
   return (
     <>
       <h1 className="cart__label">{t('cartGift.label')}</h1>
-      <div className="cart-gift">
-        <div className="cart-gift__container">
+      <section className="cart-gift">
+        <article className="cart-gift__container">
           <img src={src} alt={name} className="cart-gift__image"/>
           <h1 className="cart-gift__name">
             {t('cartGift.yourGift')}
@@ -24,8 +24,8 @@ const CartGift: FC<{ gift: IGift }> = ({gift}) => {
             {'  '}
             <span className="cart-gift__amount-color">{t(amount.toString())}</span>
           </h1>
-        </div>
-      </div>
+        </article>
+      </section>
     </>
   )
 }

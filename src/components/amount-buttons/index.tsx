@@ -10,7 +10,7 @@ interface IAmountButtons {
 }
 
 const AmountButtons: FC<IAmountButtons> = ({amount, increase, decrease, styleTable = false}) => (
-  <div className={styleTable ? 'amount-for-table' : 'amount'}>
+  <section className={styleTable ? 'amount-for-table' : 'amount'}>
     <button
       className={styleTable ? 'amount-for-table__sign' : 'amount__sign'}
       onClick={decrease}
@@ -28,7 +28,7 @@ const AmountButtons: FC<IAmountButtons> = ({amount, increase, decrease, styleTab
     >
       +
     </button>
-  </div>
+  </section>
 )
 
 export default memo(AmountButtons)

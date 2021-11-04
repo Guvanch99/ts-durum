@@ -11,7 +11,7 @@ import mushroom from '../../../assets/Mushroom.png'
 import olives from '../../../assets/Olive.png'
 import pickles from '../../../assets/pickles.png'
 import cheese from '../../../assets/BaseCheese.png'
-import basil from '../../../assets/Basil.png'
+import basil from '../../../assets/basil.png'
 import tomato from '../../../assets/Tomato.png'
 import onions from '../../../assets/onions.png'
 
@@ -60,7 +60,7 @@ const Pizza: FC = () => {
   return (
     <>
       <ArticleName name={t('pizzaConstructor.pizzaBuilder')}/>
-      <div className='pizza'>
+      <section className='pizza'>
         <VirtualPizza ingredients={ingredients} imageArray={imageArray}/>
         <PizzaIngredients
           ingredients={ingredients}
@@ -68,7 +68,7 @@ const Pizza: FC = () => {
           setIngredients={setIngredients}
           setPizzaSize={setPizzaSize}
         />
-      </div>
+      </section>
     </>
   )
 }

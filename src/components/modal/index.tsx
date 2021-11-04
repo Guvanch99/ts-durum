@@ -20,8 +20,8 @@ const Modal: FC<{ modalVisibility?: (arg: boolean) => void }> = ({modalVisibilit
   let timeDelivery = moment().add(30, 'm').format('hh:mm').toString()
 
   return (
-    <div className="modal-wrapper">
-      <div className="modal" onClick={closeModal}>
+    <section className="modal-wrapper">
+      <article className="modal" onClick={closeModal}>
         <h1 className="modal__label">{t('modal')}</h1>
         <i className="far fa-check-circle modal__success-icon"/>
         <h2 className="modal__time">{t('deliveryTime', {timeDelivery})}</h2>
@@ -29,9 +29,9 @@ const Modal: FC<{ modalVisibility?: (arg: boolean) => void }> = ({modalVisibilit
         <button onClick={closeModal} className="modal__button">
           {t('close')}
         </button>
-      </div>
+      </article>
       <div className="app-overlay"/>
-    </div>
+    </section>
   )
 }
 

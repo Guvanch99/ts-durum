@@ -18,7 +18,7 @@ const FeaturedFood: FC = () => {
   return (
     <>
       <ArticleName name={t('articleNames.loved')}/>
-      <div className="featured-product">
+      <section className="featured-product">
         <img
           className="featured-product__main-image"
           src={mostLovedFoodImage}
@@ -28,7 +28,7 @@ const FeaturedFood: FC = () => {
           {featuredProducts.map(({id, name, src, description, price}) => (
             <li className="featured-product__list" key={id}>
               <img className="featured-product__image" src={src} alt={name}/>
-              <div className="featured-product__container">
+              <hgroup className="featured-product__container">
                 <h1 className="featured-product__name">{t(name)}</h1>
                 <p className="featured-product__description">
                   {t(description).slice(0, 50)}
@@ -37,11 +37,11 @@ const FeaturedFood: FC = () => {
                   {t('productPrice', {price})}
                   {t('productPriceCurrency')}
                 </p>
-              </div>
+              </hgroup>
             </li>
           ))}
         </ul>
-      </div>
+      </section>
     </>
   )
 }

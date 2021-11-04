@@ -5,10 +5,10 @@ import {PromoCode, PromoDay} from '../../components'
 export class Promotions extends Component {
   render() {
     return (
-      <div className="promotions">
+      <section className="promotions">
         <PromoDay/>
         <PromoCode/>
-      </div>
+      </section>
     )
   }
 }

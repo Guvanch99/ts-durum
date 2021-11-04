@@ -14,7 +14,7 @@ interface VirtualPizzaProps {
 
 const VirtualPizza: FC<VirtualPizzaProps> = ({imageArray, ingredients}) => {
 
-  return <div className='images'>
+  return <figure className='images'>
     <img alt='basePizza' className='image-pizza' src={BasePizza}/>
     {
       Object.keys(imageArray).map((k, idx) => (
@@ -24,7 +24,7 @@ const VirtualPizza: FC<VirtualPizzaProps> = ({imageArray, ingredients}) => {
         })} src={imageArray[k]} key={idx}/>
       ))
     }
-  </div>
+  </figure>
 }
 
 export default memo(VirtualPizza)

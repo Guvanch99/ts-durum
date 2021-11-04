@@ -41,14 +41,14 @@ const AddToCart: FC<{ singleProduct: IProduct }> = ({singleProduct}) => {
   const {t} = useTranslation('translation')
 
   return (
-    <div className="add-cart">
+    <section className="add-cart">
       <AmountButtons decrease={decrease} increase={increase} amount={amount}/>
       <PageLink
         direction={ROUTER_CART}
         name={t('pageLink.toCart')}
         eventHandler={addToCartProduct}
       />
-    </div>
+    </section>
   )
 }
 

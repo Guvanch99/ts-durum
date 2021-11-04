@@ -5,9 +5,9 @@ import {OrderForm} from '../../components'
 import './index.scss'
 
 const CheckOut: FC = () => (
-  <div className="container">
+  <section className="container">
     <OrderForm/>
-  </div>
+  </section>
 )
 
 export default CheckOut

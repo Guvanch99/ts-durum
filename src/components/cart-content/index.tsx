@@ -29,31 +29,31 @@ const CartContent: FC = () => {
   const clearCartHandler = () => dispatch(clearCart())
 
   return (
-    <div className='cart-content'>
+    <section className='cart-content'>
       <CartTable/>
       <hr/>
       {gift ? <CartGift gift={gift}/> : null}
 
-      <div className='cart-content__links'>
+      <article className='cart-content__links'>
         <PageLink
           direction={ROUTER_DURUM}
           name={t('pageLink.continueShopping')}
         />
         {user ? (
-          <div className='cart-content__bonus'>
+          <article className='cart-content__bonus'>
             <h1>{t('useBonusText')}</h1>
             <input maxLength={4} max={9999} className='cart-content__input' type='num' value={bonusCount}
                    onChange={handleChange} placeholder={t('bonusPlaceholder')}/>
-          </div>
+          </article>
         ) : null}
         <button
           onClick={clearCartHandler}
           className='cart-content__buttonClear'>
           {t('clear')}
         </button>
-      </div>
+      </article>
       <Payment bonus={bonus}/>
-    </div>
+    </section>
   )
 }
 

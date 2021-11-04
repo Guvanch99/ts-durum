@@ -94,7 +94,7 @@ const Login: FC<RouteComponentProps> = () => {
   }
 
   return (
-    <div className="auth">
+    <section className="auth">
       <ArticleName name={t('articleNames.login')}/>
       {userNotFound ? (
         <h1 className="auth__error">{t('login.userNotFound')}</h1>
@@ -130,7 +130,7 @@ const Login: FC<RouteComponentProps> = () => {
           </button>
         </form>
       )}
-    </div>
+    </section>
   )
 }
 

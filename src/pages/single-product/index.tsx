@@ -24,10 +24,10 @@ const SingleProduct: FC = () => {
   return (
     <>
       {singleProduct ? (
-        <div className='single-product'>
+        <section className='single-product'>
           <PageHero menu={true} title={t('pageHero.singleProduct')}/>
           <Product singleProduct={singleProduct}/>
-        </div>
+        </section>
       ) : (
         <Spinner/>
       )}

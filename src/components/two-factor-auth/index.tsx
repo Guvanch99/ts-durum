@@ -83,7 +83,7 @@ const TwoFactorAuth: FC<ITwoFactorAuth> = ({userCredentials}) => {
   const hiddenEmail = modifiedEmail(userCredentials.email)
 
   return (
-    <div className="twoFactorAuth">
+    <section className="twoFactorAuth">
       {twoFactorAuthInvalid ? (
         <h1 className="twoFactorAuth__error">{t('twoFactorAuth.error')}</h1>
       ) : null}
@@ -94,14 +94,14 @@ const TwoFactorAuth: FC<ITwoFactorAuth> = ({userCredentials}) => {
       </h3>
       <h2 className="twoFactorAuth__phone">{hiddenEmail}</h2>
       <form className="twoFactorAuth__form" onSubmit={onSubmit}>
-        <div className="twoFactorAuth__inputs">
+        <article className="twoFactorAuth__inputs">
           <DynamicInputs
             handleChange={(e, idx) => handleChange(e, idx)}
             handleDelete={(e, idx) => handleDelete(e, idx)}
             inputRefs={inputRefElement}
             values={values}
           />
-        </div>
+        </article>
         <button disabled={!isArrayEmpty} className="twoFactorAuth__send-button">
           {t('twoFactorAuth.send')}
         </button>
@@ -110,7 +110,7 @@ const TwoFactorAuth: FC<ITwoFactorAuth> = ({userCredentials}) => {
       <button className="twoFactorAuth__resend-button">
         {t('twoFactorAuth.resend')}
       </button>
-    </div>
+    </section>
   )
 }
 

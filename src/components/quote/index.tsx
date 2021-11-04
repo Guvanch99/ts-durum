@@ -9,10 +9,10 @@ const Quote: FC<{ randomQuote: string }> = ({randomQuote}) => {
   const {t} = useTranslation('translation')
 
   return (
-    <div className="quote">
+    <section className="quote">
       <ArticleName name={t('articleNames.randomQuote')}/>
       <h2 className="quote__value">{randomQuote}</h2>
-    </div>
+    </section>
   )
 }
 

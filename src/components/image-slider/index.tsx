@@ -17,7 +17,7 @@ const ImageSlider: FC = () => {
     setCurrent(current === 0 ? imageLength - 1 : current - 1)
 
   return (
-    <div className="slider">
+    <figure className="slider">
       {images.map(
         ({url, text}, index) =>
           index === current && (
@@ -30,9 +30,9 @@ const ImageSlider: FC = () => {
             />
           )
       )}
-      <i onClick={prevImage} className="fas fa-arrow-left arrow-left arrow"/>
-      <i onClick={nextImage} className="fas fa-arrow-right arrow-right arrow"/>
-    </div>
+      <figcaption><i onClick={prevImage} className="fas fa-arrow-left arrow-left arrow"/></figcaption>
+      <figcaption><i onClick={nextImage} className="fas fa-arrow-right arrow-right arrow"/></figcaption>
+    </figure>
   )
 }
 

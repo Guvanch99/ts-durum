@@ -7,9 +7,9 @@ const Footer: FC = () => {
   const {t} = useTranslation('translation')
 
   return (
-    <div className="footer">
+    <footer className="footer">
       <h2 className="footer__text">&copy; {t('footerText')}</h2>
-    </div>
+    </footer>
   )
 }
 

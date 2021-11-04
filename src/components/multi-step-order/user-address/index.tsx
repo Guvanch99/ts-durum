@@ -101,7 +101,7 @@ const UserAddress: FC<IUserAddressProps> = ({
   }
 
   return (
-    <div className='order-container'>
+    <section className='order-container'>
       <h1 className='order-form__text'>{t('orderForm.address')}</h1>
       <form className='order-form'>
         {userAddress.map(
@@ -119,16 +119,16 @@ const UserAddress: FC<IUserAddressProps> = ({
             />
           )
         )}
-        <div className='button-container'>
+        <section className='button-container'>
           <button className='order-form__button' onClick={onPrevHandler}>
             {t('back')}
           </button>
           <button className='order-form__button' onClick={onNextHandler} disabled={!!isButtonDisabled}>
             {t('confirm')}
           </button>
-        </div>
+        </section>
       </form>
-    </div>
+    </section>
   )
 }
 

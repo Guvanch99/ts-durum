@@ -110,7 +110,7 @@ const Register = () => {
       {isTwoFactorAuth ? (
         <TwoFactorAuth userCredentials={userCredentials}/>
       ) : (
-        <div className="auth">
+        <section className="auth">
           <ArticleName name={t('articleNames.signUp')}/>
           {userExist ? (
             <h1 className="auth__error">{t('registration.registered')}</h1>
@@ -140,7 +140,7 @@ const Register = () => {
               {t('registration.button')}
             </button>
           </form>
-        </div>
+        </section>
       )}
     </>
   )

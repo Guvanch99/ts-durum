@@ -16,7 +16,7 @@ interface IDynamicInputs {
 const DynamicInputs: FC<IDynamicInputs> = ({handleChange, inputRefs, handleDelete, values}): ReactElement =>
   <>
     {values.map((input: string, idx: number) => (
-        <div className={styles.inputContainer} key={idx}>
+        <section className={styles.inputContainer} key={idx}>
           <TwoFactorAuthInput
             inputRefs={inputRefs}
             handleChange={handleChange}
@@ -24,8 +24,8 @@ const DynamicInputs: FC<IDynamicInputs> = ({handleChange, inputRefs, handleDelet
             value={input}
             handleDelete={handleDelete}
           />
-          {idx === THIRD_ELEMENT ? <div className={styles.spacer}>-</div> : null}
-        </div>
+          {idx === THIRD_ELEMENT ? <span className={styles.spacer}>-</span> : null}
+        </section>
       )
     )}
   </>

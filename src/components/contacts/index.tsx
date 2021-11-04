@@ -17,13 +17,13 @@ const Contacts: FC = () => {
   return (
     <>
       <ArticleName name={t('articleNames.contacts')}/>
-      <div className="contacts">
+      <section className="contacts">
         {contactsKey.map((keyNames, index) => (
-          <div key={index} className="contacts__card">
+          <article key={index} className="contacts__card">
             <InformationList info={keyNames}/>
-          </div>
+          </article>
         ))}
-      </div>
+      </section>
     </>
   )
 }

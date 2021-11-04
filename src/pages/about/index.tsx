@@ -19,10 +19,10 @@ const About: FC = () => {
   const {t} = useTranslation('translation')
 
   return (
-    <div className="about-container">
+    <section className="about-container">
       <PageHero title={t('pageHero.about')}/>
       <ArticleName name={t('articleNames.ourValue')}/>
-      <div className="accordion-container">
+      <article className="accordion-container">
         {ourValueTranslateKeys.map(key => (
           <Accordion
             key={key}
@@ -30,11 +30,11 @@ const About: FC = () => {
             description={t(`aboutPage.ourValue.${key}.description`)}
           />
         ))}
-      </div>
+      </article>
       <ArticleName name={t('articleNames.whyWe')}/>
       <AboutMain/>
       <Contacts/>
-    </div>
+    </section>
   )
 }
 

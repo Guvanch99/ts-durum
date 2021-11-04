@@ -7,18 +7,18 @@ const Accordion: FC<{ label: string, description: string }> = ({label, descripti
   let signs = isActive ? '-' : '+'
 
   return (
-    <div className={style.accordion}>
-      <div
+    <main className={style.accordion}>
+      <hgroup
         className={style.accordion__title}
         onClick={() => setIsActive(!isActive)}
       >
-        <div className={style.accordion__label}>{label}</div>
-        <div className={style.accordion__sign}>{signs}</div>
-      </div>
+        <h1 className={style.accordion__label}>{label}</h1>
+        <span className={style.accordion__sign}>{signs}</span>
+      </hgroup>
       {isActive ? (
         <p className={style.accordion__description}>{description}</p>
       ) : null}
-    </div>
+    </main>
   )
 }
 

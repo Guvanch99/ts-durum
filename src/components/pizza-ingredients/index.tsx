@@ -81,35 +81,35 @@ const PizzaIngredients: FC<IPizzaIngredientsProps> = ({
     history.push(ROUTER_CART)
   }
   return (
-    <div className='ingredients'>
+    <section className='ingredients'>
       <h1 className='pizza-price'>
         {t('productPrice', {price})}
         {t('productPriceCurrency')}</h1>
-      <div className='ingredients-menu'>
-        <div className='group'>
+      <aside className='ingredients-menu'>
+        <article className='group'>
           {Object.keys(ingredients).map((key) => (
-            <div key={key} className='group-input'>
+            <article key={key} className='group-input'>
               <input onChange={handleChangeIngredients} type="checkbox" id={key} name={key}/>
               <label className='ingredients__input-label'
                      htmlFor={key}>{t(`ingredientsMenu.${key}`)}</label>
-            </div>
+            </article>
           ))}
-        </div>
-      </div>
-      <div className='ingredients-size'>
+        </article>
+      </aside>
+      <section className='ingredients-size'>
         <h1 className='ingredients__label'>{t('size.label')}</h1>
-        <div className='group'>
+        <aside className='group'>
           {Object.keys(pizzaSize).map((key,) => (
-            <div key={key} className='group-input'>
+            <article key={key} className='group-input'>
               <input onChange={handleChangeSize} defaultChecked={key === 'small'}
                      className='ingredients__size-radio' type='radio' value={key} name='sizes' id={key}/>
               <label className='ingredients__input-label' htmlFor={key}>{t(`size.${key}`)}</label>
-            </div>
+            </article>
           ))}
-        </div>
-      </div>
+        </aside>
+      </section>
       <button onClick={pizzaToCart} className='pizza-button'>{t('pageLink.addBasket')}</button>
-    </div>
+    </section>
   )
 }
 

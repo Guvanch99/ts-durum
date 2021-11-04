@@ -21,13 +21,13 @@ const ModalPromoError: FC = () => {
   }
 
   return (
-    <div className='modalPromo-wrapper'>
-      <div className='modalPromo' onClick={closeModal}>
+    <section className='modalPromo-wrapper'>
+      <article className='modalPromo' onClick={closeModal}>
         <h1 className='modalPromo__text'>{t('modalError')}</h1>
         <i className='fas fa-exclamation modalPromo__icon'/>
         <button onClick={closeModal} className='modalPromo__button'>{t('close')}</button>
-      </div>
-    </div>
+      </article>
+    </section>
   )
 }
 export default memo(ModalPromoError)

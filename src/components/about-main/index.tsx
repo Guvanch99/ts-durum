@@ -11,21 +11,21 @@ const AboutMain = () => {
   const {t} = useTranslation('translation')
 
   return (
-    <div className={style.mainAbout}>
+    <section className={style.mainAbout}>
       <img
         loading="lazy"
         className={style.mainAbout__image}
         src={logo}
         alt="chef"
       />
-      <div className="main-about__item">
+      <article className="main-about__item">
         {whyWeTranslateKeys.map((key) => (
           <h1 key={key} className={style.mainAbout__title}>
             {t(`aboutPage.whyWe.${key}`)}
           </h1>
         ))}
-      </div>
-    </div>
+      </article>
+    </section>
   )
 }
 

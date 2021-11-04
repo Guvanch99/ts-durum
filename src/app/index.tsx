@@ -85,7 +85,7 @@ const App: FC = () => {
 
   const Bar = isSidebarVisible ? Navbar : Sidebar
   return (
-    <div
+    <section
       className={classNames('container', {
         'is-darkGreen': themeDark,
         'is-sidebar': !isSidebarVisible
@@ -113,7 +113,7 @@ const App: FC = () => {
         </Switch>
       </main>
       <Footer/>
-    </div>
+    </section>
   )
 }
 

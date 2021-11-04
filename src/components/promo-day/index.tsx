@@ -16,9 +16,9 @@ class PromoDay extends PureComponent<WithTranslation> {
       <>
         <PageHero title={t('pageHero.promotions')}/>
         <h1 className='date'>{t('promoDay.date')}</h1>
-        <div className='promoDay'>
+        <section className='promoDay'>
           <img className='promoDay__image' src={promoImage} alt='promo'/>
-          <div className='promoDay__info'>
+          <hgroup className='promoDay__info'>
             <h2 className='promoDay__text'>{t('promoDay.label')}</h2>
             <h3 className='promoDay__time'>
               {t('promoDay.time')}{' '}
@@ -35,8 +35,8 @@ class PromoDay extends PureComponent<WithTranslation> {
               </span>
               &#128567;
             </p>
-          </div>
-        </div>
+          </hgroup>
+        </section>
       </>
     )
   }

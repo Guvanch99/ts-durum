@@ -84,7 +84,7 @@ class PromoCode extends Component<IStateProps, IState> {
             {t('promoCode.usedPromoCode', {promoCode: promoCodeCopy})}
           </h1>
         ) : null}
-        <div className='promoCode'>
+        <section className='promoCode'>
           <form className='promoCode-form' onSubmit={this.promoCodeSubmit}>
             <label className='promoCode-form__label'>
               {t('promoCode.label')}
@@ -112,7 +112,7 @@ class PromoCode extends Component<IStateProps, IState> {
             </button>
           </form>
           {gift  ? <PromoCodeGift present={gift}/> : <Spinner/>}
-        </div>
+        </section>
       </>
     )
   }

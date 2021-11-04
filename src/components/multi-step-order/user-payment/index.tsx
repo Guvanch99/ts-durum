@@ -31,7 +31,7 @@ const UserPayment: FC<IUserPaymentProps> = ({prevStep, handlePayment, orderMenu}
   }
 
   return (
-    <div className='user-payment'>
+    <section className='user-payment'>
       <h1 className='order-form__text'>{t('orderForm.payment')}</h1>
       {payment.map(({label, name, value}, index) => (
         <div key={index} className='order-form__group'>
@@ -54,7 +54,7 @@ const UserPayment: FC<IUserPaymentProps> = ({prevStep, handlePayment, orderMenu}
           {t('orderForm.orderButton')}
         </button>
       </div>
-    </div>
+    </section>
   )
 }
 

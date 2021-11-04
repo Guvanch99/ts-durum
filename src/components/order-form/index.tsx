@@ -157,10 +157,10 @@ const OrderForm: FC = () => {
   }
 
   return (
-    <div className='order-form'>
+    <section className='order-form'>
       <Progressbar stepCount={THREE} activeStep={step}/>
       {STEPPER_MAP[step]}
-    </div>
+    </section>
   )
 
 }

@@ -9,11 +9,11 @@ const Progressbar: FC<{ stepCount: number, activeStep: number }> = ({stepCount, 
     key={i}/>)
 
   return (
-    <div className='progressbar-container'>
+    <section className='progressbar-container'>
       <ul className='progressbar'>
         {progress}
       </ul>
-    </div>
+    </section>
   )
 }
 

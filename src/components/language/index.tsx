@@ -11,7 +11,7 @@ const Language: FC<ILanguage> = ({changeLanguageHandler}) => {
   const {t} = useTranslation('translation')
 
   return (
-    <div className="language">
+    <section className="language">
       <label htmlFor="language">
         <i className="fas fa-globe language__icon "/>
       </label>
@@ -27,7 +27,7 @@ const Language: FC<ILanguage> = ({changeLanguageHandler}) => {
           {t('lang.ru')}
         </option>
       </select>
-    </div>
+    </section>
   )
 }
 

@@ -60,14 +60,14 @@ const Durum = () => {
   return (
     <>
       {allProducts ? (
-        <div>
+        <section>
           <PageHero title={t('pageHero.durum')}/>
           <ArticleName name={t('articleNames.durum')}/>
-          <div>
+          <article>
             <Sort view={view} viewHandler={viewHandler}/>
             <ProductsList view={view}/>
-          </div>
-        </div>
+          </article>
+        </section>
       ) : (
         <Spinner/>
       )}

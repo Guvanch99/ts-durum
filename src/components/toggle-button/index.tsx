@@ -8,7 +8,7 @@ const ToggleButton: FC = () => {
   const {themeDark, changeThemeDark} = useTheme()
 
   return (
-    <div className="toggle">
+    <section className="toggle">
       <input
         checked={themeDark}
         onChange={changeThemeDark}
@@ -19,7 +19,7 @@ const ToggleButton: FC = () => {
       <label className="toggle__background" htmlFor="toggle">
         <span className="toggle__circle"/>
       </label>
-    </div>
+    </section>
   )
 }
 

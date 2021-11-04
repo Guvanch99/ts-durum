@@ -65,7 +65,7 @@ const UserInfo: FC<IUserInfoProps> = ({nextStep, handleChange, phoneValidation, 
   }
 
   return (
-    <div className='order-container'>
+    <section className='order-container'>
       <h1 className='order-form__text'>{t('orderForm.main')}</h1>
       <form className='order-form'>
         {
@@ -97,7 +97,7 @@ const UserInfo: FC<IUserInfoProps> = ({nextStep, handleChange, phoneValidation, 
           {t('next')}
         </button>
       </form>
-    </div>
+    </section>
   )
 }
 

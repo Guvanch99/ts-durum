@@ -20,14 +20,14 @@ const Sidebar: FC<IBar> = ({sidebarVisibilityToggle, changeLanguageHandler}) => 
 
   const sideBarLogo = (
     <NavLink to={ROUTER_HOME}>
-      <div>
+      <figure>
         <img loading="lazy" className="logo" src={logo} alt="durum"/>
-      </div>
+      </figure>
     </NavLink>
   )
 
   return (
-    <div className="sidebar">
+    <section className="sidebar">
       <ul className="sidebar__menu">
         {sideBarLogo}
         {sidebarLinks.map(({url, keyName}, idx) => (
@@ -48,7 +48,7 @@ const Sidebar: FC<IBar> = ({sidebarVisibilityToggle, changeLanguageHandler}) => 
       <button onClick={sidebarVisibilityToggle} className="sidebar__times">
         <i className="fas fa-times"/>
       </button>
-    </div>
+    </section>
   )
 }
 

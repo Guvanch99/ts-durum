@@ -5,8 +5,8 @@ import shawarma from '../../assets/shawarma.png'
 import './index.scss'
 
 const Spinner: FC = () => (
-  <div className="spinner">
+  <figure className="spinner">
     <img className="spinner_img" src={shawarma} alt="shawarma"/>
-  </div>
+  </figure>
 )
 export default memo(Spinner)

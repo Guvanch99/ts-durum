@@ -15,13 +15,13 @@ const Motto: FC = () => {
   return (
     <>
       <ArticleName name={t('articleNames.motto')}/>
-      <div className='motto'>
+      <section className='motto'>
         <img className='motto__image' src={mottoImage} alt='Motto'/>
-        <div className='motto__text'>
+        <hgroup className='motto__text'>
           <h2 className='motto__text-main'>{t('motto.mottoMain')} </h2>
           <h1 className='motto__text-secondary'>{t('motto.mottoSecondary')}</h1>
-        </div>
-      </div>
+        </hgroup>
+      </section>
     </>
   )
 }

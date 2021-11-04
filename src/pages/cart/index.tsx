@@ -13,13 +13,13 @@ const Cart = () => {
   const {t} = useTranslation('translation')
 
   return (
-    <div className="cart">
+    <section className="cart">
       {!cart.length ? (
         <PageLink direction={ROUTER_DURUM} name={t('pageLink.addBasket')}/>
       ) : (
         <CartContent/>
       )}
-    </div>
+    </section>
   )
 }
 

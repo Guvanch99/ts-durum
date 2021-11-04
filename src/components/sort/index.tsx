@@ -40,13 +40,13 @@ const Sort: FC<ISort> = ({view, viewHandler}) => {
   const {t} = useTranslation('translation')
 
   return (
-    <div className="sort">
-      <div className="sort__views">
+    <section className="sort">
+      <article className="sort__views">
         <button className="sort__views-button" onClick={viewHandler}>
           <i className={`${view ? 'fas fa-th' : 'fas fa-list'} sort__views-icon`}/>
         </button>
-      </div>
-      <div className="sort-buttons">
+      </article>
+      <aside className="sort-buttons">
         {buttonTranslateKeys.map(key => (
             <button
               onClick={updateSort}
@@ -59,7 +59,7 @@ const Sort: FC<ISort> = ({view, viewHandler}) => {
             </button>
           )
         )}
-      </div>
+      </aside>
       {filteredProducts.length ? (
         <h2 className="menu-count">
           {t('menuCount', {count: filteredProducts.length})}
@@ -87,7 +87,7 @@ const Sort: FC<ISort> = ({view, viewHandler}) => {
           ))}
         </select>
       </form>
-    </div>
+    </section>
   )
 }
 

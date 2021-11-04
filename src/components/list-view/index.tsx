@@ -13,11 +13,11 @@ const ListView: FC<{ products: IProduct[] }> = ({products}) => {
   const {t} = useTranslation('translation')
 
   return (
-    <div className="list">
+    <main className="list">
       {products.map(({id, name, src, description, price}) => (
-        <div key={id} className="list__container">
+        <section key={id} className="list__container">
           <img loading="lazy" className="list__image" src={src} alt={name}/>
-          <div className="list__info">
+          <hgroup className="list__info">
             <h1 className="food__name">{t(name)}</h1>
             <h3 className="food__price">
               {t('productPrice')}
@@ -29,10 +29,10 @@ const ListView: FC<{ products: IProduct[] }> = ({products}) => {
               name={t('pageLink.cart')}
               direction={`${ROUTER_DURUM}/${id}`}
             />
-          </div>
-        </div>
+          </hgroup>
+        </section>
       ))}
-    </div>
+    </main>
   )
 }
 

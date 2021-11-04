@@ -26,7 +26,7 @@ const Input: FC<IInput> = ({
                              handleBlur,
                              disabled
                            }) => (
-  <div className="input-container">
+  <section className="input-container">
     <label htmlFor={name} className="input-container__label">
       {label}
     </label>
@@ -45,7 +45,7 @@ const Input: FC<IInput> = ({
     />
 
     {error ? <span className="input-container__error">{error}</span> : null}
-  </div>
+  </section>
 )
 
 export default Input

@@ -15,16 +15,16 @@ class PromoCodeGift extends Component<IPromoCodeGiftProps> {
     const {name, src, description} = present
 
     return (
-      <div className="promoCode-gift">
+      <section className="promoCode-gift">
         <h1 className="promoCode-gift__text">{t('promoCodeGift.label')}</h1>
-        <div className="promoCode-gift__container">
+        <article className="promoCode-gift__container">
           <img src={src} alt="present" className="promoCode-gift__image"/>
-          <div>
+          <aside className='promoCode-gift__info'>
             <h1 className="promoCode-gift__name"> {t(name)}</h1>
             <p className="promoCode-gift__description">{t(description)}</p>
-          </div>
-        </div>
-      </div>
+          </aside>
+        </article>
+      </section>
     )
   }
 }
