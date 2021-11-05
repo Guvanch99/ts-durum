@@ -1,7 +1,7 @@
 import {FC, memo} from 'react'
 import {useHistory} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
-import moment from 'moment'
+import dayjs from 'dayjs'
 
 import {ROUTER_HOME} from '../../constants/routers.constants'
 
@@ -17,7 +17,7 @@ const Modal: FC<{ modalVisibility?: (arg: boolean) => void }> = ({modalVisibilit
     history.push(ROUTER_HOME)
   }
 
-  let timeDelivery = moment().add(30, 'm').format('hh:mm').toString()
+  let timeDelivery = dayjs().add(30,'m').format('hh:mm').toString()
 
   return (
     <section className="modal-wrapper">

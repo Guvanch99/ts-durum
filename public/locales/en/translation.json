@@ -147,6 +147,9 @@
     },
     "pizza": {
       "name": "Pizza"
+    },
+    "location": {
+      "name": "Location"
     }
   },
   "aboutPage": {
@@ -355,5 +358,6 @@
   "bonusError": "You dont have enough bonus",
   "bonusText": "Bonus",
   "next": "Next",
-  "prev": "Prev"
+  "prev": "Prev",
+  "location": "Derzhianskogo 110"
 }

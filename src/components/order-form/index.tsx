@@ -1,6 +1,6 @@
 import {ChangeEvent, FC, SyntheticEvent, useState} from 'react'
 import {useDispatch} from 'react-redux'
-import moment from 'moment'
+import dayjs from "dayjs";
 
 import {Modal, Progressbar, UserAddress, UserInfo, UserPayment} from '../'
 
@@ -114,8 +114,8 @@ const OrderForm: FC = () => {
     const newBonus = Number((totalAmount * BONUS_COEFFICIENT).toFixed(2))
 
     const userBought: IOrders = {
-      timeOrder: moment().format('YYYY MM DD hh:mm:ss'),
-      deliveryTime: moment().add(30, 'm').format('YYYY MM DD hh:mm:ss'),
+      timeOrder: dayjs().format('YYYY MM DD hh:mm:ss'),
+      deliveryTime: dayjs().add(30, 'm').format('YYYY MM DD hh:mm:ss'),
       user: updatedUser,
       cart,
       gift,

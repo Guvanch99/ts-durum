@@ -4,10 +4,13 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import {PersistGate} from 'redux-persist/es/integration/react'
 import {store, persistor} from './redux/store/store'
-
 import App from './app'
+
 import {ThemeState} from './context/'
 import './core/i18n'
+
+import 'mapbox-gl/dist/mapbox-gl.css';
+
 
 ReactDOM.render(
   <Router>

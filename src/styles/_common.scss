@@ -106,6 +106,14 @@ input[type="number"] {
   .modal {
     background: $mainColor;
   }
+
+  .map__form-button {
+    color: $secondaryColor;
+  }
+
+  .suggestions a{
+    color:$secondaryColor;
+  }
 }
 
 .is-sidebar {

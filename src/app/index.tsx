@@ -16,9 +16,9 @@ import {
   CheckOut,
   Promotions,
   Durum,
-  Pizza
+  Pizza,
+  Location
 } from '../pages'
-
 
 import {countTotal} from '../redux/cart/actionCreators'
 
@@ -34,7 +34,7 @@ import {
   ROUTER_CART,
   ROUTER_LOGIN,
   ROUTER_SIGN_UP,
-  ROUTER_CHECKOUT, ROUTER_PIZZA
+  ROUTER_CHECKOUT, ROUTER_PIZZA, ROUTER_LOCATION
 
 
 } from '../constants/routers.constants'
@@ -106,6 +106,7 @@ const App: FC = () => {
           <Route exact path={ROUTER_PROMOTIONS} component={Promotions}/>
           <Route exact path={ROUTER_LOGIN} component={Login}/>
           <Route exact path={ROUTER_SIGN_UP} component={Register}/>
+          <Route exact path={ROUTER_LOCATION} component={Location}/>
           <PrivateRoute exact path={ROUTER_CHECKOUT}>
             <CheckOut/>
           </PrivateRoute>

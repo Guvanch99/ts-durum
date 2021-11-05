@@ -3,7 +3,7 @@ import {IData} from "./models/interfaces/data";
 import {
   ROUTER_ABOUT,
   ROUTER_DURUM,
-  ROUTER_HOME,
+  ROUTER_HOME, ROUTER_LOCATION,
   ROUTER_LOGIN,
   ROUTER_PIZZA,
   ROUTER_PROMOTIONS,
@@ -33,6 +33,10 @@ export const DATA: IData = {
     {
       url: ROUTER_PROMOTIONS,
       keyName: 'promotions'
+    },
+    {
+      url:ROUTER_LOCATION,
+      keyName:'location'
     }
   ],
   linksDropDown: [
@@ -66,6 +70,10 @@ export const DATA: IData = {
     {
       url: ROUTER_PROMOTIONS,
       keyName: 'promotions'
+    },
+    {
+      url:ROUTER_LOCATION,
+      keyName:'location'
     }
   ],
   menuAuthCart: [
