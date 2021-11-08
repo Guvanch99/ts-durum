@@ -15,15 +15,17 @@ import {useAppSelector} from "../../hooks/useAppSelector";
 
 import {modifiedEmail} from '../../utils'
 
-import {IUserFullInfo} from "../../models/interfaces/redux/auth";
+import {IUser} from "../../models/interfaces/redux/auth";
 
 import {DELETE} from '../../constants/variables.constants'
 
 import './index.scss'
+import {createUserWithEmailAndPassword} from "firebase/auth";
+import {auth} from "../../core/firebase-config";
 
 
 interface ITwoFactorAuth {
-  userCredentials: Pick<IUserFullInfo, 'id' | 'userName' | 'email' | 'password'>
+  userCredentials: IUser
 }
 
 const TwoFactorAuth: FC<ITwoFactorAuth> = ({userCredentials}) => {
@@ -63,17 +65,20 @@ const TwoFactorAuth: FC<ITwoFactorAuth> = ({userCredentials}) => {
     }
   }
 
-  const onSubmit = (e: SyntheticEvent) => {
+  const onSubmit = async(e: SyntheticEvent) => {
     e.preventDefault()
-
+   const {email,password}= userCredentials
     const parseIntValue = Number.parseInt(values.join(''))
     if (generatedPassword === parseIntValue) {
-      const updatedUser = {
-        ...userCredentials,
-        password: window.btoa(userCredentials.password)
-      }
+
       dispatch(twoFactorAuthToggle())
-      dispatch(createUser(updatedUser, location, history))
+     // dispatch(createUser(userCredentials, location, history))
+      try {
+        const user = await createUserWithEmailAndPassword(auth,email,password)
+        console.log(user)
+      } catch (error: any) {
+        console.log(error.message)
+      }
     } else
       dispatch(twoFactorAuthError())
 

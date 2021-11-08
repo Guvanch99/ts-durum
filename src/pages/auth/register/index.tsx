@@ -1,6 +1,6 @@
 import {useState, useMemo, ChangeEvent, SyntheticEvent} from 'react'
 import {useDispatch} from 'react-redux'
-import {v4 as uuidv4} from 'uuid'
+import {createUserWithEmailAndPassword} from 'firebase/auth'
 import {useTranslation} from 'react-i18next'
 
 import {ArticleName, Input, TwoFactorAuth} from '../../../components'
@@ -9,23 +9,22 @@ import {twoFactorAuth} from '../../../redux/auth/actionCreator'
 
 import {useAppSelector} from "../../../hooks/useAppSelector";
 
-import {IUserFullInfo} from "../../../models/interfaces/redux/auth";
+import {auth} from "../../../core/firebase-config";
+
+import {IUser} from "../../../models/interfaces/redux/auth";
 
 import {EMAIL_VALIDATION} from '../../../constants/regexes.constants'
 
-import {FOUR, SIX} from "../../../constants/variables.constants";
+import {SIX} from "../../../constants/variables.constants";
 
 import '../index.scss'
 
 const Register = () => {
-  const [userCredentials, setUserCredentials] = useState<Pick<IUserFullInfo, 'id' | 'userName' | 'email' | 'password'>>({
-    id: uuidv4(),
-    userName: '',
+  const [userCredentials, setUserCredentials] = useState<IUser>({
     email: '',
     password: ''
   })
-  const [errors, setErrors] = useState<Pick<IUserFullInfo, 'userName' | 'email' | 'password'>>({
-    userName: '',
+  const [errors, setErrors] = useState<IUser>({
     email: '',
     password: ''
   })
@@ -33,23 +32,15 @@ const Register = () => {
   const {t} = useTranslation('translation')
   const dispatch = useDispatch()
 
-  const {userName, email, password} = userCredentials
+  const {email, password} = userCredentials
 
   const isButtonDisabled =
-    !userName ||
     !email ||
     !password ||
-    errors.userName ||
     errors.email ||
     errors.password
 
-  const userNameValidation = () => {
-    userName.length <= FOUR &&
-    setErrors({
-      ...errors,
-      userName: 'userNameError'
-    })
-  }
+
   const emailValidation = () => {
     !EMAIL_VALIDATION.test(email) &&
     setErrors({
@@ -68,14 +59,6 @@ const Register = () => {
   const CREDENTIALS_DATA = useMemo(
     () => [
       {
-        name: 'userName',
-        value: userName,
-        label: 'registration.labelUser',
-        error: errors.userName,
-        type: 'text',
-        functionError: userNameValidation
-      },
-      {
         name: 'email',
         value: email,
         label: 'registration.email',
@@ -92,7 +75,7 @@ const Register = () => {
         functionError: passwordValidation
       }
     ],
-    [userName, email, password, errors.userName, errors.email, errors.password]
+    [email, password, errors.email, errors.password]
   )
 
   const handleChange = ({target: {value, name}}: ChangeEvent<HTMLInputElement>) => {
@@ -100,7 +83,7 @@ const Register = () => {
     setUserCredentials({...userCredentials, [name]: value})
   }
 
-  const register = (e: SyntheticEvent) => {
+  const register = async (e: SyntheticEvent) => {
     e.preventDefault()
     dispatch(twoFactorAuth(userCredentials))
   }

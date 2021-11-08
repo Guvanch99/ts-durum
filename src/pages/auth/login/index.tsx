@@ -1,7 +1,8 @@
 import {useState, useMemo, SyntheticEvent, ChangeEvent, FC} from 'react'
 import {useDispatch} from 'react-redux'
-import {RouteComponentProps, useHistory, useLocation} from 'react-router-dom'
+import {RouteComponentProps, useHistory, useLocation,NavLink} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
+import {signInWithEmailAndPassword} from 'firebase/auth'
 
 import {
   ArticleName,
@@ -10,23 +11,27 @@ import {
   Portal
 } from '../../../components'
 
-import {loginUser} from '../../../redux/auth/actionCreator'
+//import {loginUser} from '../../../redux/auth/actionCreator'
 
 import {useAppSelector} from "../../../hooks/useAppSelector";
 
-import {IUserFullInfo} from "../../../models/interfaces/redux/auth";
+import {auth} from "../../../core/firebase-config";
 
-import {FOUR, SIX} from "../../../constants/variables.constants";
+import {IUser} from "../../../models/interfaces/redux/auth";
+
+import {ROUTER_PASSWORD_RESET} from "../../../constants/routers.constants";
+import {EMAIL_VALIDATION} from "../../../constants/regexes.constants";
+import {SIX} from "../../../constants/variables.constants";
 
 import '../index.scss'
 
 const Login: FC<RouteComponentProps> = () => {
-  const [userLogin, setUserLogin] = useState<Pick<IUserFullInfo, 'userName' | 'password'>>({
-    userName: '',
+  const [userLogin, setUserLogin] = useState<IUser>({
+    email: '',
     password: ''
   })
-  const [errors, setErrors] = useState<Pick<IUserFullInfo, 'userName' | 'password'>>({
-    userName: '',
+  const [errors, setErrors] = useState<IUser>({
+    email: '',
     password: ''
   })
 
@@ -36,19 +41,18 @@ const Login: FC<RouteComponentProps> = () => {
   const history = useHistory()
   const {isModalPromoError, userNotFound} = useAppSelector(state => state.auth)
 
-  let {userName, password} = userLogin
+  let {email, password} = userLogin
 
   const isButtonDisabled =
-    !userName || !password || errors.userName || errors.password
+    !email || !password || errors.email || errors.password
 
-  const userNameValidation = () => {
-    userName.length <= FOUR &&
+  const emailValidation = () => {
+    !EMAIL_VALIDATION.test(email) &&
     setErrors({
       ...errors,
-      userName: 'userNameError'
+      email: 'emailError'
     })
   }
-
   const passwordValidation = () => {
     password.length <= SIX &&
     setErrors({
@@ -61,12 +65,12 @@ const Login: FC<RouteComponentProps> = () => {
   const LOGIN_DATA = useMemo(
     () => [
       {
-        name: 'userName',
-        value: userName,
+        name: 'email',
+        value: email,
         label: 'login.labelUser',
-        error: errors.userName,
+        error: errors.email,
         type: 'text',
-        functionError: userNameValidation
+        functionError: emailValidation
       },
       {
         name: 'password',
@@ -77,7 +81,7 @@ const Login: FC<RouteComponentProps> = () => {
         functionError: passwordValidation
       }
     ],
-    [userName, password, errors.userName, errors.password]
+    [email, password, errors.email, errors.password]
   )
 
   const handleChange = ({target: {value, name}}: ChangeEvent<HTMLInputElement>) => {
@@ -85,12 +89,17 @@ const Login: FC<RouteComponentProps> = () => {
     setUserLogin({...userLogin, [name]: value})
   }
 
-  const login = (e: SyntheticEvent) => {
+  const login = async (e: SyntheticEvent) => {
     e.preventDefault()
-    const {userName, password} = userLogin
-    let hashPassword = window.btoa(password)
+    const {email, password} = userLogin
+    try {
+      const user = await signInWithEmailAndPassword(auth, email, password)
+      console.log(user)
+    } catch (e: any) {
+      console.log(e.message)
+    }
 
-    dispatch(loginUser(userName, hashPassword, state, history))
+    // dispatch(loginUser(email, hashPassword, state, history))
   }
 
   return (
@@ -120,6 +129,7 @@ const Login: FC<RouteComponentProps> = () => {
               />
             )
           )}
+          <NavLink className='form__password-reset' to={ROUTER_PASSWORD_RESET}>{t('passwordForgot')}</NavLink>
           <button
             type="submit"
             onClick={login}

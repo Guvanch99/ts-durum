@@ -1,5 +1,3 @@
-import {MAP_VALIDATION} from "../constants/regexes.constants";
-
 export const randomId = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min + 1) + min)
 

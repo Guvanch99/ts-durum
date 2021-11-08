@@ -3,12 +3,12 @@ import {FC, useRef, useEffect, useState} from "react";
 import mapboxgl from 'mapbox-gl';
 import {useTranslation} from "react-i18next";
 //@ts-ignore
-import MapboxDirections from '@mapbox/mapbox-gl-directions'
+import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
 
 import './index.scss'
 
 const Map: FC = () => {
-  mapboxgl.accessToken = 'pk.eyJ1IjoiZ3V2YW5jaDk5IiwiYSI6ImNrdm0xbzBldjliemIybnM3MG5xMjlsMTkifQ.alVPjmXM8JIac36zVsJnZQ'
+  mapboxgl.accessToken = process.env.REACT_APP_MAPBOX as string
 
   const {t} = useTranslation('translation')
 

@@ -17,6 +17,11 @@ export interface IUserFullInfo {
   bonus: number
 }
 
+export interface IUser{
+  email:string
+  password:string
+}
+
 export interface ISetUser {
   type: typeof SET_USER
   payload: Partial<IUserFullInfo>

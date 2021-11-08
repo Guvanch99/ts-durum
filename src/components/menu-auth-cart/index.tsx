@@ -2,10 +2,13 @@ import {FC, memo} from 'react'
 import {NavLink, useLocation} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import {useTranslation} from 'react-i18next'
+import {signOut} from 'firebase/auth'
 
 import {logOut} from '../../redux/auth/actionCreator'
 
 import {useAppSelector} from "../../hooks/useAppSelector";
+
+import {auth} from "../../core/firebase-config";
 
 import {DATA} from '../../data'
 
@@ -13,7 +16,6 @@ import {ROUTER_CART} from '../../constants/routers.constants'
 import {ZERO} from '../../constants/variables.constants'
 
 import './index.scss'
-
 
 const {menuAuthCart} = DATA
 
@@ -26,7 +28,10 @@ const MenuAuthCart: FC<{ sidebarVisibilityToggle?: () => void }> = ({sidebarVisi
   const location = useLocation()
   const {t} = useTranslation('translation')
 
-  const logout = () => dispatch(logOut())
+  const logout = async () => {
+    await signOut(auth)
+    dispatch(logOut())
+  }
 
   return (
     <ul className='menu'>

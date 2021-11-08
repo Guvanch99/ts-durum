@@ -1,0 +1,61 @@
+@import 'src/styles/common.scss';
+
+.password-reset {
+  @include flex(space-around, center);
+  flex-direction: column;
+  @include fontFamily($fontDancingScript);
+  margin: 2rem;
+
+  &__submit {
+    @extend %button;
+    background: $blueColor;
+    color: $whiteColor;
+    font-size: 1.6rem;
+
+    &:disabled {
+      background: $lighterRedColor;
+      cursor: auto;
+    }
+  }
+
+  &__login {
+    margin: .6rem 0;
+
+    &:hover {
+      border: none;
+      color: $blueColor;
+    }
+  }
+
+  &__email-error {
+    color: $lighterRedColor;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  &__article {
+    font-size: 1.6rem;
+  }
+
+  &__sign-up {
+    margin-left: .4rem;
+
+    &:hover {
+      border: none;
+      color: $blueColor;
+    }
+  }
+
+  .input-group {
+    @include flex(space-around, center);
+    flex-direction: column;
+    border: 1px solid $blueColor;
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 20%;
+  }
+
+  .login-group {
+    @include flex(space-around, center);
+  }
+}

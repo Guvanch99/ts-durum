@@ -28,7 +28,7 @@ import {
   ILogout,
   IModalErrorToggle, ISetUpdatedUser, ISetUser,
   ITwoFactorAuth,
-  ITwoFactorAuthError, IUserExist, IUserFullInfo,
+  ITwoFactorAuthError, IUser, IUserExist, IUserFullInfo,
   IUserNotFound
 } from "../../models/interfaces/redux/auth";
 
@@ -39,6 +39,8 @@ import {
   ROUTER_LOGIN,
   ROUTER_SIGN_UP
 } from '../../constants/routers.constants'
+import {createUserWithEmailAndPassword} from "firebase/auth";
+import {auth} from "../../core/firebase-config";
 
 
 emailjs.init('user_wFdsX3tQvzTML78kqhCfD')
@@ -77,7 +79,7 @@ export const updateUser = (payload: IUserFullInfo): ISetUpdatedUser => ({
   payload
 })
 
-export const createUser = (user: Pick<IUserFullInfo, "id" | "userName" | "email" | "password">, location: any, history: any):
+export const createUser = (user: IUser, location: any, history: any):
   ThunkPromise => async (
   dispatch,
   getState
@@ -86,17 +88,17 @@ export const createUser = (user: Pick<IUserFullInfo, "id" | "userName" | "email"
   const {
     cart: {restrictedPromoCodes}
   } = getState()
-  const {data} = await DB.post<IUserFullInfo>('/users', {...user, restrictedPromoCodes, bonus: 0})
+ // const {data} = await DB.post<IUserFullInfo>('/users', {...user, restrictedPromoCodes, bonus: 0})
 
-  dispatch(signUp(data))
-  dispatch(updateRestrictedPromoCodes(data.restrictedPromoCodes))
+  //dispatch(signUp(data))
+  //dispatch(updateRestrictedPromoCodes(data.restrictedPromoCodes))
 
   location.state && location.state === ROUTER_LOGIN
     ? history.push(ROUTER_HOME)
     : history.goBack()
 }
 
-export const loginUser = (userName: string, password: string, location: any, history: any):
+/*export const loginUser = (email: string, password: string, location: any, history: any):
   ThunkPromise => async (
   dispatch,
   getState
@@ -142,27 +144,34 @@ export const loginUser = (userName: string, password: string, location: any, his
     }
   } else
     dispatch(userNotFound())
-}
+}*/
 
-export const twoFactorAuth = (user: Pick<IUserFullInfo, 'userName' | 'email' | 'password'>): ThunkPromise => async (dispatch) => {
-  const {data: searchedUser} = await DB.get<IUserFullInfo[]>(
-    `/users?userName=${user.userName}&email=${user.email}`
-  )
-  if (searchedUser.length) {
-    dispatch(isUserExist())
-  } else {
-    const generatedPassword = generatePassword()
-    dispatch(generatedPasswordUser(generatedPassword))
-    emailjs
-      .send('service_yyol79d', 'template_zzv0x6d', {
-        user: user.userName,
-        userEmail: user.email,
-        passwordConfirm: generatedPassword
-      })
-      .then(data => console.log('data', data))
-      .catch(error => console.log('error', error))
+export const twoFactorAuth = (user: IUser): ThunkPromise => async (dispatch) => {
+ const {email,password}=user
+  try {
+    const searchedUser = await createUserWithEmailAndPassword(auth,email,password)
+    console.log("searchedUser" , searchedUser)
+    if (false) {
+      dispatch(isUserExist())
+    } else {
+      const generatedPassword = generatePassword()
+      dispatch(generatedPasswordUser(generatedPassword))
+      emailjs
+        .send(process.env.REACT_APP_EMAILJS_SERVICE_ID as string, process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string, {
+          user: "Dear User",
+          userEmail: user.email,
+          passwordConfirm: generatedPassword
+        })
+        .then(data => console.log('data', data))
+        .catch(error => console.log('error', error))
 
-    dispatch(twoFactorAuthToggle())
+      dispatch(twoFactorAuthToggle())
+    }
+  } catch (error: any) {
+    console.log(error.message)
   }
+
 }
+
+
 

@@ -362,5 +362,8 @@
   "bonusText": "Бонус",
   "next": "След",
   "prev": "Назад",
-  "location": "Держинского 110"
+  "location": "Держинского 110",
+  "accountNeed": "Вам нужен Аккаунт?",
+  "passwordReset": "Восстановление пароля",
+  "passwordForgot": "Забыли пароль ?"
 }

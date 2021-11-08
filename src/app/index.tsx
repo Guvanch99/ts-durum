@@ -1,5 +1,5 @@
 import {useState, useCallback, useEffect, ChangeEvent, FC} from 'react'
-import {Redirect, Route, Switch} from 'react-router-dom'
+import {Redirect, Route, Router, Switch} from 'react-router-dom'
 import classNames from 'classnames'
 import {useDispatch} from 'react-redux'
 import {useTranslation} from 'react-i18next'
@@ -17,7 +17,7 @@ import {
   Promotions,
   Durum,
   Pizza,
-  Location
+  Location, PasswordReset
 } from '../pages'
 
 import {countTotal} from '../redux/cart/actionCreators'
@@ -34,9 +34,10 @@ import {
   ROUTER_CART,
   ROUTER_LOGIN,
   ROUTER_SIGN_UP,
-  ROUTER_CHECKOUT, ROUTER_PIZZA, ROUTER_LOCATION
-
-
+  ROUTER_CHECKOUT,
+  ROUTER_PIZZA,
+  ROUTER_LOCATION,
+  ROUTER_PASSWORD_RESET
 } from '../constants/routers.constants'
 import {
   DARK_GREEN_COLOR,
@@ -107,6 +108,7 @@ const App: FC = () => {
           <Route exact path={ROUTER_LOGIN} component={Login}/>
           <Route exact path={ROUTER_SIGN_UP} component={Register}/>
           <Route exact path={ROUTER_LOCATION} component={Location}/>
+          <Route exact path={ROUTER_PASSWORD_RESET} component={PasswordReset}/>
           <PrivateRoute exact path={ROUTER_CHECKOUT}>
             <CheckOut/>
           </PrivateRoute>

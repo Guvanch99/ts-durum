@@ -43,6 +43,7 @@
       }
     }
   }
+
   &__button {
     @include fontFamily($fontDancingScript);
     color: $whiteColor;
@@ -56,6 +57,16 @@
       color: $whiteColor;
       background-color: $lighterRedColor;
       cursor: auto;
+    }
+  }
+
+  &__password-reset {
+    margin: .6rem;
+    align-self: flex-end;
+    color: $blueColor;
+    &:hover{
+      border: none;
+      color: $lighterRedColor;
     }
   }
 }

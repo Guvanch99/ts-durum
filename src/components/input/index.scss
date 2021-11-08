@@ -10,6 +10,9 @@
     margin-bottom: .4rem;
   }
 
+  &__error {
+    font-size: 1rem;
+  }
   &__input {
     margin: .4rem 0;
     @include fontFamily($fontDancingScript);
@@ -26,10 +29,12 @@
 
     &.error {
       border-bottom: 1px solid $lighterRedColor;
+
     }
 
     &:focus {
       border-bottom: 1px solid $mainColor;
     }
+
   }
 }

@@ -359,5 +359,8 @@
   "bonusText": "Bonus",
   "next": "Next",
   "prev": "Prev",
-  "location": "Derzhianskogo 110"
+  "location": "Derzhianskogo 110",
+  "accountNeed": "Need an Account?",
+  "passwordReset": "Password Reset",
+  "passwordForgot": "Forgot Password ?"
 }
