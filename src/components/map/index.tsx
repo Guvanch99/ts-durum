@@ -1,10 +1,9 @@
-//@ts-nocheck
+
 import {FC, useRef, useEffect, useState} from "react";
 import mapboxgl from 'mapbox-gl';
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 import {useTranslation} from "react-i18next";
-
-import {coordinatesGeocoder} from "../../utils";
+//@ts-ignore
+import MapboxDirections from '@mapbox/mapbox-gl-directions'
 
 import './index.scss'
 
@@ -25,7 +24,7 @@ const Map: FC = () => {
   const {lng, lat, zoom} = viewport
 
   useEffect(() => {
-    if (map.current) return; // initialize map only once
+    if (map.current) return;
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v11',
@@ -40,33 +39,22 @@ const Map: FC = () => {
       .addTo(map.current)
 
   });
-/*useEffect(()=>{
-  if (map.current)
-    map.current.addControl(
-      new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        localGeocoder: coordinatesGeocoder,
-        zoom: 4,
-        placeholder: 'Enter Address',
-        mapboxgl,
-        reverseGeocode: true
-      })
-    );
-},[])*/
-  useEffect(()=>{
+
+  useEffect(() => {
     const directions = new MapboxDirections({
       accessToken: mapboxgl.accessToken,
       unit: 'metric',
       profile: 'mapbox/driving',
       alternatives: false,
       geometries: 'geojson',
-      controls: { instructions: false },
+      controls: {instructions: false},
       flyTo: false
     });
-    map.current.addControl(directions, 'top-right');
-    map.current.scrollZoom.enable();
-  },[])
-
+    if (map.current){
+      map.current.addControl(directions, 'top-right');
+      map.current.scrollZoom.enable();
+    }
+  }, [])
 
   return (
     <section className='map'>
