@@ -36,3 +36,8 @@ export interface IProduct {
   price: number,
   type: string
 }
+export interface IGallery{
+  id:number,
+  src:string,
+  alt:string
+}

@@ -2,10 +2,11 @@ import {AnyAction} from "redux";
 
 import {GET_BASE_DATA} from './type'
 
-import {IProduct} from "../../models/interfaces/";
+import {IGallery, IProduct} from "../../models/interfaces/";
 
 const initialState = {
-  featuredProducts: [] as IProduct[]
+  featuredProducts: [] as IProduct[],
+  gallery: [] as IGallery[]
 }
 
 export type TInitialState = typeof initialState
@@ -13,7 +14,7 @@ export type TInitialState = typeof initialState
 export const homeReducer = (state = initialState, {type, payload}: AnyAction): TInitialState => {
   switch (type) {
     case GET_BASE_DATA:
-      return {...state, featuredProducts: payload}
+      return {...state, featuredProducts: payload[1].featuredProducts, gallery: payload[2].gallery}
     default:
       return state
   }

@@ -14,7 +14,7 @@ interface ISortOptions {
   keyName: string
 }
 
-interface IImages {
+export interface IImages {
   url: string
   text: string
 }

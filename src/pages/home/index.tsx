@@ -9,21 +9,21 @@ import {
   Spinner
 } from '../../components'
 
-import {getFeaturedProducts} from '../../redux/home/actionCreator'
+import {getBaseDataFirebase, setFeaturedProducts} from '../../redux/home/actionCreator'
 
 import {useAppSelector} from "../../hooks/useAppSelector";
 
 const Home: FC = () => {
   const dispatch = useDispatch()
-  const {featuredProducts} = useAppSelector(state => state.home)
+  const {featuredProducts, gallery} = useAppSelector(state => state.home)
 
   useEffect(() => {
-    dispatch(getFeaturedProducts())
+    getBaseDataFirebase().then(data => dispatch(setFeaturedProducts(data)))
   }, [dispatch])
 
   return (
     <>
-      {featuredProducts ? (
+      {(featuredProducts && gallery) ? (
         <>
           <ImageSlider/>
           <Motto/>

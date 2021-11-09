@@ -1,14 +1,14 @@
 import {FC, useState, memo} from 'react'
 
-import {DATA} from '../../data'
+import {useAppSelector} from "../../hooks/useAppSelector";
 
 import './index.scss'
 
-const {images} = DATA
-
 const ImageSlider: FC = () => {
   const [current, setCurrent] = useState<number>(0)
-  const imageLength: number = images.length
+  const {gallery} = useAppSelector(state => state.home)
+console.log('gallery',gallery)
+  const imageLength = 5
 
   const nextImage = () =>
     setCurrent(current === imageLength - 1 ? 0 : current + 1)
@@ -18,15 +18,15 @@ const ImageSlider: FC = () => {
 
   return (
     <figure className="slider">
-      {images.map(
-        ({url, text}, index) =>
+      {gallery.map(
+        ({id, src, alt}, index) =>
           index === current && (
             <img
               loading="lazy"
               key={index}
               className="slider__image"
-              src={url}
-              alt={text}
+              src={src}
+              alt={alt}
             />
           )
       )}

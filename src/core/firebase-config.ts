@@ -1,5 +1,8 @@
 import {initializeApp} from "firebase/app";
 import {getAuth} from 'firebase/auth'
+import {getFirestore, doc, getDoc, collection, getDocs} from 'firebase/firestore'
+import {FEATURED_PRODUCTS} from "../constants/api.constants";
+
 const firebaseConfig = {
 
   apiKey: process.env.REACT_APP_FIREBASE_CONFIG,
@@ -13,4 +16,15 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-export const auth=getAuth(app)
+export const auth = getAuth(app)
+
+export const db = getFirestore();
+
+
+// export const getDataFirebase = async () => {
+//   const docRef = doc(db, "data", [FEATURED_PRODUCTS,'Gallery']);
+//   const docSnap = await getDoc(docRef)
+//   return docSnap.data()
+// }
+
+
