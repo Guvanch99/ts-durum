@@ -4,6 +4,7 @@ import {db} from "../../core/firebase-config";
 
 import {collection, getDocs} from "firebase/firestore";
 
+
 interface ISetFeaturedProducts {
   type: typeof GET_BASE_DATA
   payload: any
@@ -16,7 +17,7 @@ export const setFeaturedProducts = (payload: any): ISetFeaturedProducts => ({
 
 
 export const getBaseDataFirebase = async () => {
-  let data: any = []
+  let data :any= []
   const querySnapshot = await getDocs(collection(db, "data"));
   querySnapshot.forEach((doc) => {
       if (data)

@@ -65,16 +65,16 @@ const TwoFactorAuth: FC<ITwoFactorAuth> = ({userCredentials}) => {
     }
   }
 
-  const onSubmit = async(e: SyntheticEvent) => {
+  const onSubmit = async (e: SyntheticEvent) => {
     e.preventDefault()
-   const {email,password}= userCredentials
+    const {email, password} = userCredentials
     const parseIntValue = Number.parseInt(values.join(''))
     if (generatedPassword === parseIntValue) {
 
       dispatch(twoFactorAuthToggle())
-     // dispatch(createUser(userCredentials, location, history))
+      dispatch(createUser(userCredentials, location, history))
       try {
-        const user = await createUserWithEmailAndPassword(auth,email,password)
+        const user = await createUserWithEmailAndPassword(auth, email, password)
         console.log(user)
       } catch (error: any) {
         console.log(error.message)

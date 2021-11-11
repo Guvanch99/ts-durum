@@ -18,6 +18,7 @@
     max-height: 100%;
     border-radius: 2%;
     transition: all 1s ease-in;
+    object-fit: fill;
 
     &:hover {
       transform: scale(1.05);

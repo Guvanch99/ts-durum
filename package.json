@@ -63,6 +63,7 @@
     ]
   },
   "devDependencies": {
+    "@firebase/firestore-types": "^2.5.0",
     "@types/mapbox-gl": "^2.4.2",
     "@types/mapbox__mapbox-gl-geocoder": "^4.7.1",
     "@types/redux-logger": "^3.0.9",

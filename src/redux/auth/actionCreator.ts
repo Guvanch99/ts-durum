@@ -39,8 +39,11 @@ import {
   ROUTER_LOGIN,
   ROUTER_SIGN_UP
 } from '../../constants/routers.constants'
-import {createUserWithEmailAndPassword} from "firebase/auth";
-import {auth} from "../../core/firebase-config";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import {auth, db} from "../../core/firebase-config";
+import axios from "axios";
+import {USER_CHECKER_API} from "../../constants/api.constants";
+import {collection, doc, getFirestore, setDoc} from 'firebase/firestore'
 
 
 emailjs.init('user_wFdsX3tQvzTML78kqhCfD')
@@ -88,7 +91,22 @@ export const createUser = (user: IUser, location: any, history: any):
   const {
     cart: {restrictedPromoCodes}
   } = getState()
- // const {data} = await DB.post<IUserFullInfo>('/users', {...user, restrictedPromoCodes, bonus: 0})
+  const {email, password} = user
+  try {
+    const cred = await signInWithEmailAndPassword(auth, email, password)
+    console.log('credUser', cred.user)
+    const data = await setDoc(doc(db, "users", cred.user.uid), {
+      id: cred.user.uid,
+      email,
+      restrictedPromoCodes,
+      bonus: 0
+    });
+    console.log('data', data)
+
+  } catch
+    (e: any) {
+    console.log(e.message)
+  }
 
   //dispatch(signUp(data))
   //dispatch(updateRestrictedPromoCodes(data.restrictedPromoCodes))
@@ -147,11 +165,10 @@ export const createUser = (user: IUser, location: any, history: any):
 }*/
 
 export const twoFactorAuth = (user: IUser): ThunkPromise => async (dispatch) => {
- const {email,password}=user
+  const {email} = user
   try {
-    const searchedUser = await createUserWithEmailAndPassword(auth,email,password)
-    console.log("searchedUser" , searchedUser)
-    if (false) {
+    const {data: {msg}} = await axios.post<any>(USER_CHECKER_API, {email})
+    if (msg) {
       dispatch(isUserExist())
     } else {
       const generatedPassword = generatePassword()

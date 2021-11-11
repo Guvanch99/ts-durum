@@ -1,7 +1,6 @@
 import {initializeApp} from "firebase/app";
 import {getAuth} from 'firebase/auth'
-import {getFirestore, doc, getDoc, collection, getDocs} from 'firebase/firestore'
-import {FEATURED_PRODUCTS} from "../constants/api.constants";
+import {getFirestore, collection, query, orderBy, startAfter, limit, getDocs,doc,getDoc } from 'firebase/firestore'
 
 const firebaseConfig = {
 
@@ -18,9 +17,24 @@ const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app)
 
-export const db = getFirestore();
+export const db = getFirestore(app);
 
+export const getMenu=async()=>{
+  const first = query(collection(db, "all-products"), limit(4));
+  const documentSnapshots = await getDocs(first);
+  const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
 
+  console.log(documentSnapshots,documentSnapshots)
+  const next = query(collection(db, "all-products"),
+    startAfter(lastVisible),
+    limit(4));
+
+}
+
+/*const next = query(collection(db, "cities"),
+  orderBy("population"),
+  startAfter(lastVisible),
+  limit(25));*/
 // export const getDataFirebase = async () => {
 //   const docRef = doc(db, "data", [FEATURED_PRODUCTS,'Gallery']);
 //   const docSnap = await getDoc(docRef)

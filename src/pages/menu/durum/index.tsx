@@ -19,6 +19,8 @@ import {DB} from '../../../core/axios'
 import {throttle} from '../../../utils'
 
 import {IProduct} from "../../../models/interfaces";
+import {collection, getDocs, limit, query, startAfter} from "firebase/firestore";
+import {db} from "../../../core/firebase-config";
 
 const Durum = () => {
   const {t} = useTranslation('translation')
@@ -29,6 +31,23 @@ const Durum = () => {
   const dispatch = useDispatch()
 
   const {allProducts} = useAppSelector(state => state.menu)
+
+
+  useEffect(() => {
+    if (fetching) {
+      let lastVisible: any;
+      const first = query(collection(db, "all-products"), limit(4));
+      getDocs(first).then(documentSnapshots => {
+        lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
+        console.log('documentSnapshots',documentSnapshots)
+      })
+
+      const next = query(collection(db, "all-products"),
+        startAfter(lastVisible),
+        limit(4));
+    }
+
+  }, [fetching])
 
   useEffect(() => {
       fetching && DB.get<IProduct[]>(`/all-products?_limit=4&_page=${currentPage}`).then(({data}) => {
