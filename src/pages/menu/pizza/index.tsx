@@ -11,7 +11,7 @@ import mushroom from '../../../assets/Mushroom.png'
 import olives from '../../../assets/Olive.png'
 import pickles from '../../../assets/pickles.png'
 import cheese from '../../../assets/BaseCheese.png'
-import basil from '../../../assets/Basil.png'
+import basil from '../../../assets/basil.png'
 import tomato from '../../../assets/Tomato.png'
 import onions from '../../../assets/onions.png'
 

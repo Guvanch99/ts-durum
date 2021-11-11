@@ -32,8 +32,9 @@ const OrderForm: FC = () => {
   const dispatch = useDispatch()
 
   const [userInfo, setUserInfo] = useState<IUserInfo>({
-    userName: user ? user.userName : '',
+
     email: user ? user.email : '',
+    userName: '',
     phone: '',
     street: '',
     house: '',
@@ -42,8 +43,8 @@ const OrderForm: FC = () => {
     payment: 'cash'
   })
   const [errors, setErrors] = useState<Omit<IUserInfo, 'payment'>>({
-    userName: '',
     email: '',
+    userName: '',
     phone: '',
     street: '',
     house: '',
@@ -56,6 +57,9 @@ const OrderForm: FC = () => {
   const {userName, email, phone, street, house, entrance, storey, payment} = userInfo
 
   const THREE = 3
+
+  const userNameValidation = () =>
+    userName.length && setErrors({...errors, userName: 'orderForm.orderErrors.userName'})
 
   const phoneValidation = () => {
     !PHONE_VALIDATION.test(phone) &&
@@ -132,6 +136,7 @@ const OrderForm: FC = () => {
   const userInfoComponent = <UserInfo nextStep={nextStep}
                                       handleChange={handleChange}
                                       phoneValidation={phoneValidation}
+                                      userNameValidation={userNameValidation}
                                       values={userInfo}
                                       errors={errors}/>
 

@@ -12,28 +12,37 @@ interface IUserInfoProps {
   nextStep: () => void
   handleChange: ({target: {value, name}}: ChangeEvent<HTMLInputElement>) => void,
   phoneValidation: () => void
+  userNameValidation: () => void
   values: IUserInfo
   errors: Partial<IUserInfo>
 }
 
-const UserInfo: FC<IUserInfoProps> = ({nextStep, handleChange, phoneValidation, errors, values}) => {
+const UserInfo: FC<IUserInfoProps> = ({
+                                        nextStep,
+                                        handleChange,
+                                        phoneValidation,
+                                        userNameValidation,
+                                        errors,
+                                        values
+                                      }) => {
   const {t} = useTranslation('translation')
   const {userName, email, phone} = values
 
   const userInfo = useMemo(() => ([
-    {
-      name: 'userName',
-      value: userName,
-      label: 'orderForm.mainInfo.user',
-      type: 'text',
-      disabled: true
-    },
     {
       name: 'email',
       value: email,
       label: 'orderForm.mainInfo.email',
       type: 'email',
       disabled: true
+    },
+    {
+      name: 'userName',
+      value: userName,
+      label: 'orderForm.mainInfo.user',
+      type: 'text',
+      error: errors.userName,
+      functionError: userNameValidation
     },
     {
       name: 'phone',
@@ -46,7 +55,8 @@ const UserInfo: FC<IUserInfoProps> = ({nextStep, handleChange, phoneValidation, 
   ]), [
     userName,
     email,
-    phone, errors.userName,
+    phone,
+    errors.userName,
     errors.email,
     errors.phone
   ])

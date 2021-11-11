@@ -226,6 +226,7 @@
     },
     "orderButton": "Order",
     "orderErrors": {
+      "userName": "Name must not be empty",
       "phone": "Phone Number is Empty or is not number(integer) or more than 9  ",
       "storey": "Storey field is Empty or is not number",
       "street": "Street field is Empty or less than 3",

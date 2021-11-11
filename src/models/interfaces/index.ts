@@ -1,6 +1,5 @@
 import {ChangeEvent} from "react";
 
-import {IUserFullInfo} from "./redux/auth";
 import {ICart, IGift} from "./redux/cart";
 
 export interface IBar {
@@ -19,7 +18,10 @@ export interface IAddress {
 export interface IOrders {
   timeOrder: string
   deliveryTime: string
-  user: Pick<IUserFullInfo, 'userName' | 'email'>
+  user: {
+    userName: string,
+    email: string
+  }
   cart: ICart[]
   gift: IGift | null
   address: IAddress
@@ -36,8 +38,9 @@ export interface IProduct {
   price: number,
   type: string
 }
-export interface IGallery{
-  id:number,
-  src:string,
-  alt:string
+
+export interface IGallery {
+  id: number,
+  src: string,
+  alt: string
 }

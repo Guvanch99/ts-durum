@@ -17,14 +17,13 @@ const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app)
 
-export const db = getFirestore(app);
+export const db = getFirestore();
 
 export const getMenu=async()=>{
   const first = query(collection(db, "all-products"), limit(4));
   const documentSnapshots = await getDocs(first);
   const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
 
-  console.log(documentSnapshots,documentSnapshots)
   const next = query(collection(db, "all-products"),
     startAfter(lastVisible),
     limit(4));

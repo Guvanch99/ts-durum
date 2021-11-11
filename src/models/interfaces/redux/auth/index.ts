@@ -10,9 +10,7 @@ import {
 
 export interface IUserFullInfo {
   id: string
-  userName: string
   email: string
-  password: string
   restrictedPromoCodes: string[]
   bonus: number
 }
@@ -37,7 +35,7 @@ export interface IUserNotFound {
 
 export interface ILoginUser {
   type: typeof LOGIN_USER
-  payload: Pick<IUserFullInfo, 'userName' | 'password'>
+  payload: any
 }
 
 export interface ILogout {

@@ -1,8 +1,7 @@
 import {useState, useMemo, SyntheticEvent, ChangeEvent, FC} from 'react'
 import {useDispatch} from 'react-redux'
-import {RouteComponentProps, useHistory, useLocation,NavLink} from 'react-router-dom'
+import {RouteComponentProps, useHistory, useLocation, NavLink} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
-import {signInWithEmailAndPassword} from 'firebase/auth'
 
 import {
   ArticleName,
@@ -11,11 +10,9 @@ import {
   Portal
 } from '../../../components'
 
-//import {loginUser} from '../../../redux/auth/actionCreator'
+import {loginUser} from '../../../redux/auth/actionCreator'
 
 import {useAppSelector} from "../../../hooks/useAppSelector";
-
-import {auth} from "../../../core/firebase-config";
 
 import {IUser} from "../../../models/interfaces/redux/auth";
 
@@ -91,15 +88,7 @@ const Login: FC<RouteComponentProps> = () => {
 
   const login = async (e: SyntheticEvent) => {
     e.preventDefault()
-    const {email, password} = userLogin
-    try {
-      const user = await signInWithEmailAndPassword(auth, email, password)
-      console.log(user)
-    } catch (e: any) {
-      console.log(e.message)
-    }
-
-    // dispatch(loginUser(email, hashPassword, state, history))
+    dispatch(loginUser(userLogin, state, history))
   }
 
   return (

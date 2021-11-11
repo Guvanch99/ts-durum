@@ -1,6 +1,5 @@
 import {useState, useMemo, ChangeEvent, SyntheticEvent} from 'react'
 import {useDispatch} from 'react-redux'
-import {createUserWithEmailAndPassword} from 'firebase/auth'
 import {useTranslation} from 'react-i18next'
 
 import {ArticleName, Input, TwoFactorAuth} from '../../../components'
@@ -8,8 +7,6 @@ import {ArticleName, Input, TwoFactorAuth} from '../../../components'
 import {twoFactorAuth} from '../../../redux/auth/actionCreator'
 
 import {useAppSelector} from "../../../hooks/useAppSelector";
-
-import {auth} from "../../../core/firebase-config";
 
 import {IUser} from "../../../models/interfaces/redux/auth";
 

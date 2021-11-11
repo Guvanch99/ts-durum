@@ -7,7 +7,6 @@ import './index.scss'
 const ImageSlider: FC = () => {
   const [current, setCurrent] = useState<number>(0)
   const {gallery} = useAppSelector(state => state.home)
-console.log('gallery',gallery)
   const imageLength = 5
 
   const nextImage = () =>

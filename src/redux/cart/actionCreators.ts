@@ -1,3 +1,5 @@
+import {doc, updateDoc, getDoc, addDoc, collection} from "firebase/firestore";
+
 import {DB} from '../../core/axios'
 
 import {
@@ -24,12 +26,14 @@ import {
   IToggleAmountProps, IUpdateGift, IUpdateRestrictedPromoCodes, IUserPromoCodeUsed
 } from "../../models/interfaces/redux/cart";
 
-import {IProduct} from "../../models/interfaces/";
 
 import {IOrders} from "../../models/interfaces";
 
 import {ThunkPromise, ThunkVoid} from "../../models/types/thunk";
+
 import {IUserFullInfo} from "../../models/interfaces/redux/auth";
+
+import {db} from "../../core/firebase-config";
 
 export const addToCart = (payload: IAddCartProps): IAddCart => ({type: ADD_TO_CART, payload})
 
@@ -62,12 +66,16 @@ export const updateRestrictedPromoCodes = (payload: string[]): IUpdateRestricted
 export const getPresentPromo =
   (idProduct: number, promoCode: string):
     ThunkVoid => async (dispatch, getState) => {
-
-  dispatch(userPromoCodeUsed(promoCode))
-    const {data} = await DB.get<{ 0: IProduct }>(`/all-products?id=${idProduct}`)
+    dispatch(userPromoCodeUsed(promoCode))
     const {auth: {user}, cart: {restrictedPromoCodes: restricted}} = getState()
 
-    const {id, name, src, description, type} = data[0]
+    const docRef = doc(db, "products", "all-products");
+    const docSnap = await getDoc(docRef);
+    const {allProducts}: any = docSnap.data()
+
+    const gift = allProducts?.filter((prod: { id: number }) => prod.id === idProduct)
+
+    const {id, name, src, description, type} = gift[0]
     const payload = {
       id,
       name,
@@ -81,9 +89,11 @@ export const getPresentPromo =
     dispatch(getPresent(payload))
     dispatch(countTotal())
     if (user) {
-      const {data} = await DB.patch<IUserFullInfo>(
-        `/users/${user.id}`, {restrictedPromoCodes: restricted})
-      dispatch(updateUser(data))
+      const docRef = doc(db, 'users', user.id)
+      await updateDoc(docRef, {
+        restrictedPromoCodes: restricted
+      });
+      dispatch(updateUser({...user, restrictedPromoCodes: restricted}))
     }
   }
 export const order = (orderData: IOrders, newBonus: number):
@@ -91,8 +101,13 @@ export const order = (orderData: IOrders, newBonus: number):
   const {auth: {user}} = getState()
   const {id, bonus} = user as IUserFullInfo
   const bonusModified = +(bonus + newBonus).toFixed(2)
-  await DB.post('/orders', orderData)
-  DB.patch<IUserFullInfo>(`/users/${id}`, {bonus: bonusModified}).then(({data}) => dispatch(updateUser(data)))
+  await addDoc(collection(db, "orders"), orderData);
+  const userRef = doc(db, "users", id);
+  await updateDoc(userRef, {
+    bonus: bonusModified
+  });
+  dispatch(updateUser({...user, bonus: bonusModified}))
+
 }
 
 export const usedBonus = (bonusCount: number):
@@ -101,5 +116,11 @@ export const usedBonus = (bonusCount: number):
   const {id, bonus} = user as IUserFullInfo
   const bonusModified = +(bonus - bonusCount).toFixed(2)
   dispatch(subtractBonus(bonusCount))
-  DB.patch<IUserFullInfo>(`/users/${id}`, {bonus: bonusModified}).then(({data}) => dispatch(updateUser(data)))
+  const userRef = doc(db, "users", id);
+  await updateDoc(userRef, {
+    bonus: bonusModified
+  });
+
+  dispatch(updateUser({...user, bonus: bonusModified}))
+
 }

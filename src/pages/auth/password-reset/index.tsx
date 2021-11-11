@@ -28,7 +28,6 @@ const PasswordReset: FC = () => {
   const {type, notFound} = emailError
 
   const handleChange = ({target: {value}}: ChangeEvent<HTMLInputElement>) => {
-
     setUserEmail(value)
     if (type || notFound)
       setEmailError({
@@ -53,8 +52,7 @@ const PasswordReset: FC = () => {
     }
   }
 
-  const isButtonDisabled =
-    !userEmail || type
+  const isButtonDisabled = !userEmail || type
 
   return (
     <section className='password-reset'>

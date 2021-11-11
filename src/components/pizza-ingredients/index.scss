@@ -11,6 +11,7 @@
   &__label {
     text-align: center;
     margin: 2rem 0;
+    font-size: 1.6rem;
 
   }
 
@@ -68,4 +69,8 @@ input[type='checkbox'] {
     background: $lighterYellowColor;
     color: $secondaryColor;
   }
+}
+
+.pizza-price{
+  font-size: 1.6rem;
 }
