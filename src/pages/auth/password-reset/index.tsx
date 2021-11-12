@@ -1,5 +1,5 @@
 import {ChangeEvent, FC, SyntheticEvent, useState} from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
 import {sendPasswordResetEmail} from 'firebase/auth'
 import {useTranslation} from "react-i18next";
 
@@ -24,6 +24,7 @@ const PasswordReset: FC = () => {
     notFound: ''
   })
   const {t} = useTranslation('translation')
+  const history = useHistory()
 
   const {type, notFound} = emailError
 
@@ -47,6 +48,7 @@ const PasswordReset: FC = () => {
     e.preventDefault()
     try {
       await sendPasswordResetEmail(auth, userEmail)
+      history.goBack()
     } catch (e: any) {
       setEmailError({...emailError, notFound: e})
     }

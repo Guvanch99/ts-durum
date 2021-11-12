@@ -14,11 +14,8 @@ import {getAllProducts} from '../../../redux/menu/actionCreators'
 
 import {useAppSelector} from "../../../hooks/useAppSelector";
 
-import {DB} from '../../../core/axios'
-
 import {throttle} from '../../../utils'
 
-import {IProduct} from "../../../models/interfaces";
 import {collection, getDocs, limit, query, startAfter} from "firebase/firestore";
 import {db} from "../../../core/firebase-config";
 
@@ -35,29 +32,26 @@ const Durum = () => {
 
   useEffect(() => {
     if (fetching) {
-      let lastVisible: any;
-      const first = query(collection(db, "all-products"), limit(4));
-      getDocs(first).then(documentSnapshots => {
-        lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
-        console.log('documentSnapshots',documentSnapshots)
-      })
-
-      const next = query(collection(db, "all-products"),
-        startAfter(lastVisible),
-        limit(4));
+      const lastVisible = allProducts.length-1;
+      const startingIndex = lastVisible || 1;
+      let products: any = []
+      console.log(lastVisible)
+      const first = query(collection(db, "allProducts"),  limit(4));
+      getDocs(first).then(documentSnapshots => (documentSnapshots.forEach(product => products.push(product.data()))))
+        .then(() => dispatch(getAllProducts(products)))
     }
 
   }, [fetching])
 
-  useEffect(() => {
-      fetching && DB.get<IProduct[]>(`/all-products?_limit=4&_page=${currentPage}`).then(({data}) => {
-        dispatch(getAllProducts(data))
-        setFetching(false)
-        setCurrentPage(prev => prev + 1)
-      })
-
-    }, [fetching, dispatch, currentPage]
-  )
+  // useEffect(() => {
+  //     fetching && DB.get<IProduct[]>(`/all-products?_limit=4&_page=${currentPage}`).then(({data}) => {
+  //       dispatch(getAllProducts(data))
+  //       setFetching(false)
+  //       setCurrentPage(prev => prev + 1)
+  //     })
+  //
+  //   }, [fetching, dispatch, currentPage]
+  // )
 
   useEffect(
     () => {

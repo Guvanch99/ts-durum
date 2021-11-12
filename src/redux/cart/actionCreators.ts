@@ -1,7 +1,5 @@
 import {doc, updateDoc, getDoc, addDoc, collection} from "firebase/firestore";
 
-import {DB} from '../../core/axios'
-
 import {
   ADD_TO_CART,
   CLEAR_CART,
@@ -25,7 +23,6 @@ import {
   IRemoveProduct, ISubtractBonus, IToggleAmount,
   IToggleAmountProps, IUpdateGift, IUpdateRestrictedPromoCodes, IUserPromoCodeUsed
 } from "../../models/interfaces/redux/cart";
-
 
 import {IOrders} from "../../models/interfaces";
 
@@ -69,13 +66,10 @@ export const getPresentPromo =
     dispatch(userPromoCodeUsed(promoCode))
     const {auth: {user}, cart: {restrictedPromoCodes: restricted}} = getState()
 
-    const docRef = doc(db, "products", "all-products");
-    const docSnap = await getDoc(docRef);
-    const {allProducts}: any = docSnap.data()
+    const docRef = doc(db, "allProducts", idProduct.toString());
+    const gift: any = await getDoc(docRef);
 
-    const gift = allProducts?.filter((prod: { id: number }) => prod.id === idProduct)
-
-    const {id, name, src, description, type} = gift[0]
+    const {id, name, src, description, type} = gift.data()
     const payload = {
       id,
       name,
@@ -96,6 +90,7 @@ export const getPresentPromo =
       dispatch(updateUser({...user, restrictedPromoCodes: restricted}))
     }
   }
+
 export const order = (orderData: IOrders, newBonus: number):
   ThunkPromise => async (dispatch, getState) => {
   const {auth: {user}} = getState()
@@ -107,7 +102,6 @@ export const order = (orderData: IOrders, newBonus: number):
     bonus: bonusModified
   });
   dispatch(updateUser({...user, bonus: bonusModified}))
-
 }
 
 export const usedBonus = (bonusCount: number):
@@ -120,7 +114,5 @@ export const usedBonus = (bonusCount: number):
   await updateDoc(userRef, {
     bonus: bonusModified
   });
-
   dispatch(updateUser({...user, bonus: bonusModified}))
-
 }
